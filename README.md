@@ -32,9 +32,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [ファイルの選択－JavaScript入門（HTML5編）](http://www.pori2.net/html5/File/010.html)
 
-[TypeScript型定義ファイルのコツと生成ツール dtsmake](https://qiita.com/ConquestArrow/items/450f961c3d54bc932cf3)
+[TypeScript型定義ファイルのコツと生成ツール dtsmake](https://qiita.com/ConquestArrow/items/450f961c3d54bc932cf3)
 
 [意外と簡単。TypeScript+JavaScriptでビルドする方法](https://clickan.click/ts-js-build/)
+
+[Angular+Firebaseでチャットアプリを作る](https://qiita.com/Yamamoto0525/items/a76ea4b3924eeb82b0f9)
 
 ## 参考になりました。
 
