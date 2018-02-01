@@ -9,7 +9,7 @@ import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hook
   styleUrls: ['./app.component.css'],
   providers:[ AppService ]
 })
-export class AppComponent implements OnInit,AfterViewInit {
+export class AppComponent implements OnInit {
   constructor(private appService: AppService ) {
     const last_user_id = localStorage.getItem('my_user_id');
     const last_message = localStorage.getItem('my_message');
@@ -42,9 +42,6 @@ export class AppComponent implements OnInit,AfterViewInit {
       this.title = msg; // HTTP通信成功時にタイトルに取得したメッセージを表示する
     });
 
-  }
-
-  ngAfterViewInit():void {
   }
 
   onClicked() {
@@ -124,18 +121,4 @@ export class AppComponent implements OnInit,AfterViewInit {
     reader.readAsText(file);
     console.log('yes()');
   }
-
-  /*
-  parseXML(t,ev) {
-    'use strict';
-    var xml = ev.target.result;
-
-    var parser = new DOMParser();
-    var dom = parser.parseFromString(xml,'text/xml');
-
-    var title = dom.getElementById('doc-title').textContent;
-
-    console.log('title:'+title);
-  }
-  */
 }
