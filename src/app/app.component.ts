@@ -1,5 +1,6 @@
 import { AppService } from './app.service';
 import { Component } from '@angular/core';
+import { Node } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ export class AppComponent {
   message = 'かましたれ';
 
   texts = [];
+
+  fileSelected = false;
 
   ngOnInit(): void {
     this.appService.getMessage(msg => {
@@ -64,4 +67,56 @@ export class AppComponent {
     }
     return true;
   }
+  
+  onChanged(filename) {
+    console.log(filename);
+
+    this.fileSelected = (filename !== '');
+  }
+
+  yes(fileVal) {
+    let file = fileVal;
+    let reader = new FileReader();
+
+    console.log(fileVal);
+
+    reader.onload = (e) => {
+      'use strict';
+      const xml = reader.result;
+
+      const parser = new DOMParser();
+      const dom = parser.parseFromString(xml, 'text/xml');
+
+      const title = dom.getElementById('doc-title').textContent;
+
+      console.log('title:'+title);
+
+//      this.texts.push(xml);
+
+      const paragraphs = dom.getElementsByTagName('paragraph');
+      for(let i=0;i<paragraphs.length;++i){
+        this.texts.push( paragraphs[i].innerHTML );
+      }
+/*      for( let x:Node in paragraphs ) {
+        this.texts.push(x.childNodes[0]);
+      }
+*/
+    };
+    reader.readAsText(file);
+    console.log('yes()');
+  }
+
+  /*
+  parseXML(t,ev) {
+    'use strict';
+    var xml = ev.target.result;
+
+    var parser = new DOMParser();
+    var dom = parser.parseFromString(xml,'text/xml');
+
+    var title = dom.getElementById('doc-title').textContent;
+
+    console.log('title:'+title);
+  }
+  */
 }

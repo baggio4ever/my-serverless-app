@@ -41,3 +41,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## 参考になりました。
 
 [gitのauthorの確認と変更](https://hacknote.jp/archives/15745/)
+
+[TypeScriptでJavaScriptライブラリを使う](http://3jigen.net/2017/03/post-368/)
+
+[Angular2 + Typescript + FileReader.onLoad = property does not exist](https://stackoverflow.com/questions/41737620/angular2-typescript-filereader-onload-property-does-not-exist)
+  FileReader.onLoadへのイベントハンドらの設定の仕方が書いてある
+
+[クライアントサイドJavaScriptでXML文書のDOMをパースする](https://qiita.com/tom_konda/items/5e9824b38842615c9df1)
