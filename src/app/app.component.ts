@@ -1,6 +1,7 @@
 import { AppService } from './app.service';
 import { Component } from '@angular/core';
 import { Node } from '@angular/compiler';
+import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,24 @@ import { Node } from '@angular/compiler';
   styleUrls: ['./app.component.css'],
   providers:[ AppService ]
 })
-export class AppComponent {
-  constructor(private appService: AppService ) {}
+export class AppComponent implements OnInit,AfterViewInit {
+  constructor(private appService: AppService ) {
+    const last_user_id = localStorage.getItem('my_user_id');
+    const last_message = localStorage.getItem('my_message');
+
+    if( last_user_id !== null ) {
+      console.log('user_id みっけ');
+      this.user_id = last_user_id;
+    } else {
+      console.log('user_id みつからず');
+    }
+    if( last_message !== null ) {
+      console.log('message みっけ');
+      this.message = last_message;
+    } else {
+      console.log('message みつからず');
+    }
+  }
 
   title = 'app';
 
@@ -23,7 +40,11 @@ export class AppComponent {
   ngOnInit(): void {
     this.appService.getMessage(msg => {
       this.title = msg; // HTTP通信成功時にタイトルに取得したメッセージを表示する
-    })
+    });
+
+  }
+
+  ngAfterViewInit():void {
   }
 
   onClicked() {
@@ -52,10 +73,14 @@ export class AppComponent {
             message: this.message
         };
 
-        console.log('ログ書き込めぇ！');
+    console.log('ログ書き込めぇ！');
+
     this.appService.postMessage(body, msg => {
       this.texts.push(msg);
-    })
+    });
+
+    localStorage.setItem('my_user_id',this.user_id);
+    localStorage.setItem('my_message',this.message);
   }
 
   canSendLog(): boolean {
@@ -91,16 +116,10 @@ export class AppComponent {
 
       console.log('title:'+title);
 
-//      this.texts.push(xml);
-
       const paragraphs = dom.getElementsByTagName('paragraph');
       for(let i=0;i<paragraphs.length;++i){
         this.texts.push( paragraphs[i].innerHTML );
       }
-/*      for( let x:Node in paragraphs ) {
-        this.texts.push(x.childNodes[0]);
-      }
-*/
     };
     reader.readAsText(file);
     console.log('yes()');
