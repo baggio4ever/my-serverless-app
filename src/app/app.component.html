@@ -12,7 +12,8 @@
     <input matInput placeholder="user id" [(ngModel)]="user_id" name="user_id" required>
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="message" [(ngModel)]="message" name="message" required>
+    <textarea matInput placeholder="message" matTextareaAutosize matAutosizeMinRows="1"
+    matAutosizeMaxRows="5" [(ngModel)]="message" name="message" required></textarea>
   </mat-form-field>
 
   <button mat-raised-button color="primary" (click)="onSendLog()" [disabled]="!canSendLog()">送信！</button>  
@@ -36,9 +37,6 @@
     {{t}}
   </mat-list-item>
 </mat-list>
-</p>
-<p>
-  <button mat-raised-button color="accent" (click)="onClearArray()">クリア</button>  
 </p>
 <!--
 
