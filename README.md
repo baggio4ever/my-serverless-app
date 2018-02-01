@@ -48,3 +48,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   FileReader.onLoadへのイベントハンドらの設定の仕方が書いてある
 
 [クライアントサイドJavaScriptでXML文書のDOMをパースする](https://qiita.com/tom_konda/items/5e9824b38842615c9df1)
+
+[JavaScript中級編 - getElementsByTagName タグ名から要素を取得](http://wp-p.info/tpl_rep.php?cat=js-intermediate&fl=r3)
