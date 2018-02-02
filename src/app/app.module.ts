@@ -11,6 +11,7 @@ import { AppService } from './app.service';
 import { MatButtonModule, MatCheckboxModule, MatListModule, MatIconModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]
