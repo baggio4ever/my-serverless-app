@@ -16,12 +16,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { AppRoutingModule } from './/app-routing.module';
 import { CardsComponent } from './cards/cards.component';
 import { BigLogoComponent } from './big-logo/big-logo.component';
+import { HistoryComponent } from './history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
-    BigLogoComponent
+    BigLogoComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
