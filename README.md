@@ -38,6 +38,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [Angular+Firebaseでチャットアプリを作る](https://qiita.com/Yamamoto0525/items/a76ea4b3924eeb82b0f9)
 
+[ng2-dnd](https://www.npmjs.com/package/ng2-dnd)
+
+
 ## 参考になりました。
 
 [gitのauthorの確認と変更](https://hacknote.jp/archives/15745/)
