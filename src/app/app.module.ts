@@ -12,6 +12,7 @@ import { MatButtonModule, MatCheckboxModule, MatListModule, MatIconModule } from
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]
