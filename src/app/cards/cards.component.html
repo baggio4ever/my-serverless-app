@@ -1,3 +1,87 @@
-<p>
-  cards works!
-</p>
+<mat-grid-list cols="2" rowHeight="3:1" gutterSize="5">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-sm-image src="../assets/images/AngularJS.png">
+          <mat-card-title>上杉謙信</mat-card-title>
+          <mat-card-subtitle>越後</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>敵に塩を送る</mat-grid-tile>
+          <mat-grid-tile>毘沙門天</mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-icon-button color="primary">
+          <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+        </button>
+        <button mat-icon-button color="accent">
+          <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-sm-image src="../assets/images/AngularJS.png">
+          <mat-card-title>武田信玄</mat-card-title>
+          <mat-card-subtitle>甲斐</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          風林火山
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">YES</button>
+        <button mat-raised-button>NO</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-sm-image src="../assets/images/AngularJS.png">
+          <mat-card-title>真田信繁</mat-card-title>
+          <mat-card-subtitle>上田</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          六文銭
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">YES</button>
+        <button mat-raised-button>NO</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-sm-image src="../assets/images/AngularJS.png">
+          <mat-card-title>西郷隆盛</mat-card-title>
+          <mat-card-subtitle>薩摩</mat-card-subtitle>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          せごどん
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">YES</button>
+        <button mat-raised-button>NO</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
