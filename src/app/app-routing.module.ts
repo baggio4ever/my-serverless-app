@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/logo', pathMatch: 'full' },
   { path: 'cards', component: CardsComponent },
   { path: 'logo', component: BigLogoComponent }
 ];
