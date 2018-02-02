@@ -13,10 +13,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AppRoutingModule } from './/app-routing.module';
+import { CardsComponent } from './cards/cards.component';
+import { BigLogoComponent } from './big-logo/big-logo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardsComponent,
+    BigLogoComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +35,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatFormFieldModule,
     FormsModule,
     MatCardModule,
+    AppRoutingModule,
     MatGridListModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
