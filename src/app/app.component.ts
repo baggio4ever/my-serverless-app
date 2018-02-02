@@ -1,5 +1,5 @@
 import { AppService } from './app.service';
-import { Component,VERSION } from '@angular/core';
+import { Component } from '@angular/core';
 import { Node } from '@angular/compiler';
 import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -34,8 +34,6 @@ export class AppComponent implements OnInit {
   message = 'かましたれ';
 
   texts = [];
-
-  ng_version = VERSION;
 
   fileSelected = false;
 

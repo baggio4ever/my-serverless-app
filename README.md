@@ -40,6 +40,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [ng2-dnd](https://www.npmjs.com/package/ng2-dnd)
 
+[ng2-nvd3](https://github.com/krispo/ng2-nvd3)
+ 興味深し
 
 ## 参考になりました。
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,VERSION } from '@angular/core';
 
 @Component({
   selector: 'app-big-logo',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./big-logo.component.css']
 })
 export class BigLogoComponent implements OnInit {
+
+  ng_version = VERSION;
 
   constructor() { }
 
