@@ -3,12 +3,14 @@ import { CardsComponent } from './cards/cards.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HistoryComponent } from './history/history.component';
+import { FileSendComponent } from './file-send/file-send.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/logo', pathMatch: 'full' },
   { path: 'cards', component: CardsComponent },
   { path: 'logo', component: BigLogoComponent },
-  { path: 'history', component: HistoryComponent }
+  { path: 'history', component: HistoryComponent },
+  { path: 'file-send', component: FileSendComponent }
 ];
 
 @NgModule({

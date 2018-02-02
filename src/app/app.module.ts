@@ -17,13 +17,15 @@ import { AppRoutingModule } from './/app-routing.module';
 import { CardsComponent } from './cards/cards.component';
 import { BigLogoComponent } from './big-logo/big-logo.component';
 import { HistoryComponent } from './history/history.component';
+import { FileSendComponent } from './file-send/file-send.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
     BigLogoComponent,
-    HistoryComponent
+    HistoryComponent,
+    FileSendComponent
   ],
   imports: [
     BrowserModule,
