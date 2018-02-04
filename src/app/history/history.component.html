@@ -7,7 +7,7 @@
     <button mat-raised-button color="primary" (click)="onSearchLog()" [disabled]="!canSearchLog()">ログ取得</button>  
   </form>
 </div>
-<div *ngIf="history_array.length>0">
+<div *ngIf="history_array.length>0; else hideContent">
   <table class="table">
     <tr>
       <th>user_id</th><th>created_at</th><th>message</th>
@@ -20,3 +20,6 @@
     </tr>
     </table>
 </div>
+<ng-template #hideContent>
+  からっぽっす
+</ng-template>
