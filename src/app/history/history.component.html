@@ -7,4 +7,16 @@
     <button mat-raised-button color="primary" (click)="onSearchLog()" [disabled]="!canSearchLog()">ログ取得</button>  
   </form>
 </div>
-{{result}}
+<div *ngIf="history_array.length>0">
+  <table class="table">
+    <tr>
+      <th>user_id</th><th>created_at</th><th>message</th>
+    </tr>
+    <!--配列articlesの内容を順番に出力-->
+    <tr *ngFor="let h of history_array">
+      <td>{{h.user_id}}</td>
+      <td>{{h.created_at}}</td>
+      <td>{{h.message}}</td>
+    </tr>
+    </table>
+</div>

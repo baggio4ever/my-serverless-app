@@ -10,7 +10,7 @@ const HISTORY_USER_ID = 'history_user_id';
 })
 export class HistoryComponent implements OnInit {
   user_id = '';
-  result = '';
+  history_array = [];
 
   constructor( private appService: AppService ) {
     const last_user_id = localStorage.getItem( HISTORY_USER_ID );
@@ -36,7 +36,7 @@ export class HistoryComponent implements OnInit {
       console.log( '返信来ましたよ' );
       console.log( 'typeof msg:'+typeof msg);
       console.log( 'toString.call(msg):'+toString.call( msg ));
-      this.result = msg;
+      this.history_array = msg;
       console.log( 'toString.call(msg[0]:)'+toString.call( msg[0] ));
       console.log( "length:"+ msg.length );
       for(let i=0;i<msg.length;i++ ) {

@@ -45,6 +45,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## 参考になりました。
 
+[AWSサーバーレスを活用したAngularのWebアプリを作ってみた](http://acro-engineer.hatenablog.com/entry/2017/12/13/120000)
+
 [gitのauthorの確認と変更](https://hacknote.jp/archives/15745/)
 
 [TypeScriptでJavaScriptライブラリを使う](http://3jigen.net/2017/03/post-368/)
@@ -61,3 +63,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [JavaScriptでゼロ埋め処理](https://qiita.com/cress_cc/items/3e820fe1695f13793df3)
 
 [Angular, Http GET with parameter?](https://stackoverflow.com/questions/44280303/angular-http-get-with-parameter/44282037)
+
+[JavaScriptの「型」の判定について](https://qiita.com/south37/items/c8d20a069fcbfe4fce85)
+
+[Boto 3 Documentation](https://boto3.readthedocs.io/en/latest/index.html)
+
+[Angular TIPS 【最新v4対応】 - 処理対象別インデックス](https://www.buildinsider.net/web/angulartips)

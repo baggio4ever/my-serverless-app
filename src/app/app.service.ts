@@ -29,7 +29,7 @@ export class AppService {
         });
     }
 
-    getLogsYMD( user_id:string,year:number,month:number,date:number,callback:(msg:string)=>void):void {
+    getLogsYMD( user_id:string,year:number,month:number,date:number,callback:(msg)=>void):void {
         let y0 = ('0000' + year).slice(-4);
         let m0 = ('00' + month).slice(-2);
         let d0 = ('00' + date).slice(-2);
@@ -44,9 +44,28 @@ export class AppService {
     }
 
     getLogsYM( user_id:string,year:number,month:number,callback:(msg:string)=>void):void {
+        let y0 = ('0000' + year).slice(-4);
+        let m0 = ('00' + month).slice(-2);
+        // Parameters obj-
+        let params: HttpParams = new HttpParams().set('user_id', user_id ).set('year', y0 ).set('month', m0 );
+
+        console.log(params.toString());
+
+        this.http.get( BASE_URL + 'logs',{ params:params }).subscribe(data=>{
+            callback(data['logs']);
+        });
     }
 
     getLogsY( user_id:string,year:number,callback:(msg:string)=>void):void {
+        let y0 = ('0000' + year).slice(-4);
+        // Parameters obj-
+        let params: HttpParams = new HttpParams().set('user_id', user_id ).set('year', y0 );
+
+        console.log(params.toString());
+
+        this.http.get( BASE_URL + 'logs',{ params:params }).subscribe(data=>{
+            callback(data['logs']);
+        });
     }
 
     postMessage( body, callback:(msg:string)=>void ):void {
