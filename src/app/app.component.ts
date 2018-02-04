@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
 
   onClickedNow() {
     console.log('何時？');
-    this.appService.getMessage3(msg => {
+    this.appService.getCurrentDateTime(msg => {
       this.texts.push(msg);
     })
   }

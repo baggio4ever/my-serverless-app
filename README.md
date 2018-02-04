@@ -57,3 +57,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [JavaScript中級編 - getElementsByTagName タグ名から要素を取得](http://wp-p.info/tpl_rep.php?cat=js-intermediate&fl=r3)
 
 [ブラウザにデータを保存するlocalStorage（ローカルストレージ）の使い方](https://www.granfairs.com/blog/staff/local-storage-01)
+
+[JavaScriptでゼロ埋め処理](https://qiita.com/cress_cc/items/3e820fe1695f13793df3)
+
+[Angular, Http GET with parameter?](https://stackoverflow.com/questions/44280303/angular-http-get-with-parameter/44282037)
