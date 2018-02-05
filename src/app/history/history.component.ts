@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
+import { MAT_DATE_LOCALE } from '@angular/material';
 
 const HISTORY_USER_ID = 'history_user_id';
 
@@ -29,27 +30,27 @@ export class HistoryComponent implements OnInit {
   }
 
   onSearchLog() {
-    localStorage.setItem( HISTORY_USER_ID,this.user_id);
+    localStorage.setItem( HISTORY_USER_ID, this.user_id);
 
     console.log( this.user_id + ' で検索するっす');
     this.searching = true;
 
-    this.appService.getLogsYMD(this.user_id,2018,1,30,msg => {
+    this.appService.getLogsYMD(this.user_id, 2018, 1, 30, msg => {
       console.log( '返信来ましたよ' );
-      console.log( 'typeof msg:'+typeof msg);
-      console.log( 'toString.call(msg):'+toString.call( msg ));
+      console.log( 'typeof msg:' + typeof msg);
+      console.log( 'toString.call(msg):' + toString.call( msg ));
       this.history_array = msg;
-      console.log( 'toString.call(msg[0]:)'+toString.call( msg[0] ));
-      console.log( "length:"+ msg.length );
-      for(let i=0;i<msg.length;i++ ) {
-        let a = msg[i];
-        console.log( "" + a["user_id"] + " " + a["created_at"] + " " + a["message"] );
+      console.log( 'toString.call(msg[0]:)' + toString.call( msg[0] ));
+      console.log( 'length:' + msg.length );
+      for (let i = 0; i < msg.length; i++ ) {
+        const a = msg[i];
+        console.log( '' + a['user_id'] + ' ' + a['created_at'] + ' ' + a['message'] );
       }
       this.searching = false;
     });
   }
 
-  canSearchLog():boolean {
+  canSearchLog(): boolean {
     if ( this.user_id.trim() === '' ) {
       return false;
     }

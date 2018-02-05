@@ -8,12 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 
-import { MatButtonModule, MatCheckboxModule, MatListModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatListModule, MatIconModule, MatNativeDateModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { DateAdapter,MAT_DATE_FORMATS,MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -44,7 +47,11 @@ import { FileSendComponent } from './file-send/file-send.component';
     MatCardModule,
     AppRoutingModule,
     MatGridListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+//    MatNativeDateModule
+    MatMomentDateModule,
+//    MomentDateAdapter,
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]

@@ -4,26 +4,32 @@
       <input matInput placeholder="user id" [(ngModel)]="user_id" name="user_id" required>
     </mat-form-field>
 
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
     <button mat-raised-button color="primary" (click)="onSearchLog()" [disabled]="!canSearchLog()">ログ取得</button>  
   </form>
 </div>
 <div *ngIf="!searching; else searchingContent">
-<div *ngIf="history_array.length>0; else hideContent">
-  <table class="table">
-    <tr>
-      <th>user_id</th><th>created_at</th><th>message</th>
-    </tr>
-    <!--配列articlesの内容を順番に出力-->
-    <tr *ngFor="let h of history_array">
-      <td>{{h.user_id}}</td>
-      <td>{{h.created_at}}</td>
-      <td>{{h.message}}</td>
-    </tr>
-    </table>
-</div>
-<ng-template #hideContent>
-  からっぽっす
-</ng-template>
+  <div *ngIf="history_array.length>0; else hideContent">
+    <table class="table">
+      <tr>
+        <th>user_id</th><th>created_at</th><th>message</th>
+      </tr>
+      <!--配列articlesの内容を順番に出力-->
+      <tr *ngFor="let h of history_array">
+        <td>{{h.user_id}}</td>
+        <td>{{h.created_at}}</td>
+        <td>{{h.message}}</td>
+      </tr>
+      </table>
+  </div>
+  <ng-template #hideContent>
+    からっぽっす
+  </ng-template>
 </div>
 <ng-template #searchingContent>
   <mat-spinner></mat-spinner>

@@ -69,3 +69,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [Boto 3 Documentation](https://boto3.readthedocs.io/en/latest/index.html)
 
 [Angular TIPS 【最新v4対応】 - 処理対象別インデックス](https://www.buildinsider.net/web/angulartips)
+
+[Angular Material DatePicker - Error: MdDatepicker: No provider found for DateAdapter
+](https://stackoverflow.com/questions/46337774/angular-material-datepicker-error-mddatepicker-no-provider-found-for-dateada)
+
+[@ViewChild を用いたコンポーネント](http://angular.keicode.com/basics/component-interaction-viewchild.php)
