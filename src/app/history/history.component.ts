@@ -33,6 +33,36 @@ const formatDate = function (date, format) {
 };
 
 export interface Element {
+  user_id: string;
+  created_at: string;
+  message: string;
+}
+
+const ELEMENT_DATA: Element[] = [
+  {user_id: 'abc', created_at: '2018/01/01', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/01', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/01', message: 'おはようございます'},
+  {user_id: 'abc', created_at: '2018/01/01', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/01', message: 'おはようございます'},
+  {user_id: 'abc', created_at: '2018/01/01', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'こんばんは'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'こんばんは'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'おはようございます'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'おはようございます'},
+  {user_id: 'abc', created_at: '2018/01/02', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/03', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/03', message: 'こんばんは'},
+  {user_id: 'abc', created_at: '2018/01/03', message: 'こんばんは'},
+  {user_id: 'abc', created_at: '2018/01/04', message: 'こんにちは'},
+  {user_id: 'abc', created_at: '2018/01/04', message: 'おはようございます'},
+  {user_id: 'abc', created_at: '2018/01/05', message: 'こんにちは'},
+];
+
+/*
+export interface Element {
   name: string;
   position: number;
   weight: number;
@@ -61,6 +91,7 @@ const ELEMENT_DATA: Element[] = [
   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 ];
+*/
 
 @Component({
   selector: 'app-history',
@@ -74,7 +105,7 @@ export class HistoryComponent implements OnInit {
   history_array = [];
   searching = false;
 
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['user_id', 'created_at', 'message'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(filterValue: string) {
