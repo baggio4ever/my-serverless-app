@@ -89,3 +89,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [Flexboxレイアウトまとめ](https://qiita.com/takanorip/items/a51989312160530d89a1) 気になる
 
 [今さら聞けない!? CSSのborder-radiusで様々な角丸に挑戦！](https://www.webcreatorbox.com/tech/border-radius) サンプル面白い
+
+[Angular 4 + マテリアルデザインでの Tips](https://qiita.com/TsuyoshiUshio@github/items/70b9dbb1d0362ba4f478)
+
+[Angular 4.3で追加されたHttpClientModuleについてのメモ](https://qiita.com/ponday/items/1ec0e500cd801286845e) ファイルアップロードの進捗が得られるみたい
+
+[Angularでテキストファイルを読み込む](http://daikiojm.hatenablog.com/entry/2017/10/10/000000)
+
+[API Gatewayがバイナリデータをサポートしたので試してみました](https://dev.classmethod.jp/cloud/aws/binary-data-supported-by-api-gateway/)
