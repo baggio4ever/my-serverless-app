@@ -34,7 +34,7 @@ export class AppService {
         let m0 = ('00' + month).slice(-2);
         let d0 = ('00' + date).slice(-2);
         // Parameters obj-
-        let params: HttpParams = new HttpParams().set('user_id', user_id ).set('year', y0 ).set('month', m0 ).set('date', d0 );
+        const params: HttpParams = new HttpParams().set('user_id', user_id ).set('year', y0 ).set('month', m0 ).set('date', d0 );
 
         console.log(params.toString());
 

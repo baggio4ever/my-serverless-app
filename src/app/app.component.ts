@@ -5,7 +5,6 @@ import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hook
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -74,3 +74,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ](https://stackoverflow.com/questions/46337774/angular-material-datepicker-error-mddatepicker-no-provider-found-for-dateada)
 
 [@ViewChild を用いたコンポーネント](http://angular.keicode.com/basics/component-interaction-viewchild.php)
+
+[日付をフォーマットする](https://qiita.com/osakanafish/items/c64fe8a34e7221e811d0)
