@@ -16,7 +16,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
-import { DateAdapter,MAT_DATE_FORMATS,MAT_DATE_LOCALE } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -52,6 +53,7 @@ import { FileSendComponent } from './file-send/file-send.component';
 //    MatNativeDateModule
     MatMomentDateModule,
 //    MomentDateAdapter,
+    MatTableModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]

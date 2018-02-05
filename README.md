@@ -80,3 +80,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [MATERIAL DESIGN ICONS](https://material.io/icons/)
 
 [Material Icons Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web)
+
+[How to create a fixed footer in angularjs material design](https://stackoverflow.com/questions/35814455/how-to-create-a-fixed-footer-in-angularjs-material-design)
+
+[Material 2: Sticky Footer with Mat Sidenav](https://blog.thecodecampus.de/material-2-sticky-footer-mat-sidenav/)
+これ気になる
