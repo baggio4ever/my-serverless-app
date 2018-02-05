@@ -84,4 +84,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [How to create a fixed footer in angularjs material design](https://stackoverflow.com/questions/35814455/how-to-create-a-fixed-footer-in-angularjs-material-design)
 
 [Material 2: Sticky Footer with Mat Sidenav](https://blog.thecodecampus.de/material-2-sticky-footer-mat-sidenav/)
-これ気になる
+ これ気になる
+
+[Flexboxレイアウトまとめ](https://qiita.com/takanorip/items/a51989312160530d89a1) 気になる
+
+[今さら聞けない!? CSSのborder-radiusで様々な角丸に挑戦！](https://www.webcreatorbox.com/tech/border-radius) サンプル面白い
