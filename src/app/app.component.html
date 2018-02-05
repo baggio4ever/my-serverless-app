@@ -1,46 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>CustomWelcome to {{ title }}!</span>
-    </mat-toolbar-row>
-  
-    <mat-toolbar-row>
-      <nav>
-        <a routerLink="/history">History</a>
-        <a routerLink="/cards">Cards</a>
-        <a routerLink="/file-send">File Send</a>
-        <a routerLink="/logo">BigLogo</a>
-      </nav>
-<!--
-        <span>Second Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon">verified_user</mat-icon>
--->
-    </mat-toolbar-row>
-<!--  
-    <mat-toolbar-row>
-      <span>Third Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon">favorite</mat-icon>
-      <mat-icon class="example-icon">delete</mat-icon>
-    </mat-toolbar-row>
-  -->
-  </mat-toolbar>
-<!--  
-  <div style="text-align:center">
-  <h3>
-    Welcome to {{ title }}!
-  </h3>
-</div>
--->
-<!--
-<nav>
-  <a routerLink="/history">History</a>
-  <a routerLink="/cards">Cards</a>
-  <a routerLink="/file-send">File Send</a>
-  <a routerLink="/logo">BigLogo</a>
-</nav>
--->
+  <mat-toolbar-row>
+    <span>Welcome to {{ title }}!</span>
+    <span class="example-spacer"></span>
+    <nav>
+        <a routerLink="/history" routerLinkActive="active">History</a>
+        <a routerLink="/cards" routerLinkActive="active">Cards</a>
+        <a routerLink="/file-send" routerLinkActive="active">File Send</a>
+        <a routerLink="/logo" routerLinkActive="active">BigLogo</a>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<a href="http://wwww.amazon.com">Amazon (cssの対象外ですね。)</a>
+
 <router-outlet></router-outlet>
 
 
