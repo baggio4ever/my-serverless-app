@@ -106,7 +106,8 @@ export class HistoryComponent implements OnInit {
   searching = false;
 
   displayedColumns = ['user_id', 'created_at', 'message'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+//  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  dataSource = new MatTableDataSource(this.history_array);
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -190,6 +191,7 @@ export class HistoryComponent implements OnInit {
         console.log( '' + a['user_id'] + ' ' + a['created_at'] + ' ' + a['message'] );
       }
       this.searching = false;
+      this.dataSource = new MatTableDataSource(this.history_array);
     });
   }
 
