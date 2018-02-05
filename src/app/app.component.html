@@ -12,8 +12,9 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
+<!--
 <a href="http://wwww.amazon.com">Amazon (cssの対象外ですね。)</a>
-
+-->
 <router-outlet></router-outlet>
 
 
@@ -33,10 +34,6 @@
   </form>
 </div>
 
-<P>
-  <input type="file" #fileInput (change)="onChanged(fileInput.value)">
-  <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">さあどうよ</button>
-</P>
 <p>
 <button mat-raised-button color="primary" (click)="onClicked()">押してみな</button>
 <button mat-raised-button color="warn"(click)="onClickedNow()">ところで今何時？</button>

@@ -45,8 +45,7 @@ export class AppComponent implements OnInit {
 
   texts = [];
 
-  fileSelected = false;
-
+  
   ngOnInit(): void {
     this.appService.getMessage(msg => {
       this.title = msg; // HTTP通信成功時にタイトルに取得したメッセージを表示する
@@ -100,35 +99,4 @@ export class AppComponent implements OnInit {
     return true;
   }
   
-  onChanged(filename) {
-    console.log(filename);
-
-    this.fileSelected = (filename !== '');
-  }
-
-  yes(fileVal) {
-    let file = fileVal;
-    let reader = new FileReader();
-
-    console.log(fileVal);
-
-    reader.onload = (e) => {
-      'use strict';
-      const xml = reader.result;
-
-      const parser = new DOMParser();
-      const dom = parser.parseFromString(xml, 'text/xml');
-
-      const title = dom.getElementById('doc-title').textContent;
-
-      console.log('title:'+title);
-
-      const paragraphs = dom.getElementsByTagName('paragraph');
-      for(let i=0;i<paragraphs.length;++i){
-        this.texts.push( paragraphs[i].innerHTML );
-      }
-    };
-    reader.readAsText(file);
-    console.log('yes()');
-  }
 }

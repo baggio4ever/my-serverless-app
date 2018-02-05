@@ -1,3 +1,8 @@
-<p>
-  file-send works!
-</p>
+<div>
+  <input type="file" #fileInput (change)="onChanged(fileInput.value)">
+  <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">さあどうよ</button>
+</div>
+
+<div *ngFor="let t of texts">
+{{t}}
+</div>
