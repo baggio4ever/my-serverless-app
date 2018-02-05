@@ -76,3 +76,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [@ViewChild を用いたコンポーネント](http://angular.keicode.com/basics/component-interaction-viewchild.php)
 
 [日付をフォーマットする](https://qiita.com/osakanafish/items/c64fe8a34e7221e811d0)
+
+[MATERIAL DESIGN ICONS](https://material.io/icons/)
+
+[Material Icons Guide](http://google.github.io/material-design-icons/#icon-font-for-the-web)

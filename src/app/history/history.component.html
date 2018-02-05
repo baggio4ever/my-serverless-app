@@ -10,7 +10,10 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="onSearchLog(dt_input.value)" [disabled]="!canSearchLog()">ログ取得</button>  
+    <button mat-raised-button color="primary" (click)="onSearchLog(dt_input.value)" [disabled]="!canSearchLog()">
+        <mat-icon aria-label="Example icon-button with a heart icon">cached</mat-icon>
+        ログ取得
+    </button>  
   </form>
 </div>
 <div *ngIf="!searching; else searchingContent">
