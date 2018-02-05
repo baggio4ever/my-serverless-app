@@ -11,6 +11,7 @@ const HISTORY_USER_ID = 'history_user_id';
 export class HistoryComponent implements OnInit {
   user_id = '';
   history_array = [];
+  searching = false;
 
   constructor( private appService: AppService ) {
     const last_user_id = localStorage.getItem( HISTORY_USER_ID );
@@ -31,6 +32,7 @@ export class HistoryComponent implements OnInit {
     localStorage.setItem( HISTORY_USER_ID,this.user_id);
 
     console.log( this.user_id + ' で検索するっす');
+    this.searching = true;
 
     this.appService.getLogsYMD(this.user_id,2018,1,30,msg => {
       console.log( '返信来ましたよ' );
@@ -43,6 +45,7 @@ export class HistoryComponent implements OnInit {
         let a = msg[i];
         console.log( "" + a["user_id"] + " " + a["created_at"] + " " + a["message"] );
       }
+      this.searching = false;
     });
   }
 

@@ -7,6 +7,7 @@
     <button mat-raised-button color="primary" (click)="onSearchLog()" [disabled]="!canSearchLog()">ログ取得</button>  
   </form>
 </div>
+<div *ngIf="!searching; else searchingContent">
 <div *ngIf="history_array.length>0; else hideContent">
   <table class="table">
     <tr>
@@ -23,3 +24,8 @@
 <ng-template #hideContent>
   からっぽっす
 </ng-template>
+</div>
+<ng-template #searchingContent>
+  <mat-spinner></mat-spinner>
+</ng-template>
+

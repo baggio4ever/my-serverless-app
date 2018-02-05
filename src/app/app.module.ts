@@ -13,7 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { AppRoutingModule } from './/app-routing.module';
+
 import { CardsComponent } from './cards/cards.component';
 import { BigLogoComponent } from './big-logo/big-logo.component';
 import { HistoryComponent } from './history/history.component';
@@ -40,7 +43,8 @@ import { FileSendComponent } from './file-send/file-send.component';
     FormsModule,
     MatCardModule,
     AppRoutingModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]
