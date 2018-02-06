@@ -20,3 +20,20 @@
     overflow: auto;
     max-height: 500px;
 }
+
+
+/* https://stackoverflow.com/questions/45159066/md-table-how-to-update-the-column-width */
+.mat-column-user_id {
+    flex: 0 0 100px !important;
+    white-space: unset !important;
+}
+
+.mat-column-created_at {
+    flex: 0 0 100px !important;
+    white-space: unset !important;
+}
+
+.mat-column-message {
+/*    flex: 0 0 100px !important;
+*/    white-space: pre !important;
+}

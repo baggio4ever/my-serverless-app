@@ -97,3 +97,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [Angularでテキストファイルを読み込む](http://daikiojm.hatenablog.com/entry/2017/10/10/000000)
 
 [API Gatewayがバイナリデータをサポートしたので試してみました](https://dev.classmethod.jp/cloud/aws/binary-data-supported-by-api-gateway/)
+
+[md-table - How to update the column width](https://stackoverflow.com/questions/45159066/md-table-how-to-update-the-column-width)
