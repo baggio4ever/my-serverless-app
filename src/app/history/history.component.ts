@@ -105,7 +105,7 @@ export class HistoryComponent implements OnInit {
   history_array = [];
   searching = false;
 
-  displayedColumns = ['user_id', 'created_at', 'message'];
+  columnsToDisplay = ['user_id', 'created_at', 'message'];
 //  dataSource = new MatTableDataSource(ELEMENT_DATA);
   dataSource = new MatTableDataSource(this.history_array);
 
@@ -200,5 +200,15 @@ export class HistoryComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  trimCreatedAt(s: string): string {
+    // ミリ秒は消す
+    const v = s.split('.');
+    return v[0];
+  }
+
+  getHitAmount(): number {
+    return this.history_array.length;
   }
 }

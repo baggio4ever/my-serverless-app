@@ -14,6 +14,7 @@
         <mat-icon aria-label="Example icon-button with a heart icon">cached</mat-icon>
         ログ取得
     </button>  
+    <span>ヒット件数: {{getHitAmount()}}</span>
   </form>
 </div>
 <div *ngIf="!searching; else searchingContent">
@@ -41,24 +42,24 @@
     
         <!-- Position Column -->
         <ng-container matColumnDef="user_id">
-          <mat-header-cell *matHeaderCellDef> user_id </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>user_id</mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.user_id}} </mat-cell>
         </ng-container>
     
         <!-- Name Column -->
         <ng-container matColumnDef="created_at">
-          <mat-header-cell *matHeaderCellDef> created_at </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.created_at}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef>created_at</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{trimCreatedAt(element.created_at)}} </mat-cell>
         </ng-container>
     
         <!-- Weight Column -->
         <ng-container matColumnDef="message">
-          <mat-header-cell *matHeaderCellDef> message </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>message</mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.message}} </mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
       </mat-table>
     </div>
 
