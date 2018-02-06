@@ -6,8 +6,9 @@ import { HistoryComponent } from './history/history.component';
 import { FileSendComponent } from './file-send/file-send.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/logo', pathMatch: 'full' },
-  { path: 'cards', component: CardsComponent },
+/*  S3のWeb公開機能を使う場合は、コレダメ？
+  { path: '', redirectTo: '/logo', pathMatch: 'full' }, 
+*/  { path: 'cards', component: CardsComponent },
   { path: 'logo', component: BigLogoComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'file-send', component: FileSendComponent }
