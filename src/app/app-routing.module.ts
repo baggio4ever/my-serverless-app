@@ -1,3 +1,4 @@
+import { XmlViewComponent } from './xml-view/xml-view.component';
 import { SimpleSendComponent } from './simple-send/simple-send.component';
 import { BigLogoComponent } from './big-logo/big-logo.component';
 import { CardsComponent } from './cards/cards.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'logo', component: BigLogoComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'file-send', component: FileSendComponent },
-  { path: 'simple-send', component: SimpleSendComponent }
+  { path: 'simple-send', component: SimpleSendComponent },
+  { path: 'xml', component: XmlViewComponent }
 ];
 
 @NgModule({

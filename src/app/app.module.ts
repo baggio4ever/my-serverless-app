@@ -27,6 +27,9 @@ import { BigLogoComponent } from './big-logo/big-logo.component';
 import { HistoryComponent } from './history/history.component';
 import { FileSendComponent } from './file-send/file-send.component';
 import { SimpleSendComponent } from './simple-send/simple-send.component';
+import { XmlViewComponent } from './xml-view/xml-view.component';
+
+import { HighlightJsModule } from 'ngx-highlight-js';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { SimpleSendComponent } from './simple-send/simple-send.component';
     BigLogoComponent,
     HistoryComponent,
     FileSendComponent,
-    SimpleSendComponent
+    SimpleSendComponent,
+    XmlViewComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,8 @@ import { SimpleSendComponent } from './simple-send/simple-send.component';
     MatMomentDateModule,
 //    MomentDateAdapter,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HighlightJsModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]
