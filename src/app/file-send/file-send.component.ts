@@ -9,7 +9,7 @@ export class FileSendComponent implements OnInit {
 
   fileSelected = false;
   texts = [];
-  
+
   constructor() { }
 
   ngOnInit() {
@@ -22,8 +22,8 @@ export class FileSendComponent implements OnInit {
   }
 
   yes(fileVal) {
-    let file = fileVal;
-    let reader = new FileReader();
+    const file = fileVal;
+    const reader = new FileReader();
 
     console.log(fileVal);
 
@@ -36,10 +36,10 @@ export class FileSendComponent implements OnInit {
 
       const title = dom.getElementById('doc-title').textContent;
 
-      console.log('title:'+title);
+      console.log('title:' + title);
 
       const paragraphs = dom.getElementsByTagName('paragraph');
-      for(let i=0;i<paragraphs.length;++i){
+      for(let i = 0; i < paragraphs.length; ++i ){
         this.texts.push( paragraphs[i].innerHTML );
       }
     };

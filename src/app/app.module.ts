@@ -26,6 +26,7 @@ import { CardsComponent } from './cards/cards.component';
 import { BigLogoComponent } from './big-logo/big-logo.component';
 import { HistoryComponent } from './history/history.component';
 import { FileSendComponent } from './file-send/file-send.component';
+import { SimpleSendComponent } from './simple-send/simple-send.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FileSendComponent } from './file-send/file-send.component';
     CardsComponent,
     BigLogoComponent,
     HistoryComponent,
-    FileSendComponent
+    FileSendComponent,
+    SimpleSendComponent
   ],
   imports: [
     BrowserModule,

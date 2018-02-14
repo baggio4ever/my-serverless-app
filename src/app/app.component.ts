@@ -21,6 +21,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 })
 export class AppComponent implements OnInit {
   constructor(private appService: AppService ) {
+/*
     const last_user_id = localStorage.getItem('my_user_id');
     const last_message = localStorage.getItem('my_message');
 
@@ -36,16 +37,17 @@ export class AppComponent implements OnInit {
     } else {
       console.log('message みつからず');
     }
+*/
   }
-
   title = 'app';
 
+/*
   user_id = 'ichiro';
   message = 'かましたれ';
 
   texts = [];
+*/
 
-  
   ngOnInit(): void {
     this.appService.getMessage(msg => {
       this.title = msg; // HTTP通信成功時にタイトルに取得したメッセージを表示する
@@ -53,6 +55,7 @@ export class AppComponent implements OnInit {
 
   }
 
+/*
   onClicked() {
     console.log('押されたよ');
 
@@ -98,5 +101,5 @@ export class AppComponent implements OnInit {
     }
     return true;
   }
-  
+*/  
 }

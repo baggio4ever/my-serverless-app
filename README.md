@@ -103,3 +103,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [Angular2のプロジェクト作成から開発をしてIISにデプロイまで](http://www.ifelse.jp/blog/angular2-basic-training-01) IISへのデプロイ方法が書いてある
 
 [Angular2のクロスドメインアクセスの問題対応](http://www.ifelse.jp/blog/angular-tips-01) なんか詳しく書いてある。途中で挫折。
+
+[ソースコードをハイライトする軽量ライブラリ、Highlight.jsの使い方](https://syncer.jp/how-to-use-highlightjs)
+
+[highlight.js - Syntax highlighting for the Web](https://highlightjs.org/)
+
+[コード表示を綺麗に：シンタックスハイライトしたい](https://qiita.com/rico/items/1c64075a53cbe507c836)
+

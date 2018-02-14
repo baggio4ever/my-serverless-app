@@ -1,3 +1,4 @@
+import { SimpleSendComponent } from './simple-send/simple-send.component';
 import { BigLogoComponent } from './big-logo/big-logo.component';
 import { CardsComponent } from './cards/cards.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,8 @@ const routes: Routes = [
 */  { path: 'cards', component: CardsComponent },
   { path: 'logo', component: BigLogoComponent },
   { path: 'history', component: HistoryComponent },
-  { path: 'file-send', component: FileSendComponent }
+  { path: 'file-send', component: FileSendComponent },
+  { path: 'simple-send', component: SimpleSendComponent }
 ];
 
 @NgModule({
