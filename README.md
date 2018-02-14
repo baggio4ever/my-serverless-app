@@ -110,3 +110,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [コード表示を綺麗に：シンタックスハイライトしたい](https://qiita.com/rico/items/1c64075a53cbe507c836)
 
+[コードのハイライト表示 JS ライブラリ ３種](https://qiita.com/tadnakam/items/1323d03743fc0101aa50)
+☆☆☆
+
+[Angular Highlight.js](https://murhafsousli.github.io/ngx-highlightjs/)
