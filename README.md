@@ -125,3 +125,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [「Angular 2」コンポーネントのライフサイクルを知って使いこなす](https://codezine.jp/article/detail/10046)
 
 [TypeScript早わかりチートシート【1.5.3対応】](https://www.buildinsider.net/language/quicktypescript/01)
+
+[isagalaev/highlight.js](https://github.com/isagalaev/highlight.js/tree/master/src/styles) highlight.js のテーマリポジトリ

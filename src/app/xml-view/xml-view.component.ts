@@ -60,7 +60,7 @@ class ComponentTag {
   }
 }
 
-class StitchngParamsTag {
+class StitchingParamsTag {
   id: string;
   klass: string;
   numberOfStitches: string;
@@ -115,7 +115,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   processTags: JdfTag[] = [];
   componentTags: ComponentTag[] = [];
   deviceTags: DeviceTag[] = [];
-  stitchingParamsTags: StitchngParamsTag[] = [];
+  stitchingParamsTags: StitchingParamsTag[] = [];
+  trimmingParamsTags: TrimmingParamsTag[] = [];
 
   @ViewChild('code')
   codeElement: ElementRef;
@@ -125,11 +126,11 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   ngOnChanges( changes: SimpleChanges ) {
     console.log('OnChanges');
 
-    for ( let propName in changes ) {
-      let change: SimpleChange = changes[propName];
-      console.debug("変更されたプロパティ名：" + propName);
-      console.debug("変更前の値：" + change.previousValue);
-      console.debug("変更後の値：" + change.currentValue);
+    for ( const propName in changes ) {
+      const change: SimpleChange = changes[propName];
+      console.log('変更されたプロパティ名：' + propName);
+      console.log('変更前の値：' + change.previousValue);
+      console.log('変更後の値：' + change.currentValue);
     }
   }
 
@@ -190,7 +191,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
 //    this.texts = [];
     console.log(fileVal);
-    console.log( 'typeof(fileVal.name):'+typeof(fileVal.name));;
+    console.log( 'typeof(fileVal.name):' + typeof(fileVal.name));
 
     reader.onload = (e) => {
       const c = reader.result;
@@ -245,6 +246,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         this.componentTags = [];
         this.deviceTags = [];
         this.stitchingParamsTags = [];
+        this.trimmingParamsTags = [];
 
         // JDFタグ
         const jdfTags = dom.getElementsByTagName('JDF');
@@ -262,7 +264,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 //            this.texts.push( jdfTags[i].innerHTML );
 //          this.texts.push('ID = ' + id + ',Type = ' + type + ',DescriptiveName = ' + dn );
           const jdfTag = new JdfTag( id, type, dn, jobId, jobPartId, body );
-          if( j.parentElement === null /* type === 'ProcessGroup'*/ ){
+          if ( j.parentElement === null /* type === 'ProcessGroup'*/ ) {
             this.jobTag = jdfTag;
           } else {
             this.processTags.push( jdfTag );
@@ -297,6 +299,37 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
           const deviceTag = new DeviceTag( id, klass, deviceId, friendlyName, body );
           this.deviceTags.push( deviceTag );
+        }
+
+        // StitchingParamsタグ
+        const stitchingParamsTags = dom.getElementsByTagName('StitchingParams');
+        console.log('stitchingParamsTags.length: ' + stitchingParamsTags.length);
+        for (let i = 0; i < stitchingParamsTags.length; ++i ) {
+          const j = stitchingParamsTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const numberOfStitches = j.getAttribute('NumberOfStitches');
+          const stapleShape = j.getAttribute('StapleShape');
+          const body = j.outerHTML.toString();
+
+          const stitchingParamsTag = new StitchingParamsTag( id, klass, numberOfStitches, stapleShape, body );
+          this.stitchingParamsTags.push( stitchingParamsTag );
+        }
+
+        // TrimmingParamsタグ
+        const trimmingParamsTags = dom.getElementsByTagName('TrimmingParams');
+        console.log('trimmingParamsTags.length: ' + trimmingParamsTags.length);
+        for (let i = 0; i < trimmingParamsTags.length; ++i ) {
+          const j = trimmingParamsTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const trimmingType = j.getAttribute('TrimmingType');
+          const height = j.getAttribute('Height');
+          const width = j.getAttribute('Width');
+          const body = j.outerHTML.toString();
+
+          const trimmingParamsTag = new TrimmingParamsTag( id, klass, trimmingType, width, height, body );
+          this.trimmingParamsTags.push( trimmingParamsTag );
         }
       }
 //      hljs.highlightBlock(this.codeElement.nativeElement);

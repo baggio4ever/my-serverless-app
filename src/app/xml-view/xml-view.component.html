@@ -88,6 +88,48 @@
   </table>
 </div>
 
+<div>
+  StitchingParams
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Class</th>
+      <th>NumberOfStitches</th>
+      <th>StapleShape</th>
+      <th>body</th>
+    </tr>
+    <tr *ngFor="let t of stitchingParamsTags">
+      <td>{{t.id}}</td>
+      <td>{{t.klass}}</td>
+      <td>{{t.numberOfStitches}}</td>
+      <td>{{t.stapleShape}}</td>
+      <td>{{t.body}}</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  TrimmingParams
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Class</th>
+      <th>TrimmingType</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>body</th>
+    </tr>
+    <tr *ngFor="let t of trimmingParamsTags">
+      <td>{{t.id}}</td>
+      <td>{{t.klass}}</td>
+      <td>{{t.trimmingType}}</td>
+      <td>{{t.width}}</td>
+      <td>{{t.height}}</td>
+      <td>{{t.body}}</td>
+    </tr>
+  </table>
+</div>
+
 <!--
 <textarea highlight-js [options]="{}" [lang]="'typescript'">
   /* tslint:disable */
