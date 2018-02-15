@@ -75,7 +75,15 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
     reader.onload = (e) => {
       'use strict';
+      let c = reader.result;
+      this.xml = c.replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
+
 //      this.xml = reader.result;
+/*
       this.xml = `&lt;html&gt;
                   &lt;body&gt;
 
@@ -84,7 +92,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
                   &lt;/body&gt;
                 &lt;/html&gt;`;
-
+*/
       console.log('xml:' + this.xml);
 
       hljs.highlightBlock(this.codeElement.nativeElement);
