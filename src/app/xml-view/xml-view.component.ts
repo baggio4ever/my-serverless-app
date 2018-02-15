@@ -1,3 +1,4 @@
+import { Element } from './../history/history.component';
 import {
   Component,
   OnInit,
@@ -74,23 +75,37 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     this.fileSelected = (filename !== '');
   }
 
+  escapeHTML( s: string ): string {
+    const ret = s.replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+
+    return ret;
+  }
+
   yes(fileVal) {
     const file = fileVal;
+    const fileName: string = fileVal.name;
     const reader = new FileReader();
 
+    this.texts = [];
     console.log(fileVal);
+    console.log( 'typeof(fileVal.name):'+typeof(fileVal.name));;
 
     reader.onload = (e) => {
-      'use strict';
-      let c = reader.result;
+      const c = reader.result;
 
       // エスケープ。angularにも備わっているみたいだけど。これやらないと表示されない。
-      this.xml = c.replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;');
-
+      //      this.xml = this.escapeHTML( c );
+      this.xml = c;  // お、innerHTMLにバインドしようとするとエスケープが必要だったが、textContentだとエスケープ不要みたい
+/*      this.xml = c.replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+*/
 //      this.xml = reader.result;
 /*
       this.xml = `&lt;html&gt;
@@ -104,7 +119,40 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 */
       console.log('xml:' + this.xml);
 
-      hljs.highlightBlock(this.codeElement.nativeElement);
+      let passed = false;
+      if ( fileName.toLowerCase().endsWith('jdf') ) {
+        console.log('お、JDFだね');
+        passed = true;
+      } else {
+        if ( fileName.toLowerCase().endsWith('jmf')) {
+          console.log('おや、JMFですか');
+          passed = true;
+        } else {
+          console.log('なんだ、その他ですか');
+        }
+      }
+
+      if ( passed ) {
+        const parser = new DOMParser();
+        const dom = parser.parseFromString( c, 'text/xml');
+
+//        const title = dom.getElementById('doc-title').textContent;
+
+//        console.log('title:' + title);
+
+        const jdfTags = dom.getElementsByTagName('JDF');
+        console.log('jdfTags.length: ' + jdfTags.length);
+        for (let i = 0; i < jdfTags.length; ++i ) {
+          const jdfTag = jdfTags[i];
+          const id = jdfTag.getAttribute('ID');
+          const type = jdfTag.getAttribute('Type');
+          const dn = jdfTag.getAttribute('DescriptiveName');
+//          this.texts.push( jdfTags[i].innerHTML );
+//            this.texts.push( jdfTags[i].innerHTML );
+          this.texts.push('ID = ' + id + ',Type = ' + type + ',DescriptiveName = ' + dn );
+        }
+      }
+//      hljs.highlightBlock(this.codeElement.nativeElement);
 /*
       const parser = new DOMParser();
       const dom = parser.parseFromString(xml, 'text/xml');
