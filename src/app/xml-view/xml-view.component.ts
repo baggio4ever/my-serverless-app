@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+
+declare var hljs: any;
 
 @Component({
   selector: 'app-xml-view',
   templateUrl: './xml-view.component.html',
   styleUrls: ['./xml-view.component.css']
 })
-export class XmlViewComponent implements OnInit {
+export class XmlViewComponent implements OnInit, AfterViewInit {
 
   fileSelected = false;
   texts = [];
-  xml='<x></x>';
+  xml = '';
+
+  @ViewChild('code')
+  codeElement:ElementRef;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    hljs.highlightBlock(this.codeElement.nativeElement);
   }
 
   onChanged(filename) {
@@ -30,8 +39,19 @@ export class XmlViewComponent implements OnInit {
 
     reader.onload = (e) => {
       'use strict';
-      this.xml = reader.result;
-      console.log('xml:'+this.xml);
+//      this.xml = reader.result;
+      this.xml = `&lt;html&gt;
+                  &lt;body&gt;
+
+                  &lt;h1&gt;My First Heading&lt;/h1&gt;
+                  &lt;p&gt;My first paragraph.&lt;/p&gt;
+
+                  &lt;/body&gt;
+                &lt;/html&gt;`;
+
+      console.log('xml:' + this.xml);
+
+//      hljs.highlightBlock(this.codeElement.nativeElement);
 /*
       const parser = new DOMParser();
       const dom = parser.parseFromString(xml, 'text/xml');
@@ -48,5 +68,9 @@ export class XmlViewComponent implements OnInit {
        };
     reader.readAsText(file);
     console.log('yes()');
+  }
+
+  yes2() {
+    hljs.highlightBlock(this.codeElement.nativeElement);
   }
 }

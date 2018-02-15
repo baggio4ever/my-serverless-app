@@ -1,8 +1,27 @@
 <div>
   <input type="file" #fileInput (change)="onChanged(fileInput.value)" accept=".xml,.jdf,.xmf,.ts">
   <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">さあどうよ</button>
+  <button mat-raised-button color="basic" (click)="yes2()" >もういっちょ</button>
 </div>
 
+
+Hello!
+      <pre>
+        <code #code class="html" [innerHTML]="xml">
+<!--
+            &lt;html&gt;
+            &lt;body&gt;
+
+            &lt;h1&gt;My First Heading&lt;/h1&gt;
+            &lt;p&gt;My first paragraph.&lt;/p&gt;
+
+            &lt;/body&gt;
+          &lt;/html&gt;
+-->
+        </code>
+      </pre>
+
+<!--
 <textarea highlight-js [options]="{}" [lang]="'typescript'">
   /* tslint:disable */
   import { Component } from '@angular/core';
@@ -31,6 +50,6 @@
     
     <body>
       <p checked class="title" id='title'>Title</p>
-      <!-- here goes the rest of the page -->
     </body>
 </textarea>
+-->

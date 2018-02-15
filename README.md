@@ -114,3 +114,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ☆☆☆
 
 [Angular Highlight.js](https://murhafsousli.github.io/ngx-highlightjs/)
+
+[highlight.js does not work with Angular 2](https://stackoverflow.com/questions/37307943/highlight-js-does-not-work-with-angular-2) ごりごりangularとhighlight.js使うははこれ
+
+[how to escape xml entities in javascript?](https://stackoverflow.com/questions/7918868/how-to-escape-xml-entities-in-javascript)
+これで完璧なのかしら？
+

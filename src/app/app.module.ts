@@ -62,7 +62,7 @@ import { HighlightJsModule } from 'ngx-highlight-js';
 //    MomentDateAdapter,
     MatTableModule,
     MatToolbarModule,
-    HighlightJsModule
+//    HighlightJsModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]
