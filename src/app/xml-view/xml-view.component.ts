@@ -5,6 +5,77 @@ import {
   AfterViewInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy,
   ViewChild, ElementRef, SimpleChanges, SimpleChange } from '@angular/core';
 
+
+class JdfTag {
+  id: string;
+  type: string;
+  body: string;
+  descriptiveName: string;
+  jobId: string;
+  jobPartId: string;
+
+  constructor(id: string, type: string, descriptiveName: string, jobId: string, jobPartId: string, body: string) {
+    this.id = id;
+    this.type = type;
+    this.descriptiveName = descriptiveName;
+
+    this.jobId = jobId;
+    this.jobPartId = jobPartId;
+
+    this.body = body;
+  }
+}
+
+class DeviceTag {
+  id: string;
+  deviceId: string;
+  friendlyName: string;
+  body: string;
+
+  constructor(id: string, deviceId: string, friendlyName: string, body: string) {
+    this.id = id;
+    this.deviceId = deviceId;
+    this.friendlyName = friendlyName;
+
+    this.body = body;
+  }
+}
+
+class ComponentTag {
+  id: string;
+  componentType: string;
+  klass: string;
+  dimensions: string;
+  body: string;
+
+  constructor(id: string, componentType: string, klass: string, dimensions: string, body: string) {
+    this.id = id;
+    this.componentType = componentType;
+    this.klass = klass;
+    this.dimensions = dimensions;
+
+    this.body = body;
+  }
+}
+
+class StitchngParamsTag {
+  id: string;
+  klass: string;
+  numberOfStitches: string;
+  stapleShape: string;
+  body: string;
+
+  constructor(id: string, klass: string, numberOfStitches: string, stapleShape: string, body: string) {
+    this.id = id;
+    this.klass = klass;
+    this.numberOfStitches = numberOfStitches;
+    this.stapleShape = stapleShape;
+
+    this.body = body;
+  }
+}
+
+
 declare var hljs: any;
 
 @Component({
@@ -16,8 +87,14 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   fileSelected = false;
-  texts = [];
+//  texts = [];
   xml = '';
+
+  jobTag: JdfTag = null;
+  processTags: JdfTag[] = [];
+  componentTags: ComponentTag[] = [];
+  deviceTags: DeviceTag[] = [];
+  stitchingParamsTags: StitchngParamsTag[] = [];
 
   @ViewChild('code')
   codeElement: ElementRef;
@@ -90,7 +167,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     const fileName: string = fileVal.name;
     const reader = new FileReader();
 
-    this.texts = [];
+//    this.texts = [];
     console.log(fileVal);
     console.log( 'typeof(fileVal.name):'+typeof(fileVal.name));;
 
@@ -140,16 +217,53 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
 //        console.log('title:' + title);
 
+        // 初期化
+        this.jobTag = null;
+        this.processTags = [];
+        this.componentTags = [];
+        this.componentTags = [];
+        this.deviceTags = [];
+        this.stitchingParamsTags = [];
+
+        // JDFタグ
         const jdfTags = dom.getElementsByTagName('JDF');
         console.log('jdfTags.length: ' + jdfTags.length);
         for (let i = 0; i < jdfTags.length; ++i ) {
-          const jdfTag = jdfTags[i];
-          const id = jdfTag.getAttribute('ID');
-          const type = jdfTag.getAttribute('Type');
-          const dn = jdfTag.getAttribute('DescriptiveName');
+          const j = jdfTags[i];
+          const id = j.getAttribute('ID');
+          const type = j.getAttribute('Type');
+          const dn = j.getAttribute('DescriptiveName');
+          const jobId = j.getAttribute('JobID');
+          const jobPartId = j.getAttribute('JobPartID');
+          const body = j.outerHTML.toString();
+//          console.log(j);
 //          this.texts.push( jdfTags[i].innerHTML );
 //            this.texts.push( jdfTags[i].innerHTML );
-          this.texts.push('ID = ' + id + ',Type = ' + type + ',DescriptiveName = ' + dn );
+//          this.texts.push('ID = ' + id + ',Type = ' + type + ',DescriptiveName = ' + dn );
+          const jdfTag = new JdfTag( id, type, dn, jobId, jobPartId, body );
+          if( j.parentElement === null /* type === 'ProcessGroup'*/ ){
+            this.jobTag = jdfTag;
+          } else {
+            this.processTags.push( jdfTag );
+          }
+        }
+
+        // Componentタグ
+        const componentTags = dom.getElementsByTagName('Component');
+        console.log('componentTags.length: ' + componentTags.length);
+        for (let i = 0; i < componentTags.length; ++i ) {
+          const j = componentTags[i];
+          const id = j.getAttribute('ID');
+          const componentType = j.getAttribute('ComponentType');
+          const klass = j.getAttribute('Class');
+          const dimensions = j.getAttribute('Dimensions');
+          const body = j.outerHTML.toString();
+          console.log(dimensions);
+//          this.texts.push( jdfTags[i].innerHTML );
+//            this.texts.push( jdfTags[i].innerHTML );
+//          this.texts.push('ID = ' + id + ',Type = ' + type + ',DescriptiveName = ' + dn );
+          const componentTag = new ComponentTag( id, componentType, klass, dimensions, body );
+          this.componentTags.push( componentTag );
         }
       }
 //      hljs.highlightBlock(this.codeElement.nativeElement);
