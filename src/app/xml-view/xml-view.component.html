@@ -1,13 +1,11 @@
 <div>
   <input type="file" #fileInput (change)="onChanged(fileInput.value)" accept=".xml,.jdf,.xmf,.ts">
-  <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">さあどうよ</button>
+  <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">選択したファイルを読みん込んで表示</button>
 <!--
     <button mat-raised-button color="basic" (click)="yes2()" >もういっちょ</button>
 -->
 </div>
 
-
-Hello!
       <pre>
         <code #code class="html" [innerHTML]="xml">
 <!--

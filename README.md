@@ -120,3 +120,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [how to escape xml entities in javascript?](https://stackoverflow.com/questions/7918868/how-to-escape-xml-entities-in-javascript)
 これで完璧なのかしら？
 
+[ビューにHTML文書をバインドするには？（Property Binding）](https://www.buildinsider.net/web/angulartips/007)
+
+[「Angular 2」コンポーネントのライフサイクルを知って使いこなす](https://codezine.jp/article/detail/10046)
+

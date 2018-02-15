@@ -29,7 +29,6 @@ import { FileSendComponent } from './file-send/file-send.component';
 import { SimpleSendComponent } from './simple-send/simple-send.component';
 import { XmlViewComponent } from './xml-view/xml-view.component';
 
-import { HighlightJsModule } from 'ngx-highlight-js';
 
 @NgModule({
   declarations: [

@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   AfterViewInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy,
-  ViewChild, ElementRef } from '@angular/core';
+  ViewChild, ElementRef, SimpleChanges, SimpleChange } from '@angular/core';
 
 declare var hljs: any;
 
@@ -23,8 +23,15 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
   constructor() { }
 
-  ngOnChanges() {
+  ngOnChanges( changes: SimpleChanges ) {
     console.log('OnChanges');
+
+    for( let propName in changes ) {
+      let change:SimpleChange = changes[propName];
+      console.debug("変更されたプロパティ名：" + propName);
+      console.debug("変更前の値：" + change.previousValue);
+      console.debug("変更後の値：" + change.currentValue);
+    }
   }
 
   ngOnInit() {
@@ -46,7 +53,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   ngAfterViewInit() {
     console.log('AfterViewInit');
 
-    hljs.highlightBlock(this.codeElement.nativeElement);
+//    hljs.highlightBlock(this.codeElement.nativeElement);
   }
 
   ngAfterViewChecked() {
@@ -76,6 +83,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     reader.onload = (e) => {
       'use strict';
       let c = reader.result;
+
+      // エスケープ。angularにも備わっているみたいだけど。これやらないと表示されない。
       this.xml = c.replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
