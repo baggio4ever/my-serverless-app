@@ -28,12 +28,14 @@ class JdfTag {
 
 class DeviceTag {
   id: string;
+  klass: string;
   deviceId: string;
   friendlyName: string;
   body: string;
 
-  constructor(id: string, deviceId: string, friendlyName: string, body: string) {
+  constructor(id: string, klass: string, deviceId: string, friendlyName: string, body: string) {
     this.id = id;
+    this.klass = klass;
     this.deviceId = deviceId;
     this.friendlyName = friendlyName;
 
@@ -75,6 +77,25 @@ class StitchngParamsTag {
   }
 }
 
+class TrimmingParamsTag {
+  id: string;
+  klass: string;
+  trimmingType: string;
+  height: string;
+  width: string;
+  body: string;
+
+  constructor(id: string, klass: string, trimmingType: string, height: string, width: string, body: string) {
+    this.id = id;
+    this.klass = klass;
+    this.trimmingType = trimmingType;
+    this.height = height;
+    this.width = width;
+
+    this.body = body;
+  }
+}
+
 
 declare var hljs: any;
 
@@ -104,8 +125,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   ngOnChanges( changes: SimpleChanges ) {
     console.log('OnChanges');
 
-    for( let propName in changes ) {
-      let change:SimpleChange = changes[propName];
+    for ( let propName in changes ) {
+      let change: SimpleChange = changes[propName];
       console.debug("変更されたプロパティ名：" + propName);
       console.debug("変更前の値：" + change.previousValue);
       console.debug("変更後の値：" + change.currentValue);
@@ -258,12 +279,24 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           const klass = j.getAttribute('Class');
           const dimensions = j.getAttribute('Dimensions');
           const body = j.outerHTML.toString();
-          console.log(dimensions);
-//          this.texts.push( jdfTags[i].innerHTML );
-//            this.texts.push( jdfTags[i].innerHTML );
-//          this.texts.push('ID = ' + id + ',Type = ' + type + ',DescriptiveName = ' + dn );
+
           const componentTag = new ComponentTag( id, componentType, klass, dimensions, body );
           this.componentTags.push( componentTag );
+        }
+
+        // Deviceタグ
+        const deviceTags = dom.getElementsByTagName('Device');
+        console.log('deviceTags.length: ' + deviceTags.length);
+        for (let i = 0; i < deviceTags.length; ++i ) {
+          const j = deviceTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const deviceId = j.getAttribute('DeviceID');
+          const friendlyName = j.getAttribute('FriendlyName');
+          const body = j.outerHTML.toString();
+
+          const deviceTag = new DeviceTag( id, klass, deviceId, friendlyName, body );
+          this.deviceTags.push( deviceTag );
         }
       }
 //      hljs.highlightBlock(this.codeElement.nativeElement);
@@ -285,8 +318,10 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     console.log('yes()');
   }
 
+/*
   yes2() {
     hljs.highlightBlock(this.codeElement.nativeElement);
     console.log('yes2()');
   }
+*/
 }

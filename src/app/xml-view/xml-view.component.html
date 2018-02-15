@@ -7,18 +7,7 @@
 </div>
 
 <pre>
-  <code #code class="html" [textContent]="xml">
-<!--
-            &lt;html&gt;
-            &lt;body&gt;
-
-            &lt;h1&gt;My First Heading&lt;/h1&gt;
-            &lt;p&gt;My first paragraph.&lt;/p&gt;
-
-            &lt;/body&gt;
-          &lt;/html&gt;
--->
-  </code>
+  <code #code class="html" [textContent]="xml"></code>
 </pre>
 
 <div>
@@ -26,19 +15,15 @@
   <table>
     <tr>
       <th>ID</th>
+      <th>JobID</th>
       <th>Type</th>
       <th>DescriptiveName</th>
-<!--
-        <th>body</th>
--->
     </tr>
     <tr *ngIf="jobTag">
       <td>{{jobTag.id}}</td>
+      <td>{{jobTag.jobId}}</td>
       <td>{{jobTag.type}}</td>
       <td>{{jobTag.descriptiveName}}</td>
-<!--
-        <td>{{jobTag.body}}</td>
--->
     </tr>
   </table>
 </div>
@@ -48,12 +33,14 @@
   <table>
     <tr>
       <th>ID</th>
+      <th>JobPartID</th>
       <th>Type</th>
       <th>DescriptiveName</th>
       <th>body</th>
     </tr>
     <tr *ngFor="let t of processTags">
       <td>{{t.id}}</td>
+      <td>{{t.jobPartId}}</td>
       <td>{{t.type}}</td>
       <td>{{t.descriptiveName}}</td>
       <td>{{t.body}}</td>
@@ -76,6 +63,26 @@
       <td>{{t.componentType}}</td>
       <td>{{t.klass}}</td>
       <td>{{t.dimensions}}</td>
+      <td>{{t.body}}</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  Devices
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Class</th>
+      <th>DeviceID</th>
+      <th>FriendlyName</th>
+      <th>body</th>
+    </tr>
+    <tr *ngFor="let t of deviceTags">
+      <td>{{t.id}}</td>
+      <td>{{t.klass}}</td>
+      <td>{{t.deviceId}}</td>
+      <td>{{t.friendlyName}}</td>
       <td>{{t.body}}</td>
     </tr>
   </table>

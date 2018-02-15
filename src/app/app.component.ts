@@ -14,7 +14,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
     /* datepickerの日本語表記： angular material のドキュメントを適当にコピペした。
     https://material.angular.io/components/datepicker/overview#choosing-a-date-implementation-and-date-format-settings
     これで良いのか？要継続調査 */
-    { provide: MAT_DATE_LOCALE, useValue: 'ja-JP' }, 
+    { provide: MAT_DATE_LOCALE, useValue: 'ja-JP' },
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}
              ]
