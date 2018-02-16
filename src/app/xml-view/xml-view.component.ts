@@ -83,17 +83,22 @@ class StitchingParamsTag {
 class TrimmingParamsTag {
   id: string;
   klass: string;
+  noOp: string;
   trimmingType: string;
   height: string;
   width: string;
+  trimmingOffset: string;
   body: string;
 
-  constructor(id: string, klass: string, trimmingType: string, height: string, width: string, body: string) {
+  constructor(id: string, klass: string, noOp: string, trimmingType: string,
+       height: string, width: string, trimmingOffset: string, body: string) {
     this.id = id;
     this.klass = klass;
+    this.noOp = noOp;
     this.trimmingType = trimmingType;
     this.height = height;
     this.width = width;
+    this.trimmingOffset = trimmingOffset;
 
     this.body = body;
   }
@@ -166,6 +171,36 @@ class CutBlockTag {
   }
 }
 
+class CoverApplicationParamsTag {
+  id: string;
+  klass: string;
+  noOp: string;
+  body: string;
+
+  constructor( id: string, klass: string, noOp: string, body: string ) {
+    this.id = id;
+    this.klass = klass;
+    this.noOp = noOp;
+
+    this.body = body;
+  }
+}
+
+class SpinePreparationParamsTag {
+  id: string;
+  klass: string;
+  millingDepth: string;
+  body: string;
+
+  constructor( id: string, klass: string, millingDepth: string, body: string ) {
+    this.id = id;
+    this.klass = klass;
+    this.millingDepth = millingDepth;
+
+    this.body = body;
+  }
+}
+
 
 declare var hljs: any;
 
@@ -188,6 +223,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   trimmingParamsTags: TrimmingParamsTag[] = [];
   foldingParamsTags: FoldingParamsTag[] = [];
   cuttingParamsTags: CuttingParamsTag[] = [];
+  coverApplicationParamsTags: CoverApplicationParamsTag[] = [];
+  spinePreparationParamsTags: SpinePreparationParamsTag[] = [];
 
   /*
   @ViewChild('code')
@@ -320,6 +357,8 @@ Directive作って引っ越してみる
         this.trimmingParamsTags = [];
         this.foldingParamsTags = [];
         this.cuttingParamsTags = [];
+        this.coverApplicationParamsTags = [];
+        this.spinePreparationParamsTags = [];
 
         // JDFタグ
         const jdfTags = dom.getElementsByTagName('JDF');
@@ -400,13 +439,15 @@ Directive作って引っ越してみる
           const j = trimmingParamsTags[i];
           const id = j.getAttribute('ID');
           const klass = j.getAttribute('Class');
+          const noOp = j.getAttribute('NoOp');
           const trimmingType = j.getAttribute('TrimmingType');
           const height = j.getAttribute('Height');
           const width = j.getAttribute('Width');
+          const trimmingOffset = j.getAttribute('TrimmingOffset');
 //          const body = j.outerHTML.toString();
           const body = vkbeautify.xml( j.outerHTML.toString() );
 
-          const trimmingParamsTag = new TrimmingParamsTag( id, klass, trimmingType, width, height, body );
+          const trimmingParamsTag = new TrimmingParamsTag( id, klass, noOp, trimmingType, width, height, trimmingOffset, body );
           this.trimmingParamsTags.push( trimmingParamsTag );
         }
 
@@ -437,13 +478,38 @@ Directive作って引っ越してみる
           const id = j.getAttribute('ID');
           const klass = j.getAttribute('Class');
           const cutBlocks: CutBlockTag[] = [];
-//          console.log('before: ' + j.outerHTML.toString());
-//          const body = j.outerHTML.toString();
           const body = vkbeautify.xml( j.outerHTML.toString() );
-//          console.log('after: ' + body);
 
           const cuttingParamsTag = new CuttingParamsTag( id, klass, cutBlocks, body );
           this.cuttingParamsTags.push( cuttingParamsTag );
+        }
+
+        // CoverApplicationParamsタグ
+        const coverApplicationParamsTags = dom.getElementsByTagName('CoverApplicationParams');
+        console.log('coverApplicationParamsTags.length: ' + coverApplicationParamsTags.length);
+        for (let i = 0; i < coverApplicationParamsTags.length; ++i ) {
+          const j = coverApplicationParamsTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const noOp = j.getAttribute('NoOp');
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+
+          const coverApplicationParamsTag = new CoverApplicationParamsTag( id, klass, noOp, body );
+          this.coverApplicationParamsTags.push( coverApplicationParamsTag );
+        }
+
+        // SpinePreparationParamsタグ
+        const spinePreparationParamsTags = dom.getElementsByTagName('SpinePreparationParams');
+        console.log('spinePreparationParamsTags.length: ' + spinePreparationParamsTags.length);
+        for (let i = 0; i < spinePreparationParamsTags.length; ++i ) {
+          const j = spinePreparationParamsTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const millingDepth = j.getAttribute('MillingDepth');
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+
+          const spinePreparationParamsTag = new SpinePreparationParamsTag( id, klass, millingDepth, body );
+          this.spinePreparationParamsTags.push( spinePreparationParamsTag );
         }
       }
 //      hljs.highlightBlock(this.codeElement.nativeElement);

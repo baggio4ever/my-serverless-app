@@ -1,5 +1,8 @@
 <div>
-  <input type="file" #fileInput (change)="onChanged(fileInput.value)" accept=".xml,.jdf,.jmf,.ts">
+  <input id="input-file-id" type="file" #fileInput (change)="onChanged(fileInput.value)" accept=".xml,.jdf,.jmf,.ts">
+<!--
+    <label for="input-file-id" class="mat-raised-button mat-primary">Choose JDF/JMF</label>
+-->
   <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">選択したファイルを読みん込んで表示</button>
 <!--
     <button mat-raised-button color="basic" (click)="yes2()" >もういっちょ</button>
@@ -132,17 +135,21 @@
     <tr>
       <th>ID</th>
       <th>Class</th>
+      <th>NoOp</th>
       <th>TrimmingType</th>
       <th>Width</th>
       <th>Height</th>
+      <th>TrimmingOffset</th>
       <th>body</th>
     </tr>
     <tr *ngFor="let t of trimmingParamsTags">
       <td>{{t.id}}</td>
       <td>{{t.klass}}</td>
+      <td>{{t.noOp}}</td>
       <td>{{t.trimmingType}}</td>
       <td>{{t.width}}</td>
       <td>{{t.height}}</td>
+      <td>{{t.trimmingOffset}}</td>
       <td>
         <pre>
           <code class="html" [textContent]="t.body" appMyHighlight></code>
@@ -187,6 +194,50 @@
     <tr *ngFor="let t of cuttingParamsTags">
       <td>{{t.id}}</td>
       <td>{{t.klass}}</td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="coverApplicationParamsTags.length>0">
+  CoverApplicationParams
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Class</th>
+      <th>NoOp</th>
+      <th>body</th>
+    </tr>
+    <tr *ngFor="let t of coverApplicationParamsTags">
+      <td>{{t.id}}</td>
+      <td>{{t.klass}}</td>
+      <td>{{t.noOp}}</td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="spinePreparationParamsTags.length>0">
+  SpinePreparationParams
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Class</th>
+      <th>MillingDepth</th>
+      <th>body</th>
+    </tr>
+    <tr *ngFor="let t of spinePreparationParamsTags">
+      <td>{{t.id}}</td>
+      <td>{{t.klass}}</td>
+      <td>{{t.millingDepth}}</td>
       <td>
         <pre>
           <code class="html" [textContent]="t.body" appMyHighlight></code>
