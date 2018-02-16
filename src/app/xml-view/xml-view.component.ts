@@ -318,6 +318,8 @@ Directive作って引っ越してみる
         this.deviceTags = [];
         this.stitchingParamsTags = [];
         this.trimmingParamsTags = [];
+        this.foldingParamsTags = [];
+        this.cuttingParamsTags = [];
 
         // JDFタグ
         const jdfTags = dom.getElementsByTagName('JDF');

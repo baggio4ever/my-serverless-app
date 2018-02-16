@@ -6,11 +6,13 @@
 -->
 </div>
 
-<pre>
-  <code #code class="html" [textContent]="xml" appMyHighlight></code>
-</pre>
+<div *ngIf="xml !== ''">
+  <pre>
+    <code class="html" [textContent]="xml" appMyHighlight></code>
+  </pre>
+</div>
 
-<div>
+<div *ngIf="jobTag !== null">
   Job
   <table>
     <tr>
@@ -28,7 +30,7 @@
   </table>
 </div>
 
-<div>
+<div *ngIf="processTags.length>0">
   Processes
   <table>
     <tr>
@@ -52,7 +54,7 @@
   </table>
 </div>
 
-<div>
+<div *ngIf="componentTags.length>0">
   Components
   <table>
     <tr>
@@ -76,7 +78,7 @@
   </table>
 </div>
 
-<div>
+<div *ngIf="deviceTags.length>0">
   Devices
   <table>
     <tr>
@@ -100,7 +102,7 @@
   </table>
 </div>
 
-<div>
+<div *ngIf="stitchingParamsTags.length>0">
   StitchingParams
   <table>
     <tr>
@@ -124,7 +126,7 @@
   </table>
 </div>
 
-<div>
+<div *ngIf="trimmingParamsTags.length>0">
   TrimmingParams
   <table>
     <tr>
@@ -150,7 +152,7 @@
   </table>
 </div>
 
-<div>
+<div *ngIf="foldingParamsTags.length>0">
   FoldingParams
   <table>
     <tr>
@@ -174,7 +176,7 @@
   </table>
 </div>
 
-<div>
+<div *ngIf="cuttingParamsTags.length>0">
   CuttingParams
   <table>
     <tr>
