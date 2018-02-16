@@ -127,3 +127,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [TypeScript早わかりチートシート【1.5.3対応】](https://www.buildinsider.net/language/quicktypescript/01)
 
 [isagalaev/highlight.js](https://github.com/isagalaev/highlight.js/tree/master/src/styles) highlight.js のテーマリポジトリ
+
+[Angular2 typescript - print pretty XML](https://stackoverflow.com/questions/42268268/angular2-typescript-print-pretty-xml)
+
+[vkbeautify](https://code.google.com/archive/p/vkbeautify/)
