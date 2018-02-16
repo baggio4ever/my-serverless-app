@@ -201,6 +201,16 @@ class SpinePreparationParamsTag {
   }
 }
 
+class LinkTag {
+  usage: string;
+  rRef: string;
+
+  constructor( usage: string, rRef: string ) {
+    this.usage = usage;
+    this.rRef = rRef;
+  }
+}
+
 
 declare var hljs: any;
 
