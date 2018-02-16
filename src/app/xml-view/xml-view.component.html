@@ -43,7 +43,11 @@
       <td>{{t.jobPartId}}</td>
       <td>{{t.type}}</td>
       <td>{{t.descriptiveName}}</td>
-      <td><code class="html" [textContent]="t.body" appMyHighlight></code></td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
     </tr>
   </table>
 </div>
@@ -63,7 +67,11 @@
       <td>{{t.componentType}}</td>
       <td>{{t.klass}}</td>
       <td>{{t.dimensions}}</td>
-      <td><code class="html" [textContent]="t.body" appMyHighlight></code></td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
     </tr>
   </table>
 </div>
@@ -83,7 +91,11 @@
       <td>{{t.klass}}</td>
       <td>{{t.deviceId}}</td>
       <td>{{t.friendlyName}}</td>
-      <td><code class="html" [textContent]="t.body" appMyHighlight></code></td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
     </tr>
   </table>
 </div>
@@ -103,7 +115,11 @@
       <td>{{t.klass}}</td>
       <td>{{t.numberOfStitches}}</td>
       <td>{{t.stapleShape}}</td>
-      <td><code class="html" [textContent]="t.body" appMyHighlight></code></td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
     </tr>
   </table>
 </div>
@@ -125,7 +141,35 @@
       <td>{{t.trimmingType}}</td>
       <td>{{t.width}}</td>
       <td>{{t.height}}</td>
-      <td><code class="html" [textContent]="t.body" appMyHighlight></code></td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  FoldingParams
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Class</th>
+      <th>DescriptionType</th>
+      <th>FoldCatalog</th>
+      <th>body</th>
+    </tr>
+    <tr *ngFor="let t of foldingParamsTags">
+      <td>{{t.id}}</td>
+      <td>{{t.klass}}</td>
+      <td>{{t.descriptionType}}</td>
+      <td>{{t.foldCatalog}}</td>
+      <td>
+        <pre>
+          <code class="html" [textContent]="t.body" appMyHighlight></code>
+        </pre>
+      </td>
     </tr>
   </table>
 </div>

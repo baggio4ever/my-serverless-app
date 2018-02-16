@@ -5,6 +5,9 @@ import {
   AfterViewInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy,
   ViewChild, ElementRef, SimpleChanges, SimpleChange } from '@angular/core';
 
+/*import * as format from 'xml-formatter';*/
+import * as vkbeautify from 'vkbeautify';
+
 
 class JdfTag {
   id: string;
@@ -96,6 +99,37 @@ class TrimmingParamsTag {
   }
 }
 
+class FoldingParamsTag {
+  id: string;
+  klass: string;
+  descriptionType: string;
+  foldCatalog: string;
+  folds: FoldTag[];
+  body: string;
+
+  constructor( id: string, klass: string, descriptionType: string, foldCatalog: string, folds: FoldTag[], body: string ) {
+    this.id = id;
+    this.klass = klass;
+    this.descriptionType = descriptionType;
+    this.foldCatalog = foldCatalog;
+    this.folds = folds;
+
+    this.body = body;
+  }
+}
+
+class FoldTag {
+  to: string;
+  from: string;
+  travel: string;
+
+  constructor( to: string, from: string, travel: string ) {
+    this.to = to;
+    this.from = from;
+    this.travel = travel;
+  }
+}
+
 
 declare var hljs: any;
 
@@ -108,7 +142,6 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   fileSelected = false;
-//  texts = [];
   xml = '';
 
   jobTag: JdfTag = null;
@@ -117,6 +150,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   deviceTags: DeviceTag[] = [];
   stitchingParamsTags: StitchingParamsTag[] = [];
   trimmingParamsTags: TrimmingParamsTag[] = [];
+  foldingParamsTags: FoldingParamsTag[] = [];
 
   /*
   @ViewChild('code')
@@ -202,7 +236,7 @@ Directive作って引っ越してみる
 
       // エスケープ。angularにも備わっているみたいだけど。これやらないと表示されない。
       //      this.xml = this.escapeHTML( c );
-      this.xml = c;  // お、innerHTMLにバインドしようとするとエスケープが必要だったが、textContentだとエスケープ不要みたい
+      this.xml = vkbeautify.xml( c );  // お、innerHTMLにバインドしようとするとエスケープが必要だったが、textContentだとエスケープ不要みたい
 /*      this.xml = c.replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -239,10 +273,6 @@ Directive作って引っ越してみる
         const parser = new DOMParser();
         const dom = parser.parseFromString( c, 'text/xml');
 
-//        const title = dom.getElementById('doc-title').textContent;
-
-//        console.log('title:' + title);
-
         // 初期化
         this.jobTag = null;
         this.processTags = [];
@@ -262,7 +292,8 @@ Directive作って引っ越してみる
           const dn = j.getAttribute('DescriptiveName');
           const jobId = j.getAttribute('JobID');
           const jobPartId = j.getAttribute('JobPartID');
-          const body = j.outerHTML.toString();
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+//          const body = j.outerHTML.toString();
 //          console.log(j);
 //          this.texts.push( jdfTags[i].innerHTML );
 //            this.texts.push( jdfTags[i].innerHTML );
@@ -284,7 +315,8 @@ Directive作って引っ越してみる
           const componentType = j.getAttribute('ComponentType');
           const klass = j.getAttribute('Class');
           const dimensions = j.getAttribute('Dimensions');
-          const body = j.outerHTML.toString();
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+//          const body = j.outerHTML.toString();
 
           const componentTag = new ComponentTag( id, componentType, klass, dimensions, body );
           this.componentTags.push( componentTag );
@@ -299,7 +331,8 @@ Directive作って引っ越してみる
           const klass = j.getAttribute('Class');
           const deviceId = j.getAttribute('DeviceID');
           const friendlyName = j.getAttribute('FriendlyName');
-          const body = j.outerHTML.toString();
+//          const body = j.outerHTML.toString();
+          const body = vkbeautify.xml( j.outerHTML.toString() );
 
           const deviceTag = new DeviceTag( id, klass, deviceId, friendlyName, body );
           this.deviceTags.push( deviceTag );
@@ -314,7 +347,8 @@ Directive作って引っ越してみる
           const klass = j.getAttribute('Class');
           const numberOfStitches = j.getAttribute('NumberOfStitches');
           const stapleShape = j.getAttribute('StapleShape');
-          const body = j.outerHTML.toString();
+//          const body = j.outerHTML.toString();
+          const body = vkbeautify.xml( j.outerHTML.toString() );
 
           const stitchingParamsTag = new StitchingParamsTag( id, klass, numberOfStitches, stapleShape, body );
           this.stitchingParamsTags.push( stitchingParamsTag );
@@ -330,10 +364,30 @@ Directive作って引っ越してみる
           const trimmingType = j.getAttribute('TrimmingType');
           const height = j.getAttribute('Height');
           const width = j.getAttribute('Width');
-          const body = j.outerHTML.toString();
+//          const body = j.outerHTML.toString();
+          const body = vkbeautify.xml( j.outerHTML.toString() );
 
           const trimmingParamsTag = new TrimmingParamsTag( id, klass, trimmingType, width, height, body );
           this.trimmingParamsTags.push( trimmingParamsTag );
+        }
+
+        // FoldingParamsタグ
+        const foldingParamsTags = dom.getElementsByTagName('FoldingParams');
+        console.log('foldingParamsTags.length: ' + foldingParamsTags.length);
+        for (let i = 0; i < foldingParamsTags.length; ++i ) {
+          const j = foldingParamsTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const descriptionType = j.getAttribute('DescriptionType');
+          const foldCatalog = j.getAttribute('FoldCatalog');
+          const folds: FoldTag[] = [];
+//          console.log('before: ' + j.outerHTML.toString());
+//          const body = j.outerHTML.toString();
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+//          console.log('after: ' + body);
+
+          const foldingParamsTag = new FoldingParamsTag( id, klass, descriptionType, foldCatalog, folds, body );
+          this.foldingParamsTags.push( foldingParamsTag );
         }
       }
 //      hljs.highlightBlock(this.codeElement.nativeElement);
