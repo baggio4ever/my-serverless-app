@@ -130,6 +130,42 @@ class FoldTag {
   }
 }
 
+class CuttingParamsTag {
+  id: string;
+  klass: string;
+  cutBlocks: CutBlockTag[];
+  body: string;
+
+  constructor( id: string, klass: string, cutBlocks: CutBlockTag[], body: string ) {
+    this.id = id;
+    this.klass = klass;
+    this.cutBlocks = cutBlocks;
+
+    this.body = body;
+  }
+}
+
+class CutBlockTag {
+  id: string;
+  klass: string;
+  blockType: string;
+  blockName: string;
+  blockSize: string;
+  blockTrf: string;
+  body: string;
+
+  constructor( id: string, klass: string, blockType: string, blockName: string, blockSize: string, blockTrf: string, body: string ) {
+    this.id = id;
+    this.klass = klass;
+    this.blockType = blockType;
+    this.blockName = blockName;
+    this.blockSize = blockSize;
+    this.blockTrf = blockTrf;
+
+    this.body = body;
+  }
+}
+
 
 declare var hljs: any;
 
@@ -151,6 +187,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   stitchingParamsTags: StitchingParamsTag[] = [];
   trimmingParamsTags: TrimmingParamsTag[] = [];
   foldingParamsTags: FoldingParamsTag[] = [];
+  cuttingParamsTags: CuttingParamsTag[] = [];
 
   /*
   @ViewChild('code')
@@ -388,6 +425,23 @@ Directive作って引っ越してみる
 
           const foldingParamsTag = new FoldingParamsTag( id, klass, descriptionType, foldCatalog, folds, body );
           this.foldingParamsTags.push( foldingParamsTag );
+        }
+
+        // CuttingParamsタグ
+        const cuttingParamsTags = dom.getElementsByTagName('CuttingParams');
+        console.log('cuttingParamsTags.length: ' + cuttingParamsTags.length);
+        for (let i = 0; i < cuttingParamsTags.length; ++i ) {
+          const j = cuttingParamsTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const cutBlocks: CutBlockTag[] = [];
+//          console.log('before: ' + j.outerHTML.toString());
+//          const body = j.outerHTML.toString();
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+//          console.log('after: ' + body);
+
+          const cuttingParamsTag = new CuttingParamsTag( id, klass, cutBlocks, body );
+          this.cuttingParamsTags.push( cuttingParamsTag );
         }
       }
 //      hljs.highlightBlock(this.codeElement.nativeElement);
