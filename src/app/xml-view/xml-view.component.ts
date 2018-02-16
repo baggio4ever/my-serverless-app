@@ -301,7 +301,6 @@ Directive作って引っ越してみる
     const fileName: string = fileVal.name;
     const reader = new FileReader();
 
-//    this.texts = [];
     console.log(fileVal);
     console.log( 'typeof(fileVal.name):' + typeof(fileVal.name));
 
@@ -328,7 +327,7 @@ Directive作って引っ越してみる
                   &lt;/body&gt;
                 &lt;/html&gt;`;
 */
-      console.log('xml:' + this.xml);
+//      console.log('xml:' + this.xml);
 
       let passed = false;
       if ( fileName.toLowerCase().endsWith('jdf') ) {
@@ -372,10 +371,6 @@ Directive作って引っ越してみる
           const jobPartId = j.getAttribute('JobPartID');
           const body = vkbeautify.xml( j.outerHTML.toString() );
 //          const body = j.outerHTML.toString();
-//          console.log(j);
-//          this.texts.push( jdfTags[i].innerHTML );
-//            this.texts.push( jdfTags[i].innerHTML );
-//          this.texts.push('ID = ' + id + ',Type = ' + type + ',DescriptiveName = ' + dn );
           const jdfTag = new JdfTag( id, type, dn, jobId, jobPartId, body );
           if ( j.parentElement === null /* type === 'ProcessGroup'*/ ) {
             this.jobTag = jdfTag;
@@ -461,10 +456,8 @@ Directive作って引っ越してみる
           const descriptionType = j.getAttribute('DescriptionType');
           const foldCatalog = j.getAttribute('FoldCatalog');
           const folds: FoldTag[] = [];
-//          console.log('before: ' + j.outerHTML.toString());
 //          const body = j.outerHTML.toString();
           const body = vkbeautify.xml( j.outerHTML.toString() );
-//          console.log('after: ' + body);
 
           const foldingParamsTag = new FoldingParamsTag( id, klass, descriptionType, foldCatalog, folds, body );
           this.foldingParamsTags.push( foldingParamsTag );
@@ -512,29 +505,9 @@ Directive作って引っ越してみる
           this.spinePreparationParamsTags.push( spinePreparationParamsTag );
         }
       }
-//      hljs.highlightBlock(this.codeElement.nativeElement);
-/*
-      const parser = new DOMParser();
-      const dom = parser.parseFromString(xml, 'text/xml');
+    };
 
-      const title = dom.getElementById('doc-title').textContent;
-
-      console.log('title:' + title);
-
-      const paragraphs = dom.getElementsByTagName('paragraph');
-      for(let i = 0; i < paragraphs.length; ++i ){
-        this.texts.push( paragraphs[i].innerHTML );
-      }
-*/
-       };
     reader.readAsText(file);
     console.log('yes()');
   }
-
-/*
-  yes2() {
-    hljs.highlightBlock(this.codeElement.nativeElement);
-    console.log('yes2()');
-  }
-*/
 }
