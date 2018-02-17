@@ -211,6 +211,144 @@ class LinkTag {
   }
 }
 
+// JMF
+class JMF {
+  senderId: string;
+  timeStamp: string;
+  queryTags: QueryTag[] = [];
+  body: string;
+
+  constructor( senderId: string, timeStamp: string, queryTags: QueryTag[], body: string ) {
+    this.senderId = senderId;
+    this.timeStamp = timeStamp;
+    this.queryTags = queryTags
+
+    this.body = body;
+  }
+}
+
+
+class QueryTag {
+  id: string;
+  type: string;
+  statusQuParamsTags: StatusQuParamsTag[] = [];
+  body: string;
+
+  constructor( id: string, type: string, statusQuParamsTags: StatusQuParamsTag[], body: string ) {
+    this.id = id;
+    this.type = type;
+    this.statusQuParamsTags = statusQuParamsTags;
+
+    this.body = body;
+  }
+}
+
+class StatusQuParamsTag {
+  deviceDetails: string;
+  body: string;
+
+  constructor( deviceDetails: string, body: string ) {
+    this.deviceDetails = deviceDetails;
+
+    this.body = body;
+  }
+}
+
+class SignalTag {
+  id: string;
+  type: string;
+  deviceInfoTags: DeviceInfoTag[] = [];
+  body: string;
+
+  constructor( id: string, type: string, deviceInfoTags: DeviceInfoTag[], body: string ) {
+    this.id = id;
+    this.type = type;
+    this.deviceInfoTags = deviceInfoTags;
+
+    this.body = body;
+  }
+}
+
+class DeviceInfoTag {
+  deviceStatus: string;
+  deviceTag: DeviceTag;
+  jobPhaseTags: JobPhaseTag[] = [];
+  body: string;
+
+  constructor( deviceStatus: string, deviceTag: DeviceTag, jobPhaseTags: JobPhaseTag[], body: string ) {
+    this.deviceStatus = deviceStatus;
+    this.deviceTag = deviceTag;
+    this.jobPhaseTags = jobPhaseTags;
+
+    this.body = body;
+  }
+}
+
+/*
+class DeviceTag {  <- JDFのやつと一緒なのかな
+	klass: string;
+	deviceId: string;
+}
+*/
+
+class JobPhaseTag {
+  status: string;
+  jobPartId: string;
+  jobId: string;
+  startTime: string;
+  totalAmount: string;
+  amount: string;
+  waste: string;
+  body: string;
+
+  constructor( status: string, jobParId: string, jobId: string, startTime: string,
+       totalAmount: string, amount: string, waste: string, body: string ) {
+    this.status = status;
+    this.jobPartId = jobParId;
+    this.jobId = jobId;
+    this.startTime = startTime;
+    this.totalAmount = totalAmount;
+    this.amount = amount;
+    this.waste = waste;
+
+    this.body = body;
+  }
+}
+
+
+class JDFUtils {
+  private constructor() {}
+
+  static getWidth( dimensions: string ): string {
+    return '';
+  }
+  static getLength( dimensions: string ): string {
+    return '';
+  }
+  static getThickness( dimensions: string ): string {
+    return '';
+  }
+
+  static pt2mm( v: number ): number {
+    return 0;
+  }
+
+  static pt2inch( v: number ): number {
+    return 0;
+  }
+
+  static mm2inch( v: number ): number {
+    return 0;
+  }
+
+  static inch2mm( v: number ): number {
+    return 0;
+  }
+}
+
+
+
+
 
 declare var hljs: any;
 
