@@ -374,10 +374,6 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   coverApplicationParamsTags: CoverApplicationParamsTag[] = [];
   spinePreparationParamsTags: SpinePreparationParamsTag[] = [];
 
-  /*
-  @ViewChild('code')
-  codeElement: ElementRef;
-  */
   constructor() { }
 
   ngOnChanges( changes: SimpleChanges ) {
@@ -415,14 +411,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
   ngAfterViewChecked() {
     console.log('AfterViewChecked');
-/*
-Directive作って引っ越してみる
-
-    // ここなら効く感じ
-    hljs.highlightBlock(this.codeElement.nativeElement);
-    console.log('highlightBlock()');
-  */
-   }
+  }
 
   ngOnDestroy() {
     console.log('OnDestroy');

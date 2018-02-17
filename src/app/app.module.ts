@@ -19,6 +19,7 @@ import { MatMomentDateModule, MomentDateAdapter } from '@angular/material-moment
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -64,6 +65,7 @@ import { MyHighlightDirective } from './my-highlight.directive';
     MatTableModule,
     MatToolbarModule,
 //    HighlightJsModule
+    MatExpansionModule
   ],
   providers: [ AppService ],  // 作成したサービスを登録
   bootstrap: [AppComponent]

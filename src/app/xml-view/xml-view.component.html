@@ -13,7 +13,44 @@
 </div>
 
 <div *ngIf="jobTag !== null">
-  Job
+  <h3>Job</h3>
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{jobTag.descriptiveName}}</mat-card-title>
+        <mat-card-subtitle>{{jobTag.jobId}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{jobTag.id}}</td>
+          </tr>
+          <tr>
+            <td>JobID</td>
+            <td>{{jobTag.jobId}}</td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>{{jobTag.type}}</td>
+          </tr>
+          <tr>
+            <td>DescriptiveName</td>
+            <td>{{jobTag.descriptiveName}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>XML</mat-panel-title>
+            <mat-panel-description>ほんとはこんな感じ</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="jobTag.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
   <table>
     <tr>
       <th>ID</th>

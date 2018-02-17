@@ -104,6 +104,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [Angular2のクロスドメインアクセスの問題対応](http://www.ifelse.jp/blog/angular-tips-01) なんか詳しく書いてある。途中で挫折。
 
+#### XMLやプログラムコードを色付け
+
 [ソースコードをハイライトする軽量ライブラリ、Highlight.jsの使い方](https://syncer.jp/how-to-use-highlightjs)
 
 [highlight.js - Syntax highlighting for the Web](https://highlightjs.org/)
@@ -117,6 +119,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [highlight.js does not work with Angular 2](https://stackoverflow.com/questions/37307943/highlight-js-does-not-work-with-angular-2) ごりごりangularとhighlight.js使うははこれ。☆☆☆  ここのAnswerめちゃ参考になった。
 
+[isagalaev/highlight.js](https://github.com/isagalaev/highlight.js/tree/master/src/styles) highlight.js のテーマリポジトリ
+
+
 [how to escape xml entities in javascript?](https://stackoverflow.com/questions/7918868/how-to-escape-xml-entities-in-javascript)
 これで完璧なのかしら？
 
@@ -126,8 +131,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [TypeScript早わかりチートシート【1.5.3対応】](https://www.buildinsider.net/language/quicktypescript/01)
 
-[isagalaev/highlight.js](https://github.com/isagalaev/highlight.js/tree/master/src/styles) highlight.js のテーマリポジトリ
 
+
+#### XMLを整形
 [Angular2 typescript - print pretty XML](https://stackoverflow.com/questions/42268268/angular2-typescript-print-pretty-xml)
 
 [vkbeautify](https://code.google.com/archive/p/vkbeautify/)
+
+#### ヘッダー、フッターを固定する
+
+[CSSでヘッダーとフッターを固定して表示する方法](http://proengineer.internous.co.jp/content/columnfeature/6491) これから試す
+
+[CSSでヘッダーとフッターを常に固定する](http://webnonotes.com/css/header_footer/) これから試す
