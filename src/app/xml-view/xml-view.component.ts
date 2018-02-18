@@ -5,7 +5,6 @@ import {
   AfterViewInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy,
   ViewChild, ElementRef, SimpleChanges, SimpleChange } from '@angular/core';
 
-/*import * as format from 'xml-formatter';*/
 import * as vkbeautify from 'vkbeautify';
 
 
@@ -405,8 +404,6 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
   ngAfterViewInit() {
     console.log('AfterViewInit');
-
-//    hljs.highlightBlock(this.codeElement.nativeElement);
   }
 
   ngAfterViewChecked() {
@@ -645,6 +642,6 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     };
 
     reader.readAsText(file);
-    console.log('yes()');
+//    console.log('yes()');
   }
 }

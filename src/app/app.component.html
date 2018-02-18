@@ -9,42 +9,9 @@
         <a routerLink="/cards" routerLinkActive="active">Cards</a>
         <a routerLink="/history" routerLinkActive="active">History</a>
         <a routerLink="/xml" routerLinkActive="active">XML</a>
-        <a routerLink="/logo" routerLinkActive="active">BigLogo</a>
+        <a routerLink="/logo" routerLinkActive="active">Logo</a>
     </nav>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
-
-<!--
-
-<div>
-  <form>
-  <mat-form-field>
-    <input matInput placeholder="user id" [(ngModel)]="user_id" name="user_id" required>
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput placeholder="message" matTextareaAutosize matAutosizeMinRows="1"
-    matAutosizeMaxRows="5" [(ngModel)]="message" name="message" required></textarea>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" (click)="onSendLog()" [disabled]="!canSendLog()">送信！</button>  
-  </form>
-</div>
-
-<p>
-<button mat-raised-button color="primary" (click)="onClicked()">押してみな</button>
-<button mat-raised-button color="warn"(click)="onClickedNow()">ところで今何時？</button>
-<button mat-raised-button color="accent" (click)="onClearArray()">リストクリア</button>
-</p>
-<p>
-<mat-list>
-  <h3 mat-subheader>Texts</h3>
-  <mat-list-item *ngFor="let t of texts">
-    <mat-icon mat-list-icon>folder</mat-icon>
-    {{t}}
-  </mat-list-item>
-</mat-list>
-</p>
-
--->
