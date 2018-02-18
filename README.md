@@ -143,3 +143,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 [CSSでヘッダーとフッターを固定して表示する方法](http://proengineer.internous.co.jp/content/columnfeature/6491) これから試す
 
 [CSSでヘッダーとフッターを常に固定する](http://webnonotes.com/css/header_footer/) これから試す
+
+[スクロールしたらヘッダーの一部だけ固定する](http://chibinowa.net/note/js/fixedheader.html) 気になる、良さげ。CSS駆使している感
+
+[ヘッダーとフッターのHTML固定方法とデザインまとめ](https://seolaboratory.jp/internal/2016091244065.php)
+
+
+#### スクロールバー
+
+[テーブル・セルにスクロールバーをつける](http://kowaza.boo.jp/03table/table-07-0scroll.html)
+
+[スクロールさせる領域だけどスクロールバーは非表示にしたい。](https://qiita.com/naru0504/items/ff0c77775223dc5a9148)
+

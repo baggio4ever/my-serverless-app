@@ -1,3 +1,20 @@
-<p>
-  scroll-view works!
-</p>
+<div id="header" class="demo1" [class.fixed]="flag">
+    <div class="header_top">
+        <h1>DEMO</h1>
+    </div>
+    <div class="fixheader">
+        <ul class="topmenu">
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="content bg">
+  <div class="content-body">
+    <ol>
+    <li *ngFor="let t of texts">{{t}}</li>
+    </ol>
+  </div>
+</div>
