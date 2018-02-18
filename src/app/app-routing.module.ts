@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HistoryComponent } from './history/history.component';
 import { FileSendComponent } from './file-send/file-send.component';
+import { ScrollViewComponent } from './scroll-view/scroll-view.component';
 
 const routes: Routes = [
 /*  S3のWeb公開機能を使う場合は、コレダメ？
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'history', component: HistoryComponent },
   { path: 'file-send', component: FileSendComponent },
   { path: 'simple-send', component: SimpleSendComponent },
+  { path: 'scroll', component: ScrollViewComponent },
   { path: 'xml', component: XmlViewComponent }
 ];
 

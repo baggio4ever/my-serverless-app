@@ -30,6 +30,7 @@ import { FileSendComponent } from './file-send/file-send.component';
 import { SimpleSendComponent } from './simple-send/simple-send.component';
 import { XmlViewComponent } from './xml-view/xml-view.component';
 import { MyHighlightDirective } from './my-highlight.directive';
+import { ScrollViewComponent } from './scroll-view/scroll-view.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MyHighlightDirective } from './my-highlight.directive';
     FileSendComponent,
     SimpleSendComponent,
     XmlViewComponent,
-    MyHighlightDirective
+    MyHighlightDirective,
+    ScrollViewComponent
   ],
   imports: [
     BrowserModule,
