@@ -6,7 +6,7 @@
   <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">選択したファイルを読みん込んで表示</button>
 </div>
 
-<div *ngIf="xml !== ''">
+<div *ngIf="xml !== ''" hidden="true">
   <pre>
     <code class="html" [textContent]="xml" appMyHighlight></code>
   </pre>
@@ -70,7 +70,7 @@
 </div>
 
 <div *ngIf="processTags.length>0">
-  Processes
+  <h3>Processes</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of processTags">
       <mat-card-header>
@@ -133,7 +133,7 @@
 </div>
 
 <div *ngIf="componentTags.length>0">
-  Components
+  <h3>Components</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of componentTags">
       <mat-card-header>
@@ -196,7 +196,7 @@
 </div>
 
 <div *ngIf="deviceTags.length>0">
-  Devices
+  <h3>Devices</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of deviceTags">
       <mat-card-header>
@@ -259,7 +259,7 @@
 </div>
 
 <div *ngIf="stitchingParamsTags.length>0">
-  StitchingParams
+  <h3>StitchingParams</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of stitchingParamsTags">
       <mat-card-header>
@@ -322,7 +322,7 @@
 </div>
 
 <div *ngIf="trimmingParamsTags.length>0">
-  TrimmingParams
+  <h3>TrimmingParams</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of trimmingParamsTags">
       <mat-card-header>
@@ -399,7 +399,7 @@
 </div>
 
 <div *ngIf="foldingParamsTags.length>0">
-  FoldingParams
+  <h3>FoldingParams</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of foldingParamsTags">
       <mat-card-header>
@@ -462,7 +462,7 @@
 </div>
 
 <div *ngIf="cuttingParamsTags.length>0">
-  CuttingParams
+  <h3>CuttingParams</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of cuttingParamsTags">
       <mat-card-header>
@@ -513,7 +513,7 @@
 </div>
 
 <div *ngIf="coverApplicationParamsTags.length>0">
-  CoverApplicationParams
+  <h3>CoverApplicationParams</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of coverApplicationParamsTags">
       <mat-card-header>
@@ -570,7 +570,7 @@
 </div>
 
 <div *ngIf="spinePreparationParamsTags.length>0">
-  SpinePreparationParams
+  <h3>SpinePreparationParams</h3>
   <div>
     <mat-card class="example-card" *ngFor="let t of spinePreparationParamsTags">
       <mat-card-header>
