@@ -425,6 +425,23 @@
             <td>{{t.foldCatalog}}</td>
           </tr>
         </table>
+        <mat-expansion-panel *ngIf="t.folds.length>0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Fold</mat-panel-title>
+          </mat-expansion-panel-header>
+          <table>
+            <tr>
+              <th>To</th>
+              <th>From</th>
+              <th>Travel</th>
+            </tr>
+            <tr *ngFor="let f of t.folds">
+              <td>{{f.to}}</td>
+              <td>{{f.from}}</td>
+              <td>{{f.travel}}</td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title></mat-panel-title>
@@ -480,6 +497,29 @@
             <td>{{t.klass}}</td>
           </tr>
         </table>
+        <mat-expansion-panel *ngIf="t.cutBlocks.length>0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>CutBlock</mat-panel-title>
+          </mat-expansion-panel-header>
+          <table>
+            <tr>
+              <th>ID</th>
+              <th>Class</th>
+              <th>BlockType</th>
+              <th>BlockName</th>
+              <th>BlockSize</th>
+              <th>BlockTrf</th>
+            </tr>
+            <tr *ngFor="let f of t.cutBlocks">
+              <td>{{f.id}}</td>
+              <td>{{f.klass}}</td>
+              <td>{{f.blockType}}</td>
+              <td>{{f.blockName}}</td>
+              <td>{{f.blockSize}}</td>
+              <td>{{f.blockTrf}}</td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title></mat-panel-title>

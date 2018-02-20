@@ -151,7 +151,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 #### スクロールバー
 
-[テーブル・セルにスクロールバーをつける](http://kowaza.boo.jp/03table/table-07-0scroll.html)
+[テーブル・セルにスクロールバーをつける](http://kowaza.boo.jp/03table/table-07-0scroll.html)
 
-[スクロールさせる領域だけどスクロールバーは非表示にしたい。](https://qiita.com/naru0504/items/ff0c77775223dc5a9148)
+[スクロールさせる領域だけどスクロールバーは非表示にしたい。](https://qiita.com/naru0504/items/ff0c77775223dc5a9148)
 
+
+
+[要素の属性を全部取得する](http://hokaccha.hatenablog.com/entry/20130819/1376895914)
