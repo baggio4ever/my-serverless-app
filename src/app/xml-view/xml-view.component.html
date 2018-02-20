@@ -536,6 +536,53 @@
             </mat-table>
           </div>
 
+          <div class="example-container mat-elevation-z8">
+            <mat-table #table2 [dataSource]="t.cutBlocks">
+          
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+              </ng-container>
+          
+              <!-- Class Column -->
+              <ng-container matColumnDef="class">
+                <mat-header-cell *matHeaderCellDef> Class </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.klass}} </mat-cell>
+              </ng-container>
+          
+              <!-- BlockType Column -->
+              <ng-container matColumnDef="blockType">
+                <mat-header-cell *matHeaderCellDef> BlockType </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.blockType}} </mat-cell>
+              </ng-container>
+          
+              <!-- BlockName Column -->
+              <ng-container matColumnDef="blockName">
+                <mat-header-cell *matHeaderCellDef> BlockName </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.blockName}} </mat-cell>
+              </ng-container>
+
+              <!-- BlockSize Column -->
+              <ng-container matColumnDef="blockSize">
+                <mat-header-cell *matHeaderCellDef> BlockSize </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.blockSize}} </mat-cell>
+              </ng-container>
+
+              <!-- BlockTrf Column -->
+              <ng-container matColumnDef="blockTrf">
+                <mat-header-cell *matHeaderCellDef> BlockTrf </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.blockTrf}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
+            </mat-table>
+          </div>
+
           <table>
             <tr>
               <th>ID</th>

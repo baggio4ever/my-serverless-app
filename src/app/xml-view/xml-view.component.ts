@@ -400,6 +400,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   spinePreparationParamsTags: SpinePreparationParamsTag[] = [];
 
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns2 = ['id', 'class', 'blockType', 'blockName', 'blockSize', 'blockTrf'];
   dataSource = ELEMENT_DATA;
 
   constructor() { }
