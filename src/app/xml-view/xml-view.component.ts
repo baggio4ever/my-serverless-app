@@ -220,7 +220,7 @@ class JMF {
   constructor( senderId: string, timeStamp: string, queryTags: QueryTag[], body: string ) {
     this.senderId = senderId;
     this.timeStamp = timeStamp;
-    this.queryTags = queryTags
+    this.queryTags = queryTags;
 
     this.body = body;
   }
@@ -349,7 +349,7 @@ class JDFUtils {
 
 
 
-declare var hljs: any;
+// declare var hljs: any;
 
 @Component({
   selector: 'app-xml-view',

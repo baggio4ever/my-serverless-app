@@ -51,7 +51,8 @@
       </mat-card-content>
     </mat-card>
   </div>
-  <table>
+<!--
+    <table>
     <tr>
       <th>ID</th>
       <th>JobID</th>
@@ -65,10 +66,49 @@
       <td>{{jobTag.descriptiveName}}</td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="processTags.length>0">
   Processes
+  <div>
+    <mat-card class="example-card" *ngFor="let t of processTags">
+      <mat-card-header>
+        <mat-card-title>{{t.descriptiveName}}</mat-card-title>
+        <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>JobPartID</td>
+            <td>{{t.jobPartId}}</td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>{{t.type}}</td>
+          </tr>
+          <tr>
+            <td>DescriptiveName</td>
+            <td>{{t.descriptiveName}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -89,10 +129,49 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="componentTags.length>0">
   Components
+  <div>
+    <mat-card class="example-card" *ngFor="let t of componentTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.componentType}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>ComponentType</td>
+            <td>{{t.componentType}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+          <tr>
+            <td>Dimensions</td>
+            <td>{{t.dimensions}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -113,11 +192,50 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="deviceTags.length>0">
   Devices
-  <table>
+  <div>
+    <mat-card class="example-card" *ngFor="let t of deviceTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.friendlyName}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+          <tr>
+            <td>DeviceID</td>
+            <td>{{t.deviceId}}</td>
+          </tr>
+          <tr>
+            <td>FriendlyName</td>
+            <td>{{t.friendlyName}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
+    <table>
     <tr>
       <th>ID</th>
       <th>Class</th>
@@ -137,10 +255,49 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="stitchingParamsTags.length>0">
   StitchingParams
+  <div>
+    <mat-card class="example-card" *ngFor="let t of stitchingParamsTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+          <tr>
+            <td>NumberOfStitches</td>
+            <td>{{t.numberOfStitches}}</td>
+          </tr>
+          <tr>
+            <td>StapleShape</td>
+            <td>{{t.stapleShape}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -161,10 +318,57 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="trimmingParamsTags.length>0">
   TrimmingParams
+  <div>
+    <mat-card class="example-card" *ngFor="let t of trimmingParamsTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+          <tr>
+            <td>NoOp</td>
+            <td>{{t.noOp}}</td>
+          </tr>
+          <tr>
+            <td>TrimmingType</td>
+            <td>{{t.trimmingType}}</td>
+          </tr>
+          <tr>
+            <td>Width</td>
+            <td>{{t.width}}</td>
+          </tr>
+          <tr>
+            <td>Height</td>
+            <td>{{t.height}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -191,10 +395,49 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="foldingParamsTags.length>0">
   FoldingParams
+  <div>
+    <mat-card class="example-card" *ngFor="let t of foldingParamsTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+          <tr>
+            <td>DescriptionType</td>
+            <td>{{t.descriptionType}}</td>
+          </tr>
+          <tr>
+            <td>FoldCatalog</td>
+            <td>{{t.foldCatalog}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -215,10 +458,41 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="cuttingParamsTags.length>0">
   CuttingParams
+  <div>
+    <mat-card class="example-card" *ngFor="let t of cuttingParamsTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -235,10 +509,45 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="coverApplicationParamsTags.length>0">
   CoverApplicationParams
+  <div>
+    <mat-card class="example-card" *ngFor="let t of coverApplicationParamsTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+          <tr>
+            <td>NoOp</td>
+            <td>{{t.noOp}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -257,10 +566,45 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <div *ngIf="spinePreparationParamsTags.length>0">
   SpinePreparationParams
+  <div>
+    <mat-card class="example-card" *ngFor="let t of spinePreparationParamsTags">
+      <mat-card-header>
+        <mat-card-title>{{t.id}}</mat-card-title>
+        <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>{{t.id}}</td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td>{{t.klass}}</td>
+          </tr>
+          <tr>
+            <td>MillingDepth</td>
+            <td>{{t.millingDepth}}</td>
+          </tr>
+        </table>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>JDF該当部分</mat-panel-description>
+          </mat-expansion-panel-header>
+          <pre>
+            <code class="html" [textContent]="t.body" appMyHighlight></code>
+          </pre>
+        </mat-expansion-panel>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--
   <table>
     <tr>
       <th>ID</th>
@@ -279,6 +623,7 @@
       </td>
     </tr>
   </table>
+-->
 </div>
 
 <!--
