@@ -493,26 +493,6 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         this.coverApplicationParamsTags = [];
         this.spinePreparationParamsTags = [];
 
-        // JDFタグ
-        const jdfTags = dom.getElementsByTagName('JDF');
-        console.log('jdfTags.length: ' + jdfTags.length);
-        for (let i = 0; i < jdfTags.length; ++i ) {
-          const j = jdfTags[i];
-          const id = j.getAttribute('ID');
-          const type = j.getAttribute('Type');
-          const dn = j.getAttribute('DescriptiveName');
-          const jobId = j.getAttribute('JobID');
-          const jobPartId = j.getAttribute('JobPartID');
-          const body = vkbeautify.xml( j.outerHTML.toString() );
-//          const body = j.outerHTML.toString();
-          const jdfTag = new JdfTag( id, type, dn, jobId, jobPartId, body );
-          if ( j.parentElement === null /* type === 'ProcessGroup'*/ ) {
-            this.jobTag = jdfTag;
-          } else {
-            this.processTags.push( jdfTag );
-          }
-        }
-
         // Componentタグ
         const componentTags = dom.getElementsByTagName('Component');
         console.log('componentTags.length: ' + componentTags.length);
@@ -593,6 +573,15 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 //          const body = j.outerHTML.toString();
           const body = vkbeautify.xml( j.outerHTML.toString() );
 
+          const fBlocks = j.getElementsByTagName('Fold');
+          for ( let ff = 0; ff < fBlocks.length; ++ ff ) {
+            const x = fBlocks[ff];
+            const x_to = x.getAttribute('To');
+            const x_from = x.getAttribute('From');
+            const x_travel = x.getAttribute('Travel');
+            const ft = new FoldTag(x_to, x_from, x_travel);
+            folds.push( ft );
+          }
           const foldingParamsTag = new FoldingParamsTag( id, klass, descriptionType, foldCatalog, folds, body );
           this.foldingParamsTags.push( foldingParamsTag );
         }
@@ -606,6 +595,20 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           const klass = j.getAttribute('Class');
           const cutBlocks: CutBlockTag[] = [];
           const body = vkbeautify.xml( j.outerHTML.toString() );
+
+          const cBlocks = j.getElementsByTagName('CutBlock');
+          for ( let cc = 0; cc < cBlocks.length; ++ cc ) {
+            const x = cBlocks[cc];
+            const x_id = x.getAttribute('ID');
+            const x_class = x.getAttribute('Class');
+            const x_blockType = x.getAttribute('BlockType');
+            const x_blockName = x.getAttribute('BlockName');
+            const X_blockSize = x.getAttribute('BlockSize');
+            const x_blockTrf = x.getAttribute('BlockTrf');
+            const cbt = new CutBlockTag(x_id, x_class, x_blockType, x_blockName, X_blockSize, x_blockTrf,
+                 vkbeautify.xml(x.outerHTML.toString()));
+            cutBlocks.push(cbt);
+          }
 
           const cuttingParamsTag = new CuttingParamsTag( id, klass, cutBlocks, body );
           this.cuttingParamsTags.push( cuttingParamsTag );
@@ -637,6 +640,26 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
           const spinePreparationParamsTag = new SpinePreparationParamsTag( id, klass, millingDepth, body );
           this.spinePreparationParamsTags.push( spinePreparationParamsTag );
+        }
+
+        // JDFタグ  最後が良い、多分。参照したいデータが揃っているはずなので
+        const jdfTags = dom.getElementsByTagName('JDF');
+        console.log('jdfTags.length: ' + jdfTags.length);
+        for (let i = 0; i < jdfTags.length; ++i ) {
+          const j = jdfTags[i];
+          const id = j.getAttribute('ID');
+          const type = j.getAttribute('Type');
+          const dn = j.getAttribute('DescriptiveName');
+          const jobId = j.getAttribute('JobID');
+          const jobPartId = j.getAttribute('JobPartID');
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+//          const body = j.outerHTML.toString();
+          const jdfTag = new JdfTag( id, type, dn, jobId, jobPartId, body );
+          if ( j.parentElement === null /* type === 'ProcessGroup'*/ ) {
+            this.jobTag = jdfTag;
+          } else {
+            this.processTags.push( jdfTag );
+          }
         }
       }
     };
