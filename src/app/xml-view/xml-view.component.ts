@@ -15,14 +15,25 @@ class JdfTag {
   descriptiveName: string;
   jobId: string;
   jobPartId: string;
+  inputComponentLinks: ComponentLinkTag[] = [];
+  outputComponentLinks: ComponentLinkTag[] = [];
+  paramsLinks: LinkTag[] = [];
+  deviceLinks: LinkTag[] = [];
 
-  constructor(id: string, type: string, descriptiveName: string, jobId: string, jobPartId: string, body: string) {
+  constructor(id: string, type: string, descriptiveName: string, jobId: string, jobPartId: string,
+      inputComponentLinks: ComponentLinkTag[], outputComponentLinks: ComponentLinkTag[], paramsLinks: LinkTag[],
+      deviceLinks: LinkTag[], body: string) {
     this.id = id;
     this.type = type;
     this.descriptiveName = descriptiveName;
 
     this.jobId = jobId;
     this.jobPartId = jobPartId;
+
+    this.inputComponentLinks = inputComponentLinks;
+    this.outputComponentLinks = outputComponentLinks;
+    this.paramsLinks = paramsLinks;
+    this.deviceLinks = deviceLinks;
 
     this.body = body;
   }
@@ -203,12 +214,58 @@ class SpinePreparationParamsTag {
 class LinkTag {
   usage: string;
   rRef: string;
+  amount: string;
 
-  constructor( usage: string, rRef: string ) {
+  constructor( usage: string, rRef: string, amount: string ) {
     this.usage = usage;
     this.rRef = rRef;
+    this.amount = amount;
   }
 }
+
+class ComponentLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+class CoverApplicationParamsLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+class SpinePrearationParamsLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+class TrimmingParamsLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+class CuttingParamsLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+class FoldingParamsLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+class DeviceLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+
 
 // JMF
 class JMF {
@@ -684,7 +741,75 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           const jobPartId = j.getAttribute('JobPartID');
           const body = vkbeautify.xml( j.outerHTML.toString() );
 //          const body = j.outerHTML.toString();
-          const jdfTag = new JdfTag( id, type, dn, jobId, jobPartId, body );
+
+          const inputComponentLinks: ComponentLinkTag[] = [];
+          const outputComponentLinks: ComponentLinkTag[] = [];
+          const paramsLinks: LinkTag[] = [];
+          const deviceLinks: LinkTag[] = [];
+          const linkPools = j.getElementsByTagName('ResourceLinkPool');
+          if ( linkPools.length === 1) {
+            for ( let k = 0; k < linkPools[0].children.length; k++ ) {
+              const comp = linkPools[0].children[k];
+              let usage = '';
+              let rRef = '';
+              let amount = '';
+              switch ( comp.tagName ) {
+                case 'ComponentLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  amount = comp.getAttribute('Amount');
+                  const cl = new ComponentLinkTag(usage, rRef, amount);
+                  if ( usage.toLowerCase() === 'input' ) {
+                    inputComponentLinks.push(cl);
+                  } else {
+                    outputComponentLinks.push(cl)
+                  }
+                  break;
+                case 'SpinePreparationParamsLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  amount = comp.getAttribute('Amount');
+                  const sppl = new SpinePrearationParamsLinkTag( usage, rRef, amount );
+                  paramsLinks.push(sppl);
+                  break;
+                case 'CoverApplicationParamsLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  const capl = new CoverApplicationParamsLinkTag( usage, rRef, amount );
+                  paramsLinks.push(capl);
+                  break;
+                case 'TrimmingParamsLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  const tpl = new TrimmingParamsLinkTag( usage, rRef, amount );
+                  paramsLinks.push(tpl);
+                  break;
+                case 'CuttingParamsLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  const cpl = new CuttingParamsLinkTag( usage, rRef, amount );
+                  paramsLinks.push(cpl);
+                  break;
+                case 'FoldingParamsLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  const fpl = new FoldingParamsLinkTag( usage, rRef, amount );
+                  paramsLinks.push(fpl);
+                  break;
+                case 'DeviceLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  const dl = new DeviceLinkTag( usage, rRef, amount );
+                  deviceLinks.push(dl);
+                  break;
+                default:
+                  console.log('default キター: ' + comp.tagName);
+                  break;
+              }
+            }
+          }
+          const jdfTag = new JdfTag( id, type, dn, jobId, jobPartId,
+              inputComponentLinks, outputComponentLinks, paramsLinks, deviceLinks, body );
           if ( j.parentElement === null /* type === 'ProcessGroup'*/ ) {
             this.jobTag = jdfTag;
           } else {

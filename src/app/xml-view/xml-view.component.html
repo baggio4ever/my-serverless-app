@@ -78,6 +78,7 @@
         <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
+
         <table>
           <tr>
             <td>ID</td>
@@ -95,7 +96,40 @@
             <td>DescriptiveName</td>
             <td>{{t.descriptiveName}}</td>
           </tr>
+          <tr>
+            <td>入力</td>
+            <td>
+              <div *ngFor="let l of t.inputComponentLinks">
+                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>出力</td>
+            <td>
+              <div *ngFor="let l of t.outputComponentLinks">
+                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>加工情報</td>
+            <td>
+              <div *ngFor="let l of t.paramsLinks">
+                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>デバイス情報</td>
+            <td>
+              <div *ngFor="let l of t.deviceLinks">
+                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+              </div>
+            </td>
+          </tr>
         </table>
+
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title></mat-panel-title>
