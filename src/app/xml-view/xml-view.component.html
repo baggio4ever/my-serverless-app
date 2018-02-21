@@ -463,6 +463,36 @@
           <mat-expansion-panel-header>
             <mat-panel-title>Fold</mat-panel-title>
           </mat-expansion-panel-header>
+
+          <div class="example-container mat-elevation-z8">
+            <mat-table #table3 [dataSource]="t.folds">
+          
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+          
+              <!-- To Column -->
+              <ng-container matColumnDef="to">
+                <mat-header-cell *matHeaderCellDef> To </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.to}} </mat-cell>
+              </ng-container>
+          
+              <!-- From Column -->
+              <ng-container matColumnDef="from">
+                <mat-header-cell *matHeaderCellDef> From </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.from}} </mat-cell>
+              </ng-container>
+          
+              <!-- Travel Column -->
+              <ng-container matColumnDef="travel">
+                <mat-header-cell *matHeaderCellDef> Travel </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.travel}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns3;"></mat-row>
+            </mat-table>
+          </div>
+<!--
           <table>
             <tr>
               <th>To</th>
@@ -475,6 +505,7 @@
               <td>{{f.travel}}</td>
             </tr>
           </table>
+-->
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
@@ -537,40 +568,6 @@
           </mat-expansion-panel-header>
 
           <div class="example-container mat-elevation-z8">
-            <mat-table #table [dataSource]="dataSource">
-          
-              <!--- Note that these columns can be defined in any order.
-                    The actual rendered columns are set as a property on the row definition" -->
-          
-              <!-- Position Column -->
-              <ng-container matColumnDef="position">
-                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-              </ng-container>
-          
-              <!-- Name Column -->
-              <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-              </ng-container>
-          
-              <!-- Weight Column -->
-              <ng-container matColumnDef="weight">
-                <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-              </ng-container>
-          
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="symbol">
-                <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-              </ng-container>
-              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-            </mat-table>
-          </div>
-
-          <div class="example-container mat-elevation-z8">
             <mat-table #table2 [dataSource]="t.cutBlocks">
           
               <!--- Note that these columns can be defined in any order.
@@ -616,7 +613,7 @@
               <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>
             </mat-table>
           </div>
-
+<!--
           <table>
             <tr>
               <th>ID</th>
@@ -635,7 +632,8 @@
               <td>{{f.blockTrf}}</td>
             </tr>
           </table>
-        </mat-expansion-panel>
+-->
+          </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title></mat-panel-title>

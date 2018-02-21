@@ -409,6 +409,7 @@ export interface ElementX {
   symbol: string;
 }
 
+/*
 const ELEMENT_DATA: ElementX[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -431,6 +432,7 @@ const ELEMENT_DATA: ElementX[] = [
   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
   {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
 ];
+*/
 
 // declare var hljs: any;
 
@@ -456,9 +458,10 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   coverApplicationParamsTags: CoverApplicationParamsTag[] = [];
   spinePreparationParamsTags: SpinePreparationParamsTag[] = [];
 
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
+//  displayedColumns = ['position', 'name', 'weight', 'symbol'];
   displayedColumns2 = ['id', 'class', 'blockType', 'blockName', 'blockSize', 'blockTrf'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns3 = ['to', 'from', 'travel'];
+//  dataSource = ELEMENT_DATA;
 
   constructor() { }
 
