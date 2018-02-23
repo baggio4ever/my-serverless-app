@@ -112,6 +112,14 @@ class TrimmingParamsTag {
 
     this.body = body;
   }
+
+  getWidth_mm(): number {
+    return JDFUtils.pt2mm( JDFUtils.parseNumber(this.width) );
+  }
+
+  getHeight_mm(): number {
+    return JDFUtils.pt2mm( JDFUtils.parseNumber(this.height) );
+  }
 }
 
 class FoldingParamsTag {
@@ -375,6 +383,10 @@ class JobPhaseTag {
 class JDFUtils {
   private constructor() {}
 
+  static parseNumber( s: string ): number {
+    return parseFloat(s);
+  }
+
   static getWidth( dimensions: string ): string {
     return '';
   }
@@ -386,19 +398,23 @@ class JDFUtils {
   }
 
   static pt2mm( v: number ): number {
-    return 0;
+    return this.inch2mm( this.pt2inch(v) );
   }
 
   static pt2inch( v: number ): number {
-    return 0;
+    return (v / 72.0);
+  }
+
+  static inch2pt( v: number ): number {
+    return (v * 72.0);
   }
 
   static mm2inch( v: number ): number {
-    return 0;
+    return (v / 25.4);
   }
 
   static inch2mm( v: number ): number {
-    return 0;
+    return (v * 25.4);
   }
 }
 
@@ -824,5 +840,28 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
     reader.readAsText(file);
 //    console.log('yes()');
+  }
+
+  getPreviousProcesses( component: ComponentTag ): JdfTag[] {
+    let ret: JdfTag[] = [];
+
+    ret = this.processTags.filter( (value,index,array) => {
+      const r = value.outputComponentLinks.filter( (v,i,ary) => {
+        return (v.rRef === component.id);
+      });
+      return (r.length > 0);
+    });
+    return ret;
+  }
+  getNextProcesses( component: ComponentTag ): JdfTag[] {
+    let ret: JdfTag[] = [];
+
+    ret = this.processTags.filter( (value,index,array) => {
+      const r = value.inputComponentLinks.filter( (v,i,ary) => {
+        return (v.rRef === component.id);
+      });
+      return (r.length > 0);
+    });
+    return ret;
   }
 }

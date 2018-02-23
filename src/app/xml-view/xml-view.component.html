@@ -100,7 +100,7 @@
             <td>入力</td>
             <td>
               <div *ngFor="let l of t.inputComponentLinks">
-                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+                <a href="#{{l.rRef}}">{{l.rRef}}</a>
               </div>
             </td>
           </tr>
@@ -108,7 +108,7 @@
             <td>出力</td>
             <td>
               <div *ngFor="let l of t.outputComponentLinks">
-                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+                <a href="#{{l.rRef}}">{{l.rRef}}</a>
               </div>
             </td>
           </tr>
@@ -116,7 +116,7 @@
             <td>加工情報</td>
             <td>
               <div *ngFor="let l of t.paramsLinks">
-                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+                <a href="#{{l.rRef}}">{{l.rRef}}</a>
               </div>
             </td>
           </tr>
@@ -124,7 +124,7 @@
             <td>デバイス情報</td>
             <td>
               <div *ngFor="let l of t.deviceLinks">
-                <a href="http://www.amazon.co.jp">{{l.rRef}}</a>
+                <a href="#{{l.rRef}}">{{l.rRef}}</a>
               </div>
             </td>
           </tr>
@@ -169,7 +169,7 @@
 <div *ngIf="componentTags.length>0">
   <h3>Components</h3>
   <div>
-    <mat-card class="example-card" *ngFor="let t of componentTags" id=#{{t.id}}>
+    <mat-card class="example-card" *ngFor="let t of componentTags" id="{{t.id}}">
       <mat-card-header>
         <mat-card-title>{{t.id}}</mat-card-title>
         <mat-card-subtitle>{{t.componentType}}</mat-card-subtitle>
@@ -191,6 +191,22 @@
           <tr>
             <td>Dimensions</td>
             <td>{{t.dimensions}}</td>
+          </tr>
+          <tr>
+            <td>前工程 （生成元）</td>
+            <td>
+              <div *ngFor="let l of getPreviousProcesses(t)">
+                <a href="#{{l.id}}">{{l.id}}</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>次工程</td>
+            <td>
+              <div *ngFor="let l of getNextProcesses(t)">
+                <a href="#{{l.id}}">{{l.id}}</a>
+              </div>
+            </td>
           </tr>
         </table>
         <mat-expansion-panel>
@@ -382,12 +398,20 @@
             <td>{{t.trimmingType}}</td>
           </tr>
           <tr>
-            <td>Width</td>
+            <td>Width [pt]</td>
             <td>{{t.width}}</td>
           </tr>
           <tr>
-            <td>Height</td>
+            <td>Height [pt]</td>
             <td>{{t.height}}</td>
+          </tr>
+          <tr>
+            <td>Width [mm]</td>
+            <td>{{t.getWidth_mm()}}</td>
+          </tr>
+          <tr>
+            <td>Height [mm]</td>
+            <td>{{t.getHeight_mm()}}</td>
           </tr>
         </table>
         <mat-expansion-panel>
