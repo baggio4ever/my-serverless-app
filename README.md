@@ -158,3 +158,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 [要素の属性を全部取得する](http://hokaccha.hatenablog.com/entry/20130819/1376895914)
+
+[Angular2 Routing with Hashtag to page anchor](https://stackoverflow.com/questions/36101756/angular2-routing-with-hashtag-to-page-anchor) ページ内リンクの方法が書いてあるっぽいけど
+
