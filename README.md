@@ -161,3 +161,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [Angular2 Routing with Hashtag to page anchor](https://stackoverflow.com/questions/36101756/angular2-routing-with-hashtag-to-page-anchor) ページ内リンクの方法が書いてあるっぽいけど
 
+[あまり知られてなさそうなメソッド element.scrollIntoView()](https://qiita.com/amamamaou/items/728d571d508347b2bc82)
