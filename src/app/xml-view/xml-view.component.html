@@ -72,7 +72,8 @@
 <div *ngIf="processTags.length>0">
   <h3>Processes</h3>
   <div>
-    <mat-card class="example-card" *ngFor="let t of processTags">
+    <div *ngFor="let t of processTags" id="{{t.id}}">
+    <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>{{t.descriptiveName}}</mat-card-title>
         <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
@@ -141,6 +142,7 @@
         </mat-expansion-panel>
       </mat-card-content>
     </mat-card>
+    </div>
   </div>
 <!--
   <table>
@@ -169,7 +171,8 @@
 <div *ngIf="componentTags.length>0">
   <h3>Components</h3>
   <div>
-    <mat-card class="example-card" *ngFor="let t of componentTags" id="{{t.id}}">
+    <div *ngFor="let t of componentTags" id="{{t.id}}">
+    <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>{{t.id}}</mat-card-title>
         <mat-card-subtitle>{{t.componentType}}</mat-card-subtitle>
@@ -196,7 +199,9 @@
             <td>前工程 （生成元）</td>
             <td>
               <div *ngFor="let l of getPreviousProcesses(t)">
-                <a href="#{{l.id}}">{{l.id}}</a>
+                <button (click)="scrollTo(l.id)">{{l.id}}</button>
+<!--                <a href="#{{l.id}}">{{l.id}}</a>
+-->
               </div>
             </td>
           </tr>
@@ -220,6 +225,7 @@
         </mat-expansion-panel>
       </mat-card-content>
     </mat-card>
+    </div>
   </div>
 <!--
   <table>

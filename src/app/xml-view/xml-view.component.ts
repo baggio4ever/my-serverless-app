@@ -853,6 +853,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     });
     return ret;
   }
+
   getNextProcesses( component: ComponentTag ): JdfTag[] {
     let ret: JdfTag[] = [];
 
@@ -863,5 +864,15 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       return (r.length > 0);
     });
     return ret;
+  }
+
+  scrollTo( tagName: string ): void {
+    try {
+      console.log('tagName: '+tagName);
+//      document.querySelector('#' + tagName).scrollIntoView();
+      document.getElementById(tagName).scrollIntoView(true);
+    } catch (e) {
+      console.log('error!:'+e);
+    }
   }
 }
