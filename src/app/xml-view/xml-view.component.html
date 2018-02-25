@@ -198,7 +198,9 @@
               <td>前工程 （生成元）</td>
               <td>
                 <div *ngFor="let l of getPreviousProcesses(t)">
-                  <button (click)="scrollTo(l.id)">{{l.id}}</button>
+<!--                  <button (click)="scrollTo(l.id)">{{l.id}}</button>
+-->
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
   <!--                <a href="#{{l.id}}">{{l.id}}</a>
   -->
                 </div>

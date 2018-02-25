@@ -14,3 +14,9 @@
     overflow: auto;
     max-height: 500px;
 }
+
+.like-link {
+    color: #0000ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
