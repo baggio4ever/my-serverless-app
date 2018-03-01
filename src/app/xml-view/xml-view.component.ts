@@ -601,6 +601,29 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     }).update();
   }
 
+  do2(): void {
+    this.cy.add([
+        { // node a
+          data: { id: 'X' }
+        },
+        { // node b
+          data: { id: 'Y' }
+        },
+        { // node b
+          data: { id: 'Z' }
+        },
+        { // edge ab
+          data: { id: 'bX', source: 'b', target: 'X' }
+        },
+        { // edge ab
+          data: { id: 'XY', source: 'X', target: 'Y' }
+        },
+        { // edge ab
+          data: { id: 'XZ', source: 'X', target: 'Z' }
+        },
+    ]);
+  }
+
   yes(fileVal) {
     const file = fileVal;
     const fileName: string = fileVal.name;
