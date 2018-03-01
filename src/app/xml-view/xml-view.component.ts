@@ -594,6 +594,13 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     }
   }
 
+  do1(): void {
+    this.cy.style().selector('edge').style({
+            'width': 1,
+            'line-color': '#f00'
+    }).update();
+  }
+
   yes(fileVal) {
     const file = fileVal;
     const fileName: string = fileVal.name;
