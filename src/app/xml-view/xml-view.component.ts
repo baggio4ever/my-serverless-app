@@ -915,17 +915,15 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       });
       return (r.length > 0);
     });
-//    console.log('getProcessesUsingThisParams:'+ ret);
     return ret;
   }
 
   scrollTo( tagName: string ): void {
     try {
-      console.log('tagName: '+tagName);
-//      document.querySelector('#' + tagName).scrollIntoView();
+      console.log('tagName: ' + tagName);
       document.getElementById(tagName).scrollIntoView(true);
     } catch (e) {
-      console.log('error!:'+e);
+      console.log('error!:' + e);
     }
   }
 }
