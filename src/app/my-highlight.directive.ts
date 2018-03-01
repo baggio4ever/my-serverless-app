@@ -28,7 +28,9 @@ export class MyHighlightDirective implements AfterViewChecked, AfterViewInit, On
 
   ngAfterViewChecked() {
     // どうもこれだと呼ばれすぎる感じ。何とか必要十分な呼び出し回数に抑えられないものか
-    console.log('my-highlight ngAfterViewChecked');
-    hljs.highlightBlock(this.eltRef.nativeElement);
+    //  → 結局 Directiveに頼らず、parseしたときに一気に処理するようにした。
+    
+//    console.log('my-highlight ngAfterViewChecked');
+//    hljs.highlightBlock(this.eltRef.nativeElement);
   }
 }

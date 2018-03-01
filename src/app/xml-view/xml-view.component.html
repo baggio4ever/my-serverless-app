@@ -4,6 +4,9 @@
     <label for="input-file-id" class="mat-raised-button mat-primary">Choose JDF/JMF</label>
 -->
   <button mat-raised-button color="warn" (click)="yes(fileInput.files[0])" [disabled]="!fileSelected">選択したファイルを読みん込んで表示</button>
+<!--
+    <button mat-raised-button (click)="doLayout()" [disabled]="!fileSelected">整形！</button>
+-->
 </div>
 
 <div *ngIf="xml !== ''" hidden="true">

@@ -456,7 +456,7 @@ const ELEMENT_DATA: ElementX[] = [
 ];
 */
 
-// declare var hljs: any;
+declare var hljs: any;
 
 @Component({
   selector: 'app-xml-view',
@@ -499,31 +499,31 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   }
 
   ngOnInit() {
-    console.log('OnInit');
+//    console.log('OnInit');
   }
 
   ngDoCheck() {
-    console.log('DoCheck');
+//    console.log('DoCheck');
   }
 
   ngAfterContentInit() {
-    console.log('AfterContentInit');
+//    console.log('AfterContentInit');
   }
 
   ngAfterContentChecked() {
-    console.log('AfterContentChecked');
+//    console.log('AfterContentChecked');
   }
 
   ngAfterViewInit() {
-    console.log('AfterViewInit');
+//    console.log('AfterViewInit');
   }
 
   ngAfterViewChecked() {
-    console.log('AfterViewChecked');
+//    console.log('AfterViewChecked');
   }
 
   ngOnDestroy() {
-    console.log('OnDestroy');
+//    console.log('OnDestroy');
   }
 
   onChanged(filename) {
@@ -540,6 +540,15 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         .replace(/'/g, '&apos;');
 
     return ret;
+  }
+
+  doLayout(): void {
+    const codes = document.getElementsByTagName('code');
+    console.log('codes.length: ' + codes.length);
+    for ( let i = 0; i < codes.length; i ++ ) {
+      const co = codes[i];
+      hljs.highlightBlock(co);
+    }
   }
 
   yes(fileVal) {
@@ -591,6 +600,10 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       if ( passed ) {
         const parser = new DOMParser();
         const dom = parser.parseFromString( c, 'text/xml');
+
+        setTimeout(() => { // チョイ待たせて整形。
+          this.doLayout();
+        }, 0);
 
         // 初期化
         this.jobTag = null;
@@ -902,7 +915,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       });
       return (r.length > 0);
     });
-    console.log('getProcessesUsingThisParams:'+ ret);
+//    console.log('getProcessesUsingThisParams:'+ ret);
     return ret;
   }
 
