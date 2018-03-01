@@ -622,6 +622,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           data: { id: 'XZ', source: 'X', target: 'Z' }
         },
     ]);
+    this.cy.fit();
   }
 
   yes(fileVal) {
