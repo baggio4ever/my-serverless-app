@@ -100,7 +100,9 @@
               <td>入力</td>
               <td>
                 <div *ngFor="let l of t.inputComponentLinks">
-                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+                  <span class="like-link" (click)="scrollTo(l.rRef)">{{l.rRef}}</span>
+<!--                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+-->
                 </div>
               </td>
             </tr>
@@ -108,7 +110,9 @@
               <td>出力</td>
               <td>
                 <div *ngFor="let l of t.outputComponentLinks">
-                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+                  <span class="like-link" (click)="scrollTo(l.rRef)">{{l.rRef}}</span>
+<!--                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+-->
                 </div>
               </td>
             </tr>
@@ -116,7 +120,9 @@
               <td>加工情報</td>
               <td>
                 <div *ngFor="let l of t.paramsLinks">
-                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+                  <span class="like-link" (click)="scrollTo(l.rRef)">{{l.rRef}}</span>
+<!--                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+-->
                 </div>
               </td>
             </tr>
@@ -124,7 +130,9 @@
               <td>デバイス情報</td>
               <td>
                 <div *ngFor="let l of t.deviceLinks">
-                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+                  <span class="like-link" (click)="scrollTo(l.rRef)">{{l.rRef}}</span>
+<!--                  <a href="#{{l.rRef}}">{{l.rRef}}</a>
+-->
                 </div>
               </td>
             </tr>
@@ -210,7 +218,9 @@
               <td>次工程</td>
               <td>
                 <div *ngFor="let l of getNextProcesses(t)">
-                  <a href="#{{l.id}}">{{l.id}}</a>
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
                 </div>
               </td>
             </tr>
@@ -279,6 +289,16 @@
               <td>FriendlyName</td>
               <td>{{t.friendlyName}}</td>
             </tr>
+            <tr>
+              <td>利用工程</td>
+              <td>
+                <div *ngFor="let l of getProcessesUsingThisDevice(t)">
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
+                </div>
+              </td>
+            </tr>
           </table>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -343,6 +363,16 @@
             <tr>
               <td>StapleShape</td>
               <td>{{t.stapleShape}}</td>
+            </tr>
+            <tr>
+              <td>利用工程</td>
+              <td>
+                <div *ngFor="let l of getProcessesUsingThisParams(t)">
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
+                </div>
+              </td>
             </tr>
           </table>
           <mat-expansion-panel>
@@ -425,6 +455,16 @@
               <td>Height [mm]</td>
               <td>{{t.getHeight_mm()}}</td>
             </tr>
+            <tr>
+              <td>利用工程</td>
+              <td>
+                <div *ngFor="let l of getProcessesUsingThisParams(t)">
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
+                </div>
+              </td>
+            </tr>
           </table>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -495,6 +535,16 @@
             <tr>
               <td>FoldCatalog</td>
               <td>{{t.foldCatalog}}</td>
+            </tr>
+            <tr>
+              <td>利用工程</td>
+              <td>
+                <div *ngFor="let l of getProcessesUsingThisParams(t)">
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
+                </div>
+              </td>
             </tr>
           </table>
           <mat-expansion-panel *ngIf="t.folds.length>0">
@@ -600,6 +650,16 @@
             <tr>
               <td>Class</td>
               <td>{{t.klass}}</td>
+            </tr>
+            <tr>
+              <td>利用工程</td>
+              <td>
+                <div *ngFor="let l of getProcessesUsingThisParams(t)">
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
+                </div>
+              </td>
             </tr>
           </table>
           <mat-expansion-panel *ngIf="t.cutBlocks.length>0">
@@ -730,6 +790,16 @@
               <td>NoOp</td>
               <td>{{t.noOp}}</td>
             </tr>
+            <tr>
+              <td>利用工程</td>
+              <td>
+                <div *ngFor="let l of getProcessesUsingThisParams(t)">
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
+                </div>
+              </td>
+            </tr>
           </table>
           <mat-expansion-panel>
             <mat-expansion-panel-header>
@@ -788,6 +858,16 @@
             <tr>
               <td>MillingDepth</td>
               <td>{{t.millingDepth}}</td>
+            </tr>
+            <tr>
+              <td>利用工程</td>
+              <td>
+                <div *ngFor="let l of getProcessesUsingThisParams(t)">
+                  <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
+<!--                  <a href="#{{l.id}}">{{l.id}}</a>
+-->
+                </div>
+              </td>
             </tr>
           </table>
           <mat-expansion-panel>

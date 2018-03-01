@@ -249,6 +249,12 @@ class SpinePrearationParamsLinkTag extends LinkTag {
   }
 }
 
+class StitchingParamsLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
 class TrimmingParamsLinkTag extends LinkTag {
   constructor( usage: string, rRef: string, amount: string ) {
     super( usage, rRef, amount );
@@ -797,6 +803,12 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
                   const capl = new CoverApplicationParamsLinkTag( usage, rRef, amount );
                   paramsLinks.push(capl);
                   break;
+                case 'StitchingParamsLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  const spl = new StitchingParamsLinkTag( usage, rRef, amount );
+                  paramsLinks.push(spl);
+                  break;
                 case 'TrimmingParamsLink':
                   usage = comp.getAttribute('Usage');
                   rRef = comp.getAttribute('rRef');
@@ -842,6 +854,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 //    console.log('yes()');
   }
 
+  // 引数で渡すコンポーネント（用紙とか）を作成した工程を返す
   getPreviousProcesses( component: ComponentTag ): JdfTag[] {
     let ret: JdfTag[] = [];
 
@@ -854,6 +867,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     return ret;
   }
 
+  // 引数で渡すコンポーネント（用紙とか）を使用する工程を返す
   getNextProcesses( component: ComponentTag ): JdfTag[] {
     let ret: JdfTag[] = [];
 
@@ -863,6 +877,32 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       });
       return (r.length > 0);
     });
+    return ret;
+  }
+
+  // 引数で渡すデバイスを利用している工程を返す
+  getProcessesUsingThisDevice( component: ComponentTag ): JdfTag[] {
+    let ret: JdfTag[] = [];
+
+    ret = this.processTags.filter( (value,index,array) => {
+      const r = value.deviceLinks.filter( (v,i,ary) => {
+        return (v.rRef === component.id);
+      });
+      return (r.length > 0);
+    });
+    return ret;
+  }
+
+  getProcessesUsingThisParams( component: ComponentTag ): JdfTag[] {
+    let ret: JdfTag[] = [];
+
+    ret = this.processTags.filter( (value,index,array) => {
+      const r = value.paramsLinks.filter( (v,i,ary) => {
+        return (v.rRef === component.id);
+      });
+      return (r.length > 0);
+    });
+    console.log('getProcessesUsingThisParams:'+ ret);
     return ret;
   }
 

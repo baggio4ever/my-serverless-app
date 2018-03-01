@@ -16,7 +16,8 @@
 }
 
 .like-link {
-    color: #0000ff;
+    color: #55aa55;
     text-decoration: underline;
     cursor: pointer;
+    font-weight: bold;
 }
