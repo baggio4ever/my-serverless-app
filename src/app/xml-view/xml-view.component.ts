@@ -541,6 +541,14 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
             'label': 'data(id)'
           }
         },
+        {
+          selector: '.funny',
+          style: {
+            'background-color': '#f6f',
+            'label': 'data(id)',
+            'shape': 'star'
+          }
+        },
 
         {
           selector: 'edge',
@@ -623,6 +631,11 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         },
     ]);
     this.cy.fit();
+  }
+
+  do3(): void {
+    this.cy.$id('a').addClass('funny');
+    this.cy.$id('Y').addClass('funny');
   }
 
   yes(fileVal) {
