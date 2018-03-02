@@ -638,6 +638,26 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     this.cy.$id('Y').addClass('funny');
   }
 
+  do4(): void {
+    this.cy.remove('node');  // 全削除のつもり
+    this.cy.add([
+      {
+        data: {id:'1'}
+      },
+      {
+        data: {id:'2'}
+      },
+      {
+        data: { id:'a', source:'1', target:'2' }
+      }
+    ]);
+    const l = this.cy.layout({
+      name: 'grid'
+    });
+    l.run();
+    this.cy.fit();
+  }
+
   yes(fileVal) {
     const file = fileVal;
     const fileName: string = fileVal.name;
