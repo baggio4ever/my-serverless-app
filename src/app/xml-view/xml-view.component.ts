@@ -7,8 +7,17 @@ import {
 
 import * as vkbeautify from 'vkbeautify';
 import * as Cytoscape from 'cytoscape';
+import { Guid } from "guid-typescript";
 
-class JdfTag {
+class BaseTag {
+  guid: string; // Cytoscapeで使えないかしら
+
+  constructor() {
+    this.guid = Guid.create().toString();
+  }
+}
+
+class JdfTag extends BaseTag {
   id: string;
   type: string;
   body: string;
@@ -23,6 +32,8 @@ class JdfTag {
   constructor(id: string, type: string, descriptiveName: string, jobId: string, jobPartId: string,
       inputComponentLinks: ComponentLinkTag[], outputComponentLinks: ComponentLinkTag[], paramsLinks: LinkTag[],
       deviceLinks: LinkTag[], body: string) {
+    super();
+
     this.id = id;
     this.type = type;
     this.descriptiveName = descriptiveName;
@@ -39,7 +50,7 @@ class JdfTag {
   }
 }
 
-class DeviceTag {
+class DeviceTag extends BaseTag {
   id: string;
   klass: string;
   deviceId: string;
@@ -47,6 +58,8 @@ class DeviceTag {
   body: string;
 
   constructor(id: string, klass: string, deviceId: string, friendlyName: string, body: string) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.deviceId = deviceId;
@@ -56,7 +69,7 @@ class DeviceTag {
   }
 }
 
-class ComponentTag {
+class ComponentTag extends BaseTag {
   id: string;
   componentType: string;
   klass: string;
@@ -64,6 +77,8 @@ class ComponentTag {
   body: string;
 
   constructor(id: string, componentType: string, klass: string, dimensions: string, body: string) {
+    super();
+
     this.id = id;
     this.componentType = componentType;
     this.klass = klass;
@@ -73,7 +88,7 @@ class ComponentTag {
   }
 }
 
-class StitchingParamsTag {
+class StitchingParamsTag extends BaseTag  {
   id: string;
   klass: string;
   numberOfStitches: string;
@@ -81,6 +96,8 @@ class StitchingParamsTag {
   body: string;
 
   constructor(id: string, klass: string, numberOfStitches: string, stapleShape: string, body: string) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.numberOfStitches = numberOfStitches;
@@ -90,7 +107,7 @@ class StitchingParamsTag {
   }
 }
 
-class TrimmingParamsTag {
+class TrimmingParamsTag  extends BaseTag {
   id: string;
   klass: string;
   noOp: string;
@@ -102,6 +119,8 @@ class TrimmingParamsTag {
 
   constructor(id: string, klass: string, noOp: string, trimmingType: string,
        height: string, width: string, trimmingOffset: string, body: string) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.noOp = noOp;
@@ -122,7 +141,7 @@ class TrimmingParamsTag {
   }
 }
 
-class FoldingParamsTag {
+class FoldingParamsTag  extends BaseTag {
   id: string;
   klass: string;
   descriptionType: string;
@@ -131,6 +150,8 @@ class FoldingParamsTag {
   body: string;
 
   constructor( id: string, klass: string, descriptionType: string, foldCatalog: string, folds: FoldTag[], body: string ) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.descriptionType = descriptionType;
@@ -141,25 +162,29 @@ class FoldingParamsTag {
   }
 }
 
-class FoldTag {
+class FoldTag  extends BaseTag {
   to: string;
   from: string;
   travel: string;
 
   constructor( to: string, from: string, travel: string ) {
+    super();
+
     this.to = to;
     this.from = from;
     this.travel = travel;
   }
 }
 
-class CuttingParamsTag {
+class CuttingParamsTag  extends BaseTag {
   id: string;
   klass: string;
   cutBlocks: CutBlockTag[];
   body: string;
 
   constructor( id: string, klass: string, cutBlocks: CutBlockTag[], body: string ) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.cutBlocks = cutBlocks;
@@ -168,7 +193,7 @@ class CuttingParamsTag {
   }
 }
 
-class CutBlockTag {
+class CutBlockTag  extends BaseTag {
   id: string;
   klass: string;
   blockType: string;
@@ -178,6 +203,8 @@ class CutBlockTag {
   body: string;
 
   constructor( id: string, klass: string, blockType: string, blockName: string, blockSize: string, blockTrf: string, body: string ) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.blockType = blockType;
@@ -189,13 +216,15 @@ class CutBlockTag {
   }
 }
 
-class CoverApplicationParamsTag {
+class CoverApplicationParamsTag  extends BaseTag {
   id: string;
   klass: string;
   noOp: string;
   body: string;
 
   constructor( id: string, klass: string, noOp: string, body: string ) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.noOp = noOp;
@@ -204,13 +233,15 @@ class CoverApplicationParamsTag {
   }
 }
 
-class SpinePreparationParamsTag {
+class SpinePreparationParamsTag  extends BaseTag {
   id: string;
   klass: string;
   millingDepth: string;
   body: string;
 
   constructor( id: string, klass: string, millingDepth: string, body: string ) {
+    super();
+
     this.id = id;
     this.klass = klass;
     this.millingDepth = millingDepth;
@@ -219,12 +250,14 @@ class SpinePreparationParamsTag {
   }
 }
 
-class LinkTag {
+class LinkTag  extends BaseTag {
   usage: string;
   rRef: string;
   amount: string;
 
   constructor( usage: string, rRef: string, amount: string ) {
+    super();
+
     this.usage = usage;
     this.rRef = rRef;
     this.amount = amount;
@@ -298,13 +331,15 @@ class JMF {
 }
 
 
-class QueryTag {
+class QueryTag  extends BaseTag {
   id: string;
   type: string;
   statusQuParamsTags: StatusQuParamsTag[] = [];
   body: string;
 
   constructor( id: string, type: string, statusQuParamsTags: StatusQuParamsTag[], body: string ) {
+    super();
+
     this.id = id;
     this.type = type;
     this.statusQuParamsTags = statusQuParamsTags;
@@ -313,24 +348,28 @@ class QueryTag {
   }
 }
 
-class StatusQuParamsTag {
+class StatusQuParamsTag extends BaseTag {
   deviceDetails: string;
   body: string;
 
   constructor( deviceDetails: string, body: string ) {
+    super();
+
     this.deviceDetails = deviceDetails;
 
     this.body = body;
   }
 }
 
-class SignalTag {
+class SignalTag  extends BaseTag {
   id: string;
   type: string;
   deviceInfoTags: DeviceInfoTag[] = [];
   body: string;
 
   constructor( id: string, type: string, deviceInfoTags: DeviceInfoTag[], body: string ) {
+    super();
+
     this.id = id;
     this.type = type;
     this.deviceInfoTags = deviceInfoTags;
@@ -339,13 +378,15 @@ class SignalTag {
   }
 }
 
-class DeviceInfoTag {
+class DeviceInfoTag extends BaseTag {
   deviceStatus: string;
   deviceTag: DeviceTag;
   jobPhaseTags: JobPhaseTag[] = [];
   body: string;
 
   constructor( deviceStatus: string, deviceTag: DeviceTag, jobPhaseTags: JobPhaseTag[], body: string ) {
+    super();
+
     this.deviceStatus = deviceStatus;
     this.deviceTag = deviceTag;
     this.jobPhaseTags = jobPhaseTags;
@@ -361,7 +402,7 @@ class DeviceTag {  <- JDFのやつと一緒なのかな
 }
 */
 
-class JobPhaseTag {
+class JobPhaseTag extends BaseTag  {
   status: string;
   jobPartId: string;
   jobId: string;
@@ -373,6 +414,8 @@ class JobPhaseTag {
 
   constructor( status: string, jobParId: string, jobId: string, startTime: string,
        totalAmount: string, amount: string, waste: string, body: string ) {
+    super();
+    
     this.status = status;
     this.jobPartId = jobParId;
     this.jobId = jobId;

@@ -26,6 +26,7 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "cytoscape": "^3.2.9",
+    "guid-typescript": "^1.0.7",
     "moment": "^2.20.1",
     "rxjs": "^5.5.6",
     "vkbeautify": "^0.99.3",
