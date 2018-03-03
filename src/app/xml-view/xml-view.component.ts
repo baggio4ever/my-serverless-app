@@ -17,8 +17,16 @@ class BaseTag {
   }
 }
 
-class JdfTag extends BaseTag {
+class IdHavingTag extends BaseTag {
   id: string;
+  constructor(id: string){
+    super();
+
+    this.id = id;
+  }
+}
+
+class JdfTag extends IdHavingTag {
   type: string;
   body: string;
   descriptiveName: string;
@@ -32,9 +40,8 @@ class JdfTag extends BaseTag {
   constructor(id: string, type: string, descriptiveName: string, jobId: string, jobPartId: string,
       inputComponentLinks: ComponentLinkTag[], outputComponentLinks: ComponentLinkTag[], paramsLinks: LinkTag[],
       deviceLinks: LinkTag[], body: string) {
-    super();
+    super(id);
 
-    this.id = id;
     this.type = type;
     this.descriptiveName = descriptiveName;
 
@@ -50,17 +57,15 @@ class JdfTag extends BaseTag {
   }
 }
 
-class DeviceTag extends BaseTag {
-  id: string;
+class DeviceTag extends IdHavingTag {
   klass: string;
   deviceId: string;
   friendlyName: string;
   body: string;
 
   constructor(id: string, klass: string, deviceId: string, friendlyName: string, body: string) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.deviceId = deviceId;
     this.friendlyName = friendlyName;
@@ -69,17 +74,15 @@ class DeviceTag extends BaseTag {
   }
 }
 
-class ComponentTag extends BaseTag {
-  id: string;
+class ComponentTag extends IdHavingTag {
   componentType: string;
   klass: string;
   dimensions: string;
   body: string;
 
   constructor(id: string, componentType: string, klass: string, dimensions: string, body: string) {
-    super();
+    super(id);
 
-    this.id = id;
     this.componentType = componentType;
     this.klass = klass;
     this.dimensions = dimensions;
@@ -88,17 +91,15 @@ class ComponentTag extends BaseTag {
   }
 }
 
-class StitchingParamsTag extends BaseTag  {
-  id: string;
+class StitchingParamsTag extends IdHavingTag  {
   klass: string;
   numberOfStitches: string;
   stapleShape: string;
   body: string;
 
   constructor(id: string, klass: string, numberOfStitches: string, stapleShape: string, body: string) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.numberOfStitches = numberOfStitches;
     this.stapleShape = stapleShape;
@@ -107,8 +108,7 @@ class StitchingParamsTag extends BaseTag  {
   }
 }
 
-class TrimmingParamsTag  extends BaseTag {
-  id: string;
+class TrimmingParamsTag  extends IdHavingTag {
   klass: string;
   noOp: string;
   trimmingType: string;
@@ -119,9 +119,8 @@ class TrimmingParamsTag  extends BaseTag {
 
   constructor(id: string, klass: string, noOp: string, trimmingType: string,
        height: string, width: string, trimmingOffset: string, body: string) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.noOp = noOp;
     this.trimmingType = trimmingType;
@@ -141,8 +140,7 @@ class TrimmingParamsTag  extends BaseTag {
   }
 }
 
-class FoldingParamsTag  extends BaseTag {
-  id: string;
+class FoldingParamsTag  extends IdHavingTag {
   klass: string;
   descriptionType: string;
   foldCatalog: string;
@@ -150,9 +148,8 @@ class FoldingParamsTag  extends BaseTag {
   body: string;
 
   constructor( id: string, klass: string, descriptionType: string, foldCatalog: string, folds: FoldTag[], body: string ) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.descriptionType = descriptionType;
     this.foldCatalog = foldCatalog;
@@ -176,16 +173,14 @@ class FoldTag  extends BaseTag {
   }
 }
 
-class CuttingParamsTag  extends BaseTag {
-  id: string;
+class CuttingParamsTag  extends IdHavingTag {
   klass: string;
   cutBlocks: CutBlockTag[];
   body: string;
 
   constructor( id: string, klass: string, cutBlocks: CutBlockTag[], body: string ) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.cutBlocks = cutBlocks;
 
@@ -193,8 +188,7 @@ class CuttingParamsTag  extends BaseTag {
   }
 }
 
-class CutBlockTag  extends BaseTag {
-  id: string;
+class CutBlockTag  extends IdHavingTag {
   klass: string;
   blockType: string;
   blockName: string;
@@ -203,9 +197,8 @@ class CutBlockTag  extends BaseTag {
   body: string;
 
   constructor( id: string, klass: string, blockType: string, blockName: string, blockSize: string, blockTrf: string, body: string ) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.blockType = blockType;
     this.blockName = blockName;
@@ -216,16 +209,14 @@ class CutBlockTag  extends BaseTag {
   }
 }
 
-class CoverApplicationParamsTag  extends BaseTag {
-  id: string;
+class CoverApplicationParamsTag  extends IdHavingTag {
   klass: string;
   noOp: string;
   body: string;
 
   constructor( id: string, klass: string, noOp: string, body: string ) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.noOp = noOp;
 
@@ -233,16 +224,14 @@ class CoverApplicationParamsTag  extends BaseTag {
   }
 }
 
-class SpinePreparationParamsTag  extends BaseTag {
-  id: string;
+class SpinePreparationParamsTag  extends IdHavingTag {
   klass: string;
   millingDepth: string;
   body: string;
 
   constructor( id: string, klass: string, millingDepth: string, body: string ) {
-    super();
+    super(id);
 
-    this.id = id;
     this.klass = klass;
     this.millingDepth = millingDepth;
 
@@ -331,16 +320,14 @@ class JMF {
 }
 
 
-class QueryTag  extends BaseTag {
-  id: string;
+class QueryTag  extends IdHavingTag {
   type: string;
   statusQuParamsTags: StatusQuParamsTag[] = [];
   body: string;
 
   constructor( id: string, type: string, statusQuParamsTags: StatusQuParamsTag[], body: string ) {
-    super();
+    super(id);
 
-    this.id = id;
     this.type = type;
     this.statusQuParamsTags = statusQuParamsTags;
 
@@ -361,16 +348,14 @@ class StatusQuParamsTag extends BaseTag {
   }
 }
 
-class SignalTag  extends BaseTag {
-  id: string;
+class SignalTag  extends IdHavingTag {
   type: string;
   deviceInfoTags: DeviceInfoTag[] = [];
   body: string;
 
   constructor( id: string, type: string, deviceInfoTags: DeviceInfoTag[], body: string ) {
-    super();
+    super(id);
 
-    this.id = id;
     this.type = type;
     this.deviceInfoTags = deviceInfoTags;
 
@@ -826,6 +811,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       ]).addClass('params');
     });
 
+    // SpinePreparationParamsノード作成
     this.spinePreparationParamsTags.forEach( (v,i,a) => {
       this.cy.add([
         {
@@ -837,12 +823,121 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       ]).addClass('params');
     });
 
+    this.processTags.forEach((v,i,a)=>{
+      // process - deviceエッジ
+      v.deviceLinks.forEach((d,idx,ar)=>{
+        const aGuid = Guid.create().toString();
+        const device = this.getDeviceTagById(d.rRef);
+        if( device ) {
+          this.cy.add([
+            { // edge 
+              data: { id: aGuid, source: v.guid, target: device.guid  }
+            },
+          ]);
+        }
+      });
+      // process - paramsエッジ
+      v.paramsLinks.forEach((d,idx,ar)=>{
+        const aGuid = Guid.create().toString();
+        const params = this.getParamsTagById(d.rRef);
+        if( params ) {
+          this.cy.add([
+            { // edge 
+              data: { id: aGuid, source: v.guid, target: params.guid  }
+            },
+          ]);
+        } else {
+          console.log('getParamsTagById ないす: '+d.rRef);
+        }
+      });
+    });
+
     // レイアウト
     const l = this.cy.layout({
       name: 'grid'
     });
     l.run();
     this.cy.fit();
+  }
+
+  getDeviceTagById( id: string ): DeviceTag {
+    let ret:DeviceTag = null;
+    for( let i=0;i<this.deviceTags.length;i++ ) {
+      const deviceTag = this.deviceTags[i];
+      if(deviceTag.id === id) {
+        ret = deviceTag;
+        break;
+      }
+    }
+    return ret;
+  }
+
+  // うーん。いまいち。
+  getParamsTagById( id: string ): IdHavingTag {
+    let r = undefined;
+
+    if( r=this.coverApplicationParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
+    }
+/*    this.coverApplicationParamsTags.forEach((v,i,a)=>{
+      if(v.id === id) {
+        return v;
+      }
+    });
+*/
+    if( r=this.cuttingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
+    }
+/*    this.cuttingParamsTags.forEach((v,i,a)=>{
+      if(v.id === id) {
+        return v;
+      }
+    });
+*/    
+    if( r=this.foldingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
+    }
+
+    if( r=this.stitchingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
+    }
+/*    this.stitchingParamsTags.forEach((v,i,a)=>{
+      console.log('  stitchingParams - '+v.id);
+      if(v.id === id) {
+        console.log('   stitchingParams - yes!');
+        return v;
+      }
+    });
+*/    
+    if( r=this.spinePreparationParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
+    }
+/*    this.spinePreparationParamsTags.forEach((v,i,a)=>{
+      if(v.id === id) {
+        return v;
+      }
+    });
+*/
+    if( r=this.trimmingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
+    }
+/*    this.trimmingParamsTags.forEach((v,i,a)=>{
+      console.log('  trimingParams - '+v.id);
+      if(v.id === id) {
+        console.log('   trimmingParams - yes!');
+        return v;
+      }
+    });
+*/    
+    
+/*    for( let i=0;i<this.coverApplicationParamsTags.length;i++ ) {
+      const paramsTag = this.coverApplicationParamsTags[i];
+      if(paramsTag.id === id) {
+        return paramsTag;
+      }
+    }
+*/
+    return null;
   }
 
   yes(fileVal) {
