@@ -608,6 +608,20 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
             'target-arrow-color': '#ccc',
             'target-arrow-shape': 'triangle'
           }
+        },
+        {
+          selector: '.uni-arrow',
+          style: {
+            'curve-style': 'bezier',
+            'width': 2,
+            'line-color': '#999',
+//            'arrow-scale': 3,
+            'target-arrow-color': '#999',
+            'target-arrow-shape': 'triangle',
+//            'target-endpoint': 'outside-to-node',
+//            'source-arrow-color': '#088',
+//            'source-arrow-shape': 'triangle',
+          }
         }
       ],
 
@@ -824,6 +838,31 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     });
 
     this.processTags.forEach((v,i,a)=>{
+      // process - component（入力）エッジ
+      v.inputComponentLinks.forEach((d,idx,ar)=>{
+        const aGuid = Guid.create().toString();
+        const component = this.getComponentTagById(d.rRef);
+        if( component ) {
+          this.cy.add([
+            { // edge 
+              data: { id: aGuid, source: component.guid, target: v.guid  }
+            },
+          ]).addClass('uni-arrow');
+        }
+      });
+      // process - component（出力）エッジ
+      v.outputComponentLinks.forEach((d,idx,ar)=>{
+        const aGuid = Guid.create().toString();
+        const component = this.getComponentTagById(d.rRef);
+        if( component ) {
+          this.cy.add([
+            { // edge 
+              data: { id: aGuid, source: v.guid, target: component.guid  }
+            },
+          ]).addClass('uni-arrow');
+        }
+      });
+
       // process - deviceエッジ
       v.deviceLinks.forEach((d,idx,ar)=>{
         const aGuid = Guid.create().toString();
@@ -836,6 +875,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           ]);
         }
       });
+
       // process - paramsエッジ
       v.paramsLinks.forEach((d,idx,ar)=>{
         const aGuid = Guid.create().toString();
@@ -847,7 +887,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
             },
           ]);
         } else {
-          console.log('getParamsTagById ないす: '+d.rRef);
+          console.log('getParamsTagById ないす: '　+ d.rRef);
         }
       });
     });
@@ -858,6 +898,18 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     });
     l.run();
     this.cy.fit();
+  }
+
+  getComponentTagById( id: string ): ComponentTag {
+    let ret:ComponentTag = null;
+    for( let i=0;i<this.componentTags.length;i++ ) {
+      const componentTag = this.componentTags[i];
+      if(componentTag.id === id) {
+        ret = componentTag;
+        break;
+      }
+    }
+    return ret;
   }
 
   getDeviceTagById( id: string ): DeviceTag {
@@ -876,67 +928,30 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   getParamsTagById( id: string ): IdHavingTag {
     let r = undefined;
 
-    if( r=this.coverApplicationParamsTags.find((v,i,a)=>{return v.id===id;})) {
-      return r;
-    }
-/*    this.coverApplicationParamsTags.forEach((v,i,a)=>{
-      if(v.id === id) {
-        return v;
-      }
-    });
-*/
-    if( r=this.cuttingParamsTags.find((v,i,a)=>{return v.id===id;})) {
-      return r;
-    }
-/*    this.cuttingParamsTags.forEach((v,i,a)=>{
-      if(v.id === id) {
-        return v;
-      }
-    });
-*/    
-    if( r=this.foldingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if( r　=　this.coverApplicationParamsTags.find((v,i,a)=>{return v.id===id;})) {
       return r;
     }
 
-    if( r=this.stitchingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if( r　=　this.cuttingParamsTags.find((v,i,a)=>{return v.id===id;})) {
       return r;
     }
-/*    this.stitchingParamsTags.forEach((v,i,a)=>{
-      console.log('  stitchingParams - '+v.id);
-      if(v.id === id) {
-        console.log('   stitchingParams - yes!');
-        return v;
-      }
-    });
-*/    
-    if( r=this.spinePreparationParamsTags.find((v,i,a)=>{return v.id===id;})) {
+
+    if( r　=　this.foldingParamsTags.find((v,i,a)=>{return v.id===id;})) {
       return r;
     }
-/*    this.spinePreparationParamsTags.forEach((v,i,a)=>{
-      if(v.id === id) {
-        return v;
-      }
-    });
-*/
-    if( r=this.trimmingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+
+    if( r　=　this.stitchingParamsTags.find((v,i,a)=>{return v.id===id;})) {
       return r;
     }
-/*    this.trimmingParamsTags.forEach((v,i,a)=>{
-      console.log('  trimingParams - '+v.id);
-      if(v.id === id) {
-        console.log('   trimmingParams - yes!');
-        return v;
-      }
-    });
-*/    
-    
-/*    for( let i=0;i<this.coverApplicationParamsTags.length;i++ ) {
-      const paramsTag = this.coverApplicationParamsTags[i];
-      if(paramsTag.id === id) {
-        return paramsTag;
-      }
+
+    if( r　=　this.spinePreparationParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
     }
-*/
+
+    if( r　=　this.trimmingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+      return r;
+    }
+
     return null;
   }
 
