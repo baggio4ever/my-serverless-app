@@ -11,6 +11,7 @@
     <button mat-raised-button (click)="do2()" >ノード、エッジ追加</button>
     <button mat-raised-button (click)="do3()" >Shapeチェンジ！</button>
     <button mat-raised-button (click)="do4()" >ごっそり入れ替え！</button>
+    <button mat-raised-button (click)="do5()" [disabled]="!fileSelected">JDFから生成</button>
 </div>
 
 <div id="cy"></div>

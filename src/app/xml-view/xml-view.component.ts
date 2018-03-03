@@ -415,7 +415,7 @@ class JobPhaseTag extends BaseTag  {
   constructor( status: string, jobParId: string, jobId: string, startTime: string,
        totalAmount: string, amount: string, waste: string, body: string ) {
     super();
-    
+
     this.status = status;
     this.jobPartId = jobParId;
     this.jobId = jobId;
@@ -585,14 +585,36 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           }
         },
         {
-          selector: '.funny',
+          selector: '.process',
+          style: {
+            'background-color': '#666',
+            'label': 'data(tag_id)'
+          }
+        },
+        {
+          selector: '.component',
           style: {
             'background-color': '#f6f',
-            'label': 'data(id)',
+            'label': 'data(tag_id)',
             'shape': 'star'
           }
         },
-
+        {
+          selector: '.params',
+          style: {
+            'background-color': '#0f0',
+            'label': 'data(tag_id)',
+            'shape': 'star'
+          }
+        },
+        {
+          selector: '.device',
+          style: {
+            'background-color': '#ff0',
+            'label': 'data(tag_id)',
+            'shape': 'star'
+          }
+        },
         {
           selector: 'edge',
           style: {
@@ -694,6 +716,128 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         data: { id:'a', source:'1', target:'2' }
       }
     ]);
+    const l = this.cy.layout({
+      name: 'grid'
+    });
+    l.run();
+    this.cy.fit();
+  }
+
+  do5(): void {
+    this.makeGraph();
+  }
+
+  makeGraph(): void {
+    this.cy.remove('node');
+
+    // componentノード作成
+    this.componentTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('component');
+    });
+
+    // processノード作成
+    this.processTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('process');
+    });
+
+    // deviceノード作成
+    this.deviceTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('device');
+    });
+
+    // StitchingParamsノード作成
+    this.stitchingParamsTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('params');
+    });
+
+    // TrimmingParamsノード作成
+    this.trimmingParamsTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('params');
+    });
+
+    // FoldingParamsノード作成
+    this.foldingParamsTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('params');
+    });
+
+    // CuttingParamsノード作成
+    this.cuttingParamsTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('params');
+    });
+
+    // CoverApplicationParamsノード作成
+    this.coverApplicationParamsTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('params');
+    });
+
+    this.spinePreparationParamsTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('params');
+    });
+
+    // レイアウト
     const l = this.cy.layout({
       name: 'grid'
     });
