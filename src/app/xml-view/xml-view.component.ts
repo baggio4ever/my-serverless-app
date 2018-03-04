@@ -583,25 +583,25 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         {
           selector: '.component',
           style: {
-            'background-color': '#f6f',
+            'background-color': '#666',
             'label': 'data(tag_id)',
-            'shape': 'star'
+            'shape': 'rectangle'
           }
         },
         {
           selector: '.params',
           style: {
-            'background-color': '#0f0',
+            'background-color': '#666',
             'label': 'data(tag_id)',
-            'shape': 'star'
+            'shape': 'tag'
           }
         },
         {
           selector: '.device',
           style: {
-            'background-color': '#ff0',
+            'background-color': '#666',
             'label': 'data(tag_id)',
-            'shape': 'star'
+            'shape': 'roundrectangle'
           }
         },
         {
