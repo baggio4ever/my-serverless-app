@@ -8,6 +8,9 @@ import {
 import * as vkbeautify from 'vkbeautify';
 import * as Cytoscape from 'cytoscape';
 import { Guid } from "guid-typescript";
+import * as klay from 'cytoscape-klay';
+
+Cytoscape.use(klay);
 
 class BaseTag {
   guid: string; // Cytoscapeで使えないかしら
@@ -546,6 +549,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
   ngAfterViewInit() {
 //    console.log('AfterViewInit');
+//    Cytoscape.use( klay );
     this.cy = Cytoscape({
       container: document.getElementById('cy'), // container to render in
 
@@ -893,8 +897,14 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     });
 
     // レイアウト
+/*    const l = this.cy.layout({
+      name: 'klay'
+    });
+    l.run();
+*/  
+//    this.cy.use(klay);
     const l = this.cy.layout({
-      name: 'grid'
+      name: 'klay'
     });
     l.run();
     this.cy.fit();
