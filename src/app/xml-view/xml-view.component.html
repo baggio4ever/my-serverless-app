@@ -452,7 +452,7 @@
   </div>
 
   <div *ngIf="trimmingParamsTags.length>0">
-    <h3 id="trimmingParams">TrimmingParams</h3>
+    <h3 id="trimmingParams_top">TrimmingParams</h3>
     <div>
       <div *ngFor="let t of trimmingParamsTags" id="{{t.id}}">
         <mat-card class="example-card">
@@ -479,19 +479,19 @@
                 <td>{{t.trimmingType}}</td>
               </tr>
               <tr>
-                <td>Width [pt]</td>
+                <td>Width <span class="my-smaller">[pt]</span></td>
                 <td>{{t.width}}</td>
               </tr>
               <tr>
-                <td>Height [pt]</td>
+                <td>Height <span class="my-smaller">[pt]</span></td>
                 <td>{{t.height}}</td>
               </tr>
               <tr>
-                <td>Width [mm]</td>
+                <td>Width <span class="my-smaller">[mm]</span></td>
                 <td>{{t.getWidth_mm()}}</td>
               </tr>
               <tr>
-                <td>Height [mm]</td>
+                <td>Height <span class="my-smaller">[mm]</span></td>
                 <td>{{t.getHeight_mm()}}</td>
               </tr>
               <tr>
