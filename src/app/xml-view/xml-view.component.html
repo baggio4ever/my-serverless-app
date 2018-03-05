@@ -146,7 +146,7 @@
       <div *ngFor="let t of processTags" id="{{t.id}}">
         <mat-card class="example-card">
           <mat-card-header>
-            <mat-card-title>{{t.id}}</mat-card-title>
+            <mat-card-title><span [ngClass]="isSelected(t.guid)">{{t.id}}</span></mat-card-title>
 <!--            <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
 -->
           </mat-card-header>

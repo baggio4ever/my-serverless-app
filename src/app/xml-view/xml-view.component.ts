@@ -525,6 +525,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   coverApplicationParamsTags: CoverApplicationParamsTag[] = [];
   spinePreparationParamsTags: SpinePreparationParamsTag[] = [];
 
+  selectedGuid = '';
+
 //  displayedColumns = ['position', 'name', 'weight', 'symbol'];
   displayedColumns2 = ['id', 'class', 'blockType', 'blockName', 'blockSize', 'blockTrf'];
   displayedColumns3 = ['to', 'from', 'travel'];
@@ -762,6 +764,27 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       if (tag_id) {
 //        target.select();
         this.scrollTo(tag_id);
+      }
+    });
+    this.cy.on('select','node',(evt) => {
+      const target = evt.target;
+      const id = target.id();
+      console.log('select: ' + id);
+      if (id) {
+        this.selectedGuid = id;
+//        target.select();
+//        this.scrollTo(tag_id);
+      }
+    });
+    this.cy.on('unselect','node',(evt) => {
+      const target = evt.target;
+      const id = target.id();
+      console.log('unselect: ' + id);
+      this.selectedGuid = '';
+
+      if (id) {
+//        target.select();
+//        this.scrollTo(tag_id);
       }
     });
 /*
@@ -1375,6 +1398,14 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       document.getElementById(tagName).scrollIntoView(true);
     } catch (e) {
       console.log('error!:' + e);
+    }
+  }
+
+  isSelected( guid: string ): string {
+    if(this.selectedGuid === guid) {
+      return 'selected';
+    } else {
+      return '';
     }
   }
 }

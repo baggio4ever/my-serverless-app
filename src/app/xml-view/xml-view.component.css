@@ -26,6 +26,11 @@
     font-size: 80%;
 }
 
+.selected {
+    font-weight: bold;
+    color: red;
+}
+
 #cy {
     width: 400px;
     height: 300px;
