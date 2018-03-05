@@ -731,8 +731,20 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   }
 
   makeGraph(): void {
+    // 全削除のつもり
     this.cy.remove('node');
 
+    // イベント
+    this.cy.on('tap','node',(evt) => {
+      const target = evt.target;
+      console.log('tapped: '+target.data('tag_id');
+    });
+/*
+    this.cy.on('tap','.process',(evt) => {
+      const target = evt.target;
+      console.log('tapped: '+target.data('tag_id');
+    });
+*/
     // componentノード作成
     this.componentTags.forEach( (v,i,a) => {
       this.cy.add([
@@ -936,29 +948,29 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
   // うーん。いまいち。
   getParamsTagById( id: string ): IdHavingTag {
-    let r = undefined;
+    let r;
 
-    if( r　=　this.coverApplicationParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if ( r = this.coverApplicationParamsTags.find((v,i,a) => {return v.id===id;})) {
       return r;
     }
 
-    if( r　=　this.cuttingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if ( r = this.cuttingParamsTags.find((v,i,a) => {return v.id===id;})) {
       return r;
     }
 
-    if( r　=　this.foldingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if ( r = this.foldingParamsTags.find((v,i,a) => {return v.id===id;})) {
       return r;
     }
 
-    if( r　=　this.stitchingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if ( r = this.stitchingParamsTags.find((v,i,a) => {return v.id===id;})) {
       return r;
     }
 
-    if( r　=　this.spinePreparationParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if ( r = this.spinePreparationParamsTags.find((v,i,a) => {return v.id===id;})) {
       return r;
     }
 
-    if( r　=　this.trimmingParamsTags.find((v,i,a)=>{return v.id===id;})) {
+    if ( r = this.trimmingParamsTags.find((v,i,a) => {return v.id===id;})) {
       return r;
     }
 
