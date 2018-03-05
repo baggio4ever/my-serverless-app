@@ -92,6 +92,15 @@ class ComponentTag extends IdHavingTag {
 
     this.body = body;
   }
+
+  getDimensions_mm(): string {
+    return this.dimensions
+      .split(' ')
+      .map( (v,i,a) => {
+        return JDFUtils.pt2mm( JDFUtils.parseNumber(v) );
+      })
+      .join(' ');
+  }
 }
 
 class StitchingParamsTag extends IdHavingTag  {

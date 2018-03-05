@@ -252,6 +252,10 @@
                 <td>{{t.dimensions}}</td>
               </tr>
               <tr>
+                <td>Dimensions<span class="my-smaller">（幅、長さ、厚さ）[mm]</span></td>
+                <td>{{t.getDimensions_mm()}}</td>
+              </tr>
+              <tr>
                 <td>前工程 （生成元）</td>
                 <td>
                   <div *ngFor="let l of getPreviousProcesses(t)">
