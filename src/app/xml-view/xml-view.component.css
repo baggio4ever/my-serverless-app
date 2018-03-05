@@ -43,11 +43,15 @@
 
 #fmenu {
     float: left;
-    width: 400px;
+    width: 406px;
     position: fixed;
-    margin: 10px;
+    margin: 8px;
+    padding: 8px;
+
+    border: lightgray;
+    box-shadow: 2px 2px 6px gray;
 }
 
 #main {
-    padding-left: 430px;
+    padding-left: 440px;
 }
