@@ -27,6 +27,9 @@
     height: 300px;
     display: block;
     background: #ddddff;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;/* for Safari and Chrome 対応*/
+    -moz-border-radius: 8px;/* for Firefox 対応*/
 }
 
 #fmenu {
