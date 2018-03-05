@@ -19,7 +19,17 @@
 <div id="fmenu">
   <div id="cy"></div>
   <div>
-    <mat-list>
+    <div class="like-link" (click)="scrollTo('job_top')">Job</div>
+    <div *ngIf="processTags.length>0" class="like-link" (click)="scrollTo('process_top')">Processes</div>
+    <div *ngIf="componentTags.length>0" class="like-link" (click)="scrollTo('component_top')">Components</div>
+    <div *ngIf="deviceTags.length>0" class="like-link" (click)="scrollTo('device_top')">Devices</div>
+    <div *ngIf="stitchingParamsTags.length>0" class="like-link" (click)="scrollTo('stitchingParams_top')">StitchingParams</div>
+    <div *ngIf="trimmingParamsTags.length>0" class="like-link" (click)="scrollTo('trimmingParams_top')">TrimmingParams</div>
+    <div *ngIf="cuttingParamsTags.length>0" class="like-link" (click)="scrollTo('cuttingParams_top')">CuttingParams</div>
+    <div *ngIf="foldingParamsTags.length>0" class="like-link" (click)="scrollTo('foldingParams_top')">FoldingParams</div>
+    <div *ngIf="spinePreparationParamsTags.length>0" class="like-link" (click)="scrollTo('spinePreparationParams_top')">SpinePreparationParams</div>
+    <div *ngIf="coverApplicationParamsTags.length>0" class="like-link" (click)="scrollTo('coverApplicationParams_top')">CoverApplicationParams</div>
+<!--    <mat-list>
       <mat-list-item>
         <mat-icon mat-list-icon>school</mat-icon>
         <h5 mat-line><span class="like-link" (click)="scrollTo('job_top')">Job</span></h5>
@@ -61,6 +71,7 @@
         <h5 mat-line><span class="like-link" (click)="scrollTo('coverApplicationParams_top')">CoverApplicationParams</span></h5>
       </mat-list-item>
     </mat-list>
+  -->
   </div>
 </div>
 

@@ -94,12 +94,17 @@ class ComponentTag extends IdHavingTag {
   }
 
   getDimensions_mm(): string {
+//    return this.dimensions;
+    if (this.dimensions) {
     return this.dimensions
       .split(' ')
       .map( (v,i,a) => {
         return JDFUtils.pt2mm( JDFUtils.parseNumber(v) );
       })
       .join(' ');
+    } else {
+      return '記述なし';
+    }
   }
 }
 
