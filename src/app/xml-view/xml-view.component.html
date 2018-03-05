@@ -89,8 +89,9 @@
     <div id="{{jobTag.id}}">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title>{{jobTag.descriptiveName}}</mat-card-title>
-          <mat-card-subtitle>{{jobTag.jobId}}</mat-card-subtitle>
+          <mat-card-title>{{jobTag.id}}</mat-card-title>
+<!--          <mat-card-subtitle>{{jobTag.jobId}}</mat-card-subtitle>
+-->
         </mat-card-header>
         <mat-card-content>
           <table>
@@ -145,8 +146,9 @@
       <div *ngFor="let t of processTags" id="{{t.id}}">
         <mat-card class="example-card">
           <mat-card-header>
-            <mat-card-title>{{t.descriptiveName}}</mat-card-title>
-            <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
+            <mat-card-title>{{t.id}}</mat-card-title>
+<!--            <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -242,7 +244,8 @@
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.componentType}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.componentType}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -267,11 +270,9 @@
                 <td>{{t.getDimensions_mm()}}</td>
               </tr>
               <tr>
-                <td>前工程 （生成元）</td>
+                <td>前工程 <span class="my-smaller">（生成元）</span></td>
                 <td>
                   <div *ngFor="let l of getPreviousProcesses(t)">
-  <!--                  <button (click)="scrollTo(l.id)">{{l.id}}</button>
-  -->
                     <span class="like-link" (click)="scrollTo(l.id)">{{l.id}}</span>
                   </div>
                 </td>
@@ -327,7 +328,8 @@
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.friendlyName}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.friendlyName}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -392,13 +394,14 @@
   </div>
 
   <div *ngIf="stitchingParamsTags.length>0">
-    <h3 id="stitchling_top">StitchingParams</h3>
+    <h3 id="stitchingParams_top">StitchingParams</h3>
     <div>
       <div *ngFor="let t of stitchingParamsTags" id="{{t.id}}">
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -469,7 +472,8 @@
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -562,7 +566,8 @@
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -682,7 +687,8 @@
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -814,7 +820,8 @@
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
@@ -879,7 +886,8 @@
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
-            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+<!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
+-->
           </mat-card-header>
           <mat-card-content>
             <table>
