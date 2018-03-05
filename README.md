@@ -155,7 +155,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [グローバルナビをスクロール時に固定する方法](http://morobrand.net/mororeco/jquery/fixednavi/)
 
-[CSSフローティングメニュー](http://www.shurey.com/html/css_menu.html) 例がシンプルなので試しやすそう
+[CSSフローティングメニュー](http://www.shurey.com/html/css_menu.html) 例がシンプルなので試しやすそう。実際良かった ☆☆☆
 
 
 
