@@ -737,7 +737,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     // イベント
     this.cy.on('tap','node',(evt) => {
       const target = evt.target;
-      console.log('tapped: '+target.data('tag_id');
+      console.log('tapped: ' + target.data('tag_id'));
     });
 /*
     this.cy.on('tap','.process',(evt) => {
