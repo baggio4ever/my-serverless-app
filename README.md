@@ -70,8 +70,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [Angular TIPS 【最新v4対応】 - 処理対象別インデックス](https://www.buildinsider.net/web/angulartips)
 
-[Angular Material DatePicker - Error: MdDatepicker: No provider found for DateAdapter
-](https://stackoverflow.com/questions/46337774/angular-material-datepicker-error-mddatepicker-no-provider-found-for-dateada)
+[Angular Material DatePicker - Error: MdDatepicker: No provider found for DateAdapter](https://stackoverflow.com/questions/46337774/angular-material-datepicker-error-mddatepicker-no-provider-found-for-dateada)
 
 [@ViewChild を用いたコンポーネント](http://angular.keicode.com/basics/component-interaction-viewchild.php)
 
@@ -94,15 +93,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [Angular 4.3で追加されたHttpClientModuleについてのメモ](https://qiita.com/ponday/items/1ec0e500cd801286845e) ファイルアップロードの進捗が得られるみたい
 
-[Angularでテキストファイルを読み込む](http://daikiojm.hatenablog.com/entry/2017/10/10/000000)
+[Angularでテキストファイルを読み込む](http://daikiojm.hatenablog.com/entry/2017/10/10/000000)
 
-[API Gatewayがバイナリデータをサポートしたので試してみました](https://dev.classmethod.jp/cloud/aws/binary-data-supported-by-api-gateway/)
+[API Gatewayがバイナリデータをサポートしたので試してみました](https://dev.classmethod.jp/cloud/aws/binary-data-supported-by-api-gateway/)
 
 [md-table - How to update the column width](https://stackoverflow.com/questions/45159066/md-table-how-to-update-the-column-width)
 
 [Angular2のプロジェクト作成から開発をしてIISにデプロイまで](http://www.ifelse.jp/blog/angular2-basic-training-01) IISへのデプロイ方法が書いてある
 
 [Angular2のクロスドメインアクセスの問題対応](http://www.ifelse.jp/blog/angular-tips-01) なんか詳しく書いてある。途中で挫折。
+
+[要素の属性を全部取得する](http://hokaccha.hatenablog.com/entry/20130819/1376895914)
+
+
 
 #### XMLやプログラムコードを色付け
 
@@ -148,16 +151,19 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [ヘッダーとフッターのHTML固定方法とデザインまとめ](https://seolaboratory.jp/internal/2016091244065.php)
 
+[Fixed固定ナビゲーションを設置するときに気をつけたい4つのこと](https://liginc.co.jp/web/js/jquery/80140)
+
+[グローバルナビをスクロール時に固定する方法](http://morobrand.net/mororeco/jquery/fixednavi/)
+
+[CSSフローティングメニュー](http://www.shurey.com/html/css_menu.html) 例がシンプルなので試しやすそう
+
+
 
 #### スクロールバー
 
 [テーブル・セルにスクロールバーをつける](http://kowaza.boo.jp/03table/table-07-0scroll.html)
 
 [スクロールさせる領域だけどスクロールバーは非表示にしたい。](https://qiita.com/naru0504/items/ff0c77775223dc5a9148)
-
-
-
-[要素の属性を全部取得する](http://hokaccha.hatenablog.com/entry/20130819/1376895914)
 
 [Angular2 Routing with Hashtag to page anchor](https://stackoverflow.com/questions/36101756/angular2-routing-with-hashtag-to-page-anchor) ページ内リンクの方法が書いてあるっぽいけど
 
