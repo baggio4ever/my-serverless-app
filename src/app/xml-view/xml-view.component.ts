@@ -605,6 +605,12 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           }
         },
         {
+          selector: ':selected',
+          style: {
+            'background-color': '#b22',
+          }
+        },
+        {
           selector: 'edge',
           style: {
             'width': 3,
@@ -740,6 +746,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       const tag_id = target.data('tag_id');
       console.log('tapped: ' + tag_id);
       if (tag_id) {
+//        target.select();
         this.scrollTo(tag_id);
       }
     });

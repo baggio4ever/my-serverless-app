@@ -23,7 +23,7 @@
 }
 
 #cy {
-    width: 320px;
+    width: 400px;
     height: 300px;
     display: block;
     background: #ddddff;
@@ -34,11 +34,11 @@
 
 #fmenu {
     float: left;
-    width: 320px;
+    width: 400px;
     position: fixed;
     margin: 10px;
 }
 
 #main {
-    padding-left: 360px;
+    padding-left: 420px;
 }
