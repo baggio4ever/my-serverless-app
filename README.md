@@ -157,6 +157,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [CSSフローティングメニュー](http://www.shurey.com/html/css_menu.html) 例がシンプルなので試しやすそう。実際良かった ☆☆☆
 
+[HTML+CSSによるウェブページ制作例](http://www.htmq.com/csskihon/401.shtml)  丁寧に書いてあるが、内容が古い感じ。避けるべし。
 
 
 #### スクロールバー
