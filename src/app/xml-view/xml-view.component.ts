@@ -677,6 +677,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 //            'target-endpoint': 'outside-to-node',
 //            'source-arrow-color': '#088',
 //            'source-arrow-shape': 'triangle',
+            'source-label': 'data(amount)',
+            'source-text-offset': '15'
           }
         }
       ],
@@ -943,34 +945,34 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       ]).addClass('params');
     });
 
-    this.processTags.forEach((v,i,a)=>{
+    this.processTags.forEach((v,i,a) => {
       // process - component（入力）エッジ
-      v.inputComponentLinks.forEach((d,idx,ar)=>{
+      v.inputComponentLinks.forEach((d,idx,ar) => {
         const aGuid = Guid.create().toString();
         const component = this.getComponentTagById(d.rRef);
         if( component ) {
           this.cy.add([
             { // edge 
-              data: { id: aGuid, source: component.guid, target: v.guid  }
+              data: { id: aGuid, source: component.guid, target: v.guid, amount: d.amount  }
             },
           ]).addClass('uni-arrow');
         }
       });
       // process - component（出力）エッジ
-      v.outputComponentLinks.forEach((d,idx,ar)=>{
+      v.outputComponentLinks.forEach((d,idx,ar) => {
         const aGuid = Guid.create().toString();
         const component = this.getComponentTagById(d.rRef);
         if( component ) {
           this.cy.add([
             { // edge 
-              data: { id: aGuid, source: v.guid, target: component.guid  }
+              data: { id: aGuid, source: v.guid, target: component.guid, amount: d.amount  }
             },
           ]).addClass('uni-arrow');
         }
       });
 
       // process - deviceエッジ
-      v.deviceLinks.forEach((d,idx,ar)=>{
+      v.deviceLinks.forEach((d,idx,ar) => {
         const aGuid = Guid.create().toString();
         const device = this.getDeviceTagById(d.rRef);
         if( device ) {
@@ -983,7 +985,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       });
 
       // process - paramsエッジ
-      v.paramsLinks.forEach((d,idx,ar)=>{
+      v.paramsLinks.forEach((d,idx,ar) => {
         const aGuid = Guid.create().toString();
         const params = this.getParamsTagById(d.rRef);
         if( params ) {
