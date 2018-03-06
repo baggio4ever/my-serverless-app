@@ -188,6 +188,10 @@ class FoldTag  extends BaseTag {
     this.from = from;
     this.travel = travel;
   }
+
+  getTravel_mm(): number {
+    return JDFUtils.pt2mm( JDFUtils.parseNumber( this.travel ) );
+  }
 }
 
 class CuttingParamsTag  extends IdHavingTag {
@@ -529,7 +533,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
 //  displayedColumns = ['position', 'name', 'weight', 'symbol'];
   displayedColumns2 = ['id', 'class', 'blockType', 'blockName', 'blockSize', 'blockTrf'];
-  displayedColumns3 = ['to', 'from', 'travel'];
+  displayedColumns3 = ['to', 'from', 'travel', 'travel_mm'];
 //  dataSource = ELEMENT_DATA;
 
   cy = null;

@@ -12,7 +12,7 @@
   
 .mat-table {
     overflow: auto;
-    max-height: 500px;
+    max-height: 300px;
 }
 
 .like-link {
@@ -36,9 +36,9 @@
     height: 300px;
     display: block;
     background: #ddddff;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;/* for Safari and Chrome 対応*/
-    -moz-border-radius: 8px;/* for Firefox 対応*/
+    border-radius: 4px;
+    -webkit-border-radius: 4px;/* for Safari and Chrome 対応*/
+    -moz-border-radius: 4px;/* for Firefox 対応*/
 }
 
 #fmenu {
@@ -50,6 +50,9 @@
 
     border: lightgray;
     box-shadow: 2px 2px 6px gray;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;/* for Safari and Chrome 対応*/
+    -moz-border-radius: 4px;/* for Firefox 対応*/
 }
 
 #main {

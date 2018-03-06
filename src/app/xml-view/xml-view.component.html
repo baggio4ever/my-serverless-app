@@ -626,6 +626,12 @@
                     <mat-cell *matCellDef="let element"> {{element.travel}} </mat-cell>
                   </ng-container>
 
+                  <!-- Travel[mm] Column -->
+                  <ng-container matColumnDef="travel_mm">
+                    <mat-header-cell *matHeaderCellDef> Travel[mm] </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.getTravel_mm()}} </mat-cell>
+                  </ng-container>
+
                   <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
                   <mat-row *matRowDef="let row; columns: displayedColumns3;"></mat-row>
                 </mat-table>
