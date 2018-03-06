@@ -260,6 +260,23 @@ class SpinePreparationParamsTag  extends IdHavingTag {
   }
 }
 
+class StackingParamsTag  extends IdHavingTag {
+  klass: string;
+  standardAmount: string;
+  layerAmount: string;
+  body: string;
+
+  constructor( id: string, klass: string, standardAmount: string,layerAmount: string, body: string ) {
+    super(id);
+
+    this.klass = klass;
+    this.standardAmount = standardAmount;
+    this.layerAmount = layerAmount;
+
+    this.body = body;
+  }
+}
+
 class LinkTag  extends BaseTag {
   usage: string;
   rRef: string;
@@ -317,6 +334,12 @@ class FoldingParamsLinkTag extends LinkTag {
 }
 
 class DeviceLinkTag extends LinkTag {
+  constructor( usage: string, rRef: string, amount: string ) {
+    super( usage, rRef, amount );
+  }
+}
+
+class StackingParamsLinkTag extends LinkTag {
   constructor( usage: string, rRef: string, amount: string ) {
     super( usage, rRef, amount );
   }
@@ -528,6 +551,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   cuttingParamsTags: CuttingParamsTag[] = [];
   coverApplicationParamsTags: CoverApplicationParamsTag[] = [];
   spinePreparationParamsTags: SpinePreparationParamsTag[] = [];
+  stackingParamsTags: StackingParamsTag[] = [];
 
   selectedGuid = '';
 
@@ -905,6 +929,18 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
       ]).addClass('params');
     });
 
+    // StackingParamsノード作成
+    this.stackingParamsTags.forEach( (v,i,a) => {
+      this.cy.add([
+        {
+          data: {
+            id: v.guid,
+            tag_id: v.id
+          }
+        }
+      ]).addClass('params');
+    });
+
     this.processTags.forEach((v,i,a)=>{
       // process - component（入力）エッジ
       v.inputComponentLinks.forEach((d,idx,ar)=>{
@@ -1023,6 +1059,10 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     }
 
     if ( r = this.trimmingParamsTags.find((v,i,a) => {return v.id===id;})) {
+      return r;
+    }
+
+    if ( r = this.stackingParamsTags.find((v,i,a) => {return v.id===id;})) {
       return r;
     }
 
@@ -1245,6 +1285,21 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           this.spinePreparationParamsTags.push( spinePreparationParamsTag );
         }
 
+        // StackingParamsタグ
+        const stackingParamsTags = dom.getElementsByTagName('StackingParams');
+        console.log('stackingParamsTags.length: ' + stackingParamsTags.length);
+        for (let i = 0; i < stackingParamsTags.length; ++i ) {
+          const j = stackingParamsTags[i];
+          const id = j.getAttribute('ID');
+          const klass = j.getAttribute('Class');
+          const standardAmount = j.getAttribute('StandardAmount');
+          const layerAmount = j.getAttribute('LayerAmount');
+          const body = vkbeautify.xml( j.outerHTML.toString() );
+
+          const stackingParamsTag = new StackingParamsTag( id, klass, standardAmount, layerAmount, body );
+          this.stackingParamsTags.push( stackingParamsTag );
+        }
+
         // JDFタグ  最後が良い、多分。参照したいデータが揃っているはずなので
         const jdfTags = dom.getElementsByTagName('JDF');
         console.log('jdfTags.length: ' + jdfTags.length);
@@ -1323,6 +1378,12 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
                   rRef = comp.getAttribute('rRef');
                   const dl = new DeviceLinkTag( usage, rRef, amount );
                   deviceLinks.push(dl);
+                  break;
+                case 'StackingParamsLink':
+                  usage = comp.getAttribute('Usage');
+                  rRef = comp.getAttribute('rRef');
+                  const spl2 = new StackingParamsLinkTag( usage, rRef, amount );
+                  paramsLinks.push(spl2);
                   break;
                 default:
                   console.log('default キター: ' + comp.tagName);
