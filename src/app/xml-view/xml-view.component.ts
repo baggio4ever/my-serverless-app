@@ -614,7 +614,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           selector: 'node',
           style: {
             'background-color': '#666',
-            'label': 'data(id)'
+            'label': 'data(id)',
+            'font-size': '14'
           }
         },
         {
@@ -678,7 +679,9 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 //            'source-arrow-color': '#088',
 //            'source-arrow-shape': 'triangle',
             'source-label': 'data(amount)',
-            'source-text-offset': '15'
+            'source-text-offset': '15',
+            'source-text-margin-y': '-10',
+            'font-size': '11'
           }
         }
       ],
@@ -990,7 +993,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         const params = this.getParamsTagById(d.rRef);
         if( params ) {
           this.cy.add([
-            { // edge 
+            { // edge
               data: { id: aGuid, source: v.guid, target: params.guid  }
             },
           ]);
@@ -1001,24 +1004,21 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     });
 
     // レイアウト
-/*    const l = this.cy.layout({
-      name: 'klay'
-    });
-    l.run();
-*/  
-//    this.cy.use(klay);
     const l = this.cy.layout({
-      name: 'klay'
+      name: 'klay',
+      klay: {
+        spacing: 40 /* オブジェクト間の最小間隔 */
+      }
     });
     l.run();
-    this.cy.fit();
+//    this.cy.fit();
   }
 
   getComponentTagById( id: string ): ComponentTag {
-    let ret:ComponentTag = null;
-    for( let i=0;i<this.componentTags.length;i++ ) {
+    let ret: ComponentTag = null;
+    for ( let i = 0; i < this.componentTags.length; i++ ) {
       const componentTag = this.componentTags[i];
-      if(componentTag.id === id) {
+      if (componentTag.id === id) {
         ret = componentTag;
         break;
       }
@@ -1027,10 +1027,10 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   }
 
   getDeviceTagById( id: string ): DeviceTag {
-    let ret:DeviceTag = null;
-    for( let i=0;i<this.deviceTags.length;i++ ) {
+    let ret: DeviceTag = null;
+    for ( let i = 0; i < this.deviceTags.length; i++ ) {
       const deviceTag = this.deviceTags[i];
-      if(deviceTag.id === id) {
+      if (deviceTag.id === id) {
         ret = deviceTag;
         break;
       }
@@ -1143,7 +1143,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 
         // ResourcePool
         const resourcePoolTags = dom.getElementsByTagName('ResourcePool');
-        if( resourcePoolTags.length !== 1 ) {
+        if ( resourcePoolTags.length !== 1 ) {
           console.log('げ！ resourcePoolTag.length:'+resourcePoolTags.length);
         }
         const resourcePool = resourcePoolTags[0];
@@ -1420,7 +1420,6 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     };
 
     reader.readAsText(file);
-//    console.log('yes()');
   }
 
   // 引数で渡すコンポーネント（用紙とか）を作成した工程を返す
@@ -1478,17 +1477,13 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     try {
       console.log('tagName: ' + tagName);
 //      document.getElementById(tagName).scrollIntoView(true);
-        document.getElementById(tagName).scrollIntoView( {behavior:'smooth',block:'center',inline:'center'});
+        document.getElementById(tagName).scrollIntoView( {behavior: 'smooth', block: 'center', inline: 'center'});
     } catch (e) {
       console.log('error!:' + e);
     }
   }
 
   isSelected( guid: string ): boolean {
-    if (this.selectedGuid === guid) {
-      return true;
-    } else {
-      return false;
-    }
+    return (this.selectedGuid === guid);
   }
 }

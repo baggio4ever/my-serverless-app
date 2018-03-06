@@ -169,7 +169,7 @@
                 <td>DescriptiveName</td>
                 <td>{{t.descriptiveName}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="t.inputComponentLinks.length>0">
                 <td>入力</td>
                 <td>
                   <div *ngFor="let l of t.inputComponentLinks">
@@ -178,7 +178,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr *ngIf="t.outputComponentLinks.length>0">
                 <td>出力</td>
                 <td>
                   <div *ngFor="let l of t.outputComponentLinks">
@@ -187,7 +187,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr *ngIf="t.paramsLinks.length>0">
                 <td>加工情報</td>
                 <td>
                   <div *ngFor="let l of t.paramsLinks">
@@ -195,7 +195,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr *ngIf="t.deviceLinks.length>0">
                 <td>デバイス情報</td>
                 <td>
                   <div *ngFor="let l of t.deviceLinks">
@@ -272,7 +272,7 @@
                 <td>Dimensions<span class="my-smaller">（幅、長さ、厚さ）[mm]</span></td>
                 <td>{{t.getDimensions_mm()}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getPreviousProcesses(t).length>0">
                 <td>前工程 <span class="my-smaller">（生成元）</span></td>
                 <td>
                   <div *ngFor="let l of getPreviousProcesses(t)">
@@ -280,7 +280,7 @@
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr *ngIf="getNextProcesses(t).length>0">
                 <td>次工程</td>
                 <td>
                   <div *ngFor="let l of getNextProcesses(t)">
@@ -352,7 +352,7 @@
                 <td>FriendlyName</td>
                 <td>{{t.friendlyName}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getProcessesUsingThisDevice(t).length>0">
                 <td>利用工程</td>
                 <td>
                   <div *ngFor="let l of getProcessesUsingThisDevice(t)">
@@ -424,7 +424,7 @@
                 <td>StapleShape</td>
                 <td>{{t.stapleShape}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getProcessesUsingThisParams(t).length>0">
                 <td>利用工程</td>
                 <td>
                   <div *ngFor="let l of getProcessesUsingThisParams(t)">
@@ -512,7 +512,7 @@
                 <td>Height <span class="my-smaller">[mm]</span></td>
                 <td>{{t.getHeight_mm()}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getProcessesUsingThisParams(t).length>0">
                 <td>利用工程</td>
                 <td>
                   <div *ngFor="let l of getProcessesUsingThisParams(t)">
@@ -590,7 +590,7 @@
                 <td>FoldCatalog</td>
                 <td>{{t.foldCatalog}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getProcessesUsingThisParams(t).length>0">
                 <td>利用工程</td>
                 <td>
                   <div *ngFor="let l of getProcessesUsingThisParams(t)">
@@ -846,7 +846,7 @@
                 <td>NoOp</td>
                 <td>{{t.noOp}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getProcessesUsingThisParams(t).length>0">
                 <td>利用工程</td>
                 <td>
                   <div *ngFor="let l of getProcessesUsingThisParams(t)">
@@ -912,7 +912,7 @@
                 <td>MillingDepth</td>
                 <td>{{t.millingDepth}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getProcessesUsingThisParams(t).length>0">
                 <td>利用工程</td>
                 <td>
                   <div *ngFor="let l of getProcessesUsingThisParams(t)">
@@ -962,7 +962,7 @@
                 <td>LayerAmount</td>
                 <td>{{t.layerAmount}}</td>
               </tr>
-              <tr>
+              <tr *ngIf="getProcessesUsingThisParams(t).length>0">
                 <td>利用工程</td>
                 <td>
                   <div *ngFor="let l of getProcessesUsingThisParams(t)">
