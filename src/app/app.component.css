@@ -6,6 +6,18 @@
   flex: 1 1 auto;
 }
 
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
+#content {
+    padding-top: 170px;
+}
+
 nav a {
     color:#fff;
     text-decoration: none;

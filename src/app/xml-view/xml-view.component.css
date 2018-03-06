@@ -56,5 +56,6 @@
 }
 
 #main {
+/*    position: absolute;*/ /* うーん。どうすればヘッダーに隠れずに済ませられるのか。ScrollToするとヘッダーの下にジャンプすることがあるのよ */
     padding-left: 440px;
 }
