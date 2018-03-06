@@ -1399,7 +1399,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
   scrollTo( tagName: string ): void {
     try {
       console.log('tagName: ' + tagName);
-      document.getElementById(tagName).scrollIntoView(true);
+//      document.getElementById(tagName).scrollIntoView(true);
+        document.getElementById(tagName).scrollIntoView( {behavior:'smooth',block:'center',inline:'center'});
     } catch (e) {
       console.log('error!:' + e);
     }
