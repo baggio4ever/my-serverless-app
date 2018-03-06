@@ -651,6 +651,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         {
           selector: ':selected',
           style: {
+            'border-width': '2',
+            'border-color': 'black',
             'background-color': '#b22',
           }
         },
@@ -1135,21 +1137,34 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
         this.cuttingParamsTags = [];
         this.coverApplicationParamsTags = [];
         this.spinePreparationParamsTags = [];
+        this.stackingParamsTags = [];
+
+        // ResourcePool
+        const resourcePoolTags = dom.getElementsByTagName('ResourcePool');
+        if( resourcePoolTags.length !== 1 ) {
+          console.log('げ！ resourcePoolTag.length:'+resourcePoolTags.length);
+        }
+        const resourcePool = resourcePoolTags[0];
 
         // Componentタグ
-        const componentTags = dom.getElementsByTagName('Component');
+        const componentTags = resourcePool.getElementsByTagName('Component');
         console.log('componentTags.length: ' + componentTags.length);
         for (let i = 0; i < componentTags.length; ++i ) {
           const j = componentTags[i];
-          const id = j.getAttribute('ID');
-          const componentType = j.getAttribute('ComponentType');
-          const klass = j.getAttribute('Class');
-          const dimensions = j.getAttribute('Dimensions');
-          const body = vkbeautify.xml( j.outerHTML.toString() );
-//          const body = j.outerHTML.toString();
+          // ResourcePool 直下か
+          if( j.parentElement === resourcePool ) {
+            const id = j.getAttribute('ID');
+            const componentType = j.getAttribute('ComponentType');
+            const klass = j.getAttribute('Class');
+            const dimensions = j.getAttribute('Dimensions');
+            const body = vkbeautify.xml( j.outerHTML.toString() );
+  //          const body = j.outerHTML.toString();
 
-          const componentTag = new ComponentTag( id, componentType, klass, dimensions, body );
-          this.componentTags.push( componentTag );
+            const componentTag = new ComponentTag( id, componentType, klass, dimensions, body );
+            this.componentTags.push( componentTag );
+          } else {
+            console.log('はずれ！');
+          }
         }
 
         // Deviceタグ

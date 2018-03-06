@@ -29,6 +29,7 @@
     <div *ngIf="foldingParamsTags.length>0" class="like-link" (click)="scrollTo('foldingParams_top')">FoldingParams</div>
     <div *ngIf="spinePreparationParamsTags.length>0" class="like-link" (click)="scrollTo('spinePreparationParams_top')">SpinePreparationParams</div>
     <div *ngIf="coverApplicationParamsTags.length>0" class="like-link" (click)="scrollTo('coverApplicationParams_top')">CoverApplicationParams</div>
+    <div *ngIf="stackingParamsTags.length>0" class="like-link" (click)="scrollTo('stackingParams_top')">StackingParams</div>
 <!--    <mat-list>
       <mat-list-item>
         <mat-icon mat-list-icon>school</mat-icon>
@@ -146,7 +147,7 @@
       <div *ngFor="let t of processTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
         <mat-card>
           <mat-card-header>
-            <mat-card-title><span [class.selected]="isSelected(t.guid)">{{t.id}}</span></mat-card-title>
+            <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
 -->
           </mat-card-header>
