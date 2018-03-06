@@ -243,8 +243,8 @@
   <div *ngIf="componentTags.length>0">
     <h3 id="component_top">Components</h3>
     <div>
-      <div *ngFor="let t of componentTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of componentTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.componentType}}</mat-card-subtitle>
@@ -327,8 +327,8 @@
   <div *ngIf="deviceTags.length>0">
     <h3 id="device_top">Devices</h3>
     <div>
-      <div *ngFor="let t of deviceTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of deviceTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.friendlyName}}</mat-card-subtitle>
@@ -399,8 +399,8 @@
   <div *ngIf="stitchingParamsTags.length>0">
     <h3 id="stitchingParams_top">StitchingParams</h3>
     <div>
-      <div *ngFor="let t of stitchingParamsTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of stitchingParamsTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
@@ -471,8 +471,8 @@
   <div *ngIf="trimmingParamsTags.length>0">
     <h3 id="trimmingParams_top">TrimmingParams</h3>
     <div>
-      <div *ngFor="let t of trimmingParamsTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of trimmingParamsTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
@@ -565,8 +565,8 @@
   <div *ngIf="foldingParamsTags.length>0">
     <h3 id="foldingParams_top">FoldingParams</h3>
     <div>
-      <div *ngFor="let t of foldingParamsTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of foldingParamsTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
@@ -692,8 +692,8 @@
   <div *ngIf="cuttingParamsTags.length>0">
     <h3 id="cuttingParams_top">CuttingParams</h3>
     <div>
-      <div *ngFor="let t of cuttingParamsTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of cuttingParamsTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
@@ -825,8 +825,8 @@
   <div *ngIf="coverApplicationParamsTags.length>0">
     <h3 id="coverApplicationParams_top">CoverApplicationParams</h3>
     <div>
-      <div *ngFor="let t of coverApplicationParamsTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of coverApplicationParamsTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
@@ -891,8 +891,8 @@
   <div *ngIf="spinePreparationParamsTags.length>0">
     <h3 id="spinePreparationParams_top">SpinePreparationParams</h3>
     <div>
-      <div *ngFor="let t of spinePreparationParamsTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of spinePreparationParamsTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>
@@ -937,8 +937,8 @@
   <div *ngIf="stackingParamsTags.length>0">
     <h3 id="stackingParams_top">StackingParams</h3>
     <div>
-      <div *ngFor="let t of stackingParamsTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of stackingParamsTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
             <mat-card-title>{{t.id}}</mat-card-title>
 <!--            <mat-card-subtitle>{{t.klass}}</mat-card-subtitle>

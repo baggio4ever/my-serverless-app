@@ -615,7 +615,7 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           style: {
             'background-color': '#666',
             'label': 'data(id)',
-            'font-size': '14'
+            'font-size': 13
           }
         },
         {
@@ -638,7 +638,12 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
           style: {
             'background-color': '#666',
             'label': 'data(tag_id)',
-            'shape': 'tag'
+            'shape': 'tag',
+/*            'background-opacity': 0,
+            'background-image': '../../assets/images/ic_sd_card_black_24dp_2x.png',
+            'background-clip': 'none',
+            'background-fit': 'contain'
+          */
           }
         },
         {
@@ -679,9 +684,9 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
 //            'source-arrow-color': '#088',
 //            'source-arrow-shape': 'triangle',
             'source-label': 'data(amount)',
-            'source-text-offset': '15',
-            'source-text-margin-y': '-10',
-            'font-size': '11'
+            'source-text-offset': 15,
+            'source-text-margin-y': -10,
+            'font-size': 11
           }
         }
       ],
