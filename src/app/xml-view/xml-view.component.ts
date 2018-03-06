@@ -1421,6 +1421,8 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
             this.processTags.push( jdfTag );
           }
         }
+
+        this.makeGraph();
       }
     };
 

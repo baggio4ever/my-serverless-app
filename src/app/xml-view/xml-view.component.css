@@ -53,12 +53,13 @@
     position: fixed;
     margin: 8px;
     padding: 8px;
-
+/*
     border: lightgray;
     box-shadow: 2px 2px 6px gray;
     border-radius: 4px;
-    -webkit-border-radius: 4px;/* for Safari and Chrome 対応*/
-    -moz-border-radius: 4px;/* for Firefox 対応*/
+*/
+/*    -webkit-border-radius: 4px;/* for Safari and Chrome 対応*/
+/*    -moz-border-radius: 4px;/* for Firefox 対応*/
 }
 
 #main {

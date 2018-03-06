@@ -13,13 +13,13 @@
     <button mat-raised-button (click)="do3()" >Shapeチェンジ！</button>
     <button mat-raised-button (click)="do4()" >ごっそり入れ替え！</button>
 -->    
-    <button mat-raised-button (click)="do5()" [disabled]="!fileSelected">JDFから生成</button>
+    <button mat-raised-button (click)="do5()" [disabled]="!fileSelected">Graph再生成</button>
 </div>
 
 <div id="fmenu">
   <div id="cy"></div>
   <div>
-    <div class="like-link" (click)="scrollTo('job_top')">Job</div>
+    <div *ngIf="jobTag !== null" class="like-link" (click)="scrollTo('job_top')">Job</div>
     <div *ngIf="processTags.length>0" class="like-link" (click)="scrollTo('process_top')">Processes</div>
     <div *ngIf="componentTags.length>0" class="like-link" (click)="scrollTo('component_top')">Components</div>
     <div *ngIf="deviceTags.length>0" class="like-link" (click)="scrollTo('device_top')">Devices</div>
@@ -269,7 +269,7 @@
                 <td>{{t.dimensions}}</td>
               </tr>
               <tr>
-                <td>Dimensions<span class="my-smaller">（幅、長さ、厚さ）[mm]</span></td>
+                <td>Dimensions [mm]<br><span class="my-smaller">（幅、長さ、厚さ）</span></td>
                 <td>{{t.getDimensions_mm()}}</td>
               </tr>
               <tr *ngIf="getPreviousProcesses(t).length>0">
@@ -631,7 +631,7 @@
 
                   <!-- Travel[mm] Column -->
                   <ng-container matColumnDef="travel_mm">
-                    <mat-header-cell *matHeaderCellDef> Travel[mm] </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef> Travel [mm] </mat-header-cell>
                     <mat-cell *matCellDef="let element"> {{element.getTravel_mm()}} </mat-cell>
                   </ng-container>
 
