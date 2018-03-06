@@ -1406,11 +1406,11 @@ export class XmlViewComponent implements OnChanges, OnInit, DoCheck,
     }
   }
 
-  isSelected( guid: string ): string {
-    if(this.selectedGuid === guid) {
-      return 'selected';
+  isSelected( guid: string ): boolean {
+    if (this.selectedGuid === guid) {
+      return true;
     } else {
-      return '';
+      return false;
     }
   }
 }

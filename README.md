@@ -105,6 +105,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 [要素の属性を全部取得する](http://hokaccha.hatenablog.com/entry/20130819/1376895914)
 
+[text-shadowで発光しているかのような文字を作る方法 【CSS】](http://9-bb.com/text-shadow%E3%81%A7%E7%99%BA%E5%85%89%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%AE%E3%82%88%E3%81%86%E3%81%AA%E6%96%87%E5%AD%97%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95-%E3%80%90css/) 面白いかも
+
 
 
 #### XMLやプログラムコードを色付け

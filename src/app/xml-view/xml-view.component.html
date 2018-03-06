@@ -143,10 +143,10 @@
   <div *ngIf="processTags.length>0">
     <h3 id="process_top">Processes</h3>
     <div>
-      <div *ngFor="let t of processTags" id="{{t.id}}">
-        <mat-card class="example-card">
+      <div *ngFor="let t of processTags" id="{{t.id}}" [class.selected]="isSelected(t.guid)" class="example-card" >
+        <mat-card>
           <mat-card-header>
-            <mat-card-title><span [ngClass]="isSelected(t.guid)">{{t.id}}</span></mat-card-title>
+            <mat-card-title><span [class.selected]="isSelected(t.guid)">{{t.id}}</span></mat-card-title>
 <!--            <mat-card-subtitle>{{t.jobPartId}}</mat-card-subtitle>
 -->
           </mat-card-header>
