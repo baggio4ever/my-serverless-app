@@ -17,13 +17,13 @@ export class SimpleSendComponent implements OnInit {
     const last_user_id = localStorage.getItem('my_user_id');
     const last_message = localStorage.getItem('my_message');
 
-    if( last_user_id !== null ) {
+    if ( last_user_id !== null ) {
       console.log('user_id みっけ');
       this.user_id = last_user_id;
     } else {
       console.log('user_id みつからず');
     }
-    if( last_message !== null ) {
+    if ( last_message !== null ) {
       console.log('message みっけ');
       this.message = last_message;
     } else {
@@ -39,7 +39,7 @@ export class SimpleSendComponent implements OnInit {
 
     this.appService.getMessage2(msg => {
       this.texts.push(msg);
-    })
+    });
   }
 
   onClearArray() {
@@ -51,7 +51,7 @@ export class SimpleSendComponent implements OnInit {
     console.log('何時？');
     this.appService.getCurrentDateTime(msg => {
       this.texts.push(msg);
-    })
+    });
   }
 
   onSendLog() {
@@ -66,8 +66,8 @@ export class SimpleSendComponent implements OnInit {
       this.texts.push(msg);
     });
 
-    localStorage.setItem('my_user_id',this.user_id);
-    localStorage.setItem('my_message',this.message);
+    localStorage.setItem('my_user_id', this.user_id);
+    localStorage.setItem('my_message', this.message);
   }
 
   canSendLog(): boolean {
@@ -79,5 +79,4 @@ export class SimpleSendComponent implements OnInit {
     }
     return true;
   }
-
 }

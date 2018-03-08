@@ -13,13 +13,13 @@ export class ScrollViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    for( let i = 0; i < 128; i++ ) {
+    for ( let i = 0; i < 128; i++ ) {
       const t = 'サンプルテキスト。' ;
       this.texts.push( t );
     }
     window.onscroll = (e) => {
 //      console.log('scroll!');
-        this.flag = (window.pageYOffset>0)?true:false;
+        this.flag = (window.pageYOffset > 0) ? true : false;
     };
   }
 

@@ -23,9 +23,9 @@ const formatDate = function (date, format) {
   format = format.replace(/mm/g, ('0' + date.getMinutes()).slice(-2));
   format = format.replace(/ss/g, ('0' + date.getSeconds()).slice(-2));
   if (format.match(/S/g)) {
-    var milliSeconds = ('00' + date.getMilliseconds()).slice(-3);
-    var length = format.match(/S/g).length;
-    for (var i = 0; i < length; i++) {
+    const milliSeconds = ('00' + date.getMilliseconds()).slice(-3);
+    const length = format.match(/S/g).length;
+    for (let i = 0; i < length; i++) {
       format = format.replace(/S/, milliSeconds.substring(i, i + 1));
     }
   }
